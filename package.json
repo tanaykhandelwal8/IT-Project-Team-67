@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/tanaykhandelwal8/IT-Project-Team-67/issues"
   },
-  "homepage": "https://github.com/tanaykhandelwal8/IT-Project-Team-67#readme"
+  "homepage": "https://github.com/tanaykhandelwal8/IT-Project-Team-67#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.4",
+    "nodemon": "^2.0.19",
+    "react": "^18.2.0"
+  }
 }

@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
 
+const animalSchema= new mongoose.Schema({
+    animal: String
+});
+
 const musicSchema= new mongoose.Schema({
     genre: String,
     artist: String
@@ -24,7 +28,8 @@ const schema = new mongoose.Schema({
     profilePic: imageSchema,
     music: musicSchema,
     food: foodSchema,
-    moives: movieSchema
+    moives: movieSchema,
+    animals: animalSchema
 });
 
 const Resident = mongoose.model('Resident', schema, 'Residents')

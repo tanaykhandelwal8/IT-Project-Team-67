@@ -80,8 +80,22 @@ body{
     clear: both;
   }
 
-@media screen and (max-width: 600px) {
+/*At a screen width of 800px the columns begin to stack vertically for mobile users*/
+@media screen and (max-width: 800px) {
     .column {
       width: 100%;
     }
   }
+
+#default-profile-pic {
+    height: 200px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bio-input {
+  height: 150px;
+  width: 300px;
+}

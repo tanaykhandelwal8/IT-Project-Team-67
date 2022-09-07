@@ -60,12 +60,25 @@ body{
     border-radius: 2%;
 }
 
-.credential-box{
+.box{
     height: 30px;
     width: 250px;
     background-color: rgb(209, 209, 209);
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
+
+.button-box{
+    height: 50px;
+    width: 250px;
+    background-color: rgb(209, 209, 209);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3%;
+}
+
+/* CSS for resident registration page */
+
+

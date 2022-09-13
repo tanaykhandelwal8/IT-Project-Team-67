@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-
+const groupSchema = new mongoose.Schema({
+    groupType: String
+});
 const animalSchema= new mongoose.Schema({
     animal: String
 });
@@ -29,7 +31,8 @@ const schema = new mongoose.Schema({
     music: musicSchema,
     food: foodSchema,
     moives: movieSchema,
-    animals: animalSchema
+    animals: animalSchema,
+    group:groupSchema
 });
 
 const Resident = mongoose.model('Resident', schema, 'Residents')

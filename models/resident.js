@@ -4,20 +4,24 @@ const groupSchema = new mongoose.Schema({
 });
 const animalSchema= new mongoose.Schema({
     animal: String
+    //image
 });
 
 const musicSchema= new mongoose.Schema({
     genre: String,
     artist: String
+    //image
 });
 
 const foodSchema= new mongoose.Schema({
     food: String
+    //image
 });
 
 const movieSchema= new mongoose.Schema({
     genre: String,
     movie: String
+    //image
 });
 
 const schema = new mongoose.Schema({
@@ -33,6 +37,7 @@ const schema = new mongoose.Schema({
     moives: movieSchema,
     animals: animalSchema,
     group:groupSchema
+    //image
 });
 
 const Resident = mongoose.model('Resident', schema, 'Residents')

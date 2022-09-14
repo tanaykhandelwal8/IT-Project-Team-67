@@ -15,4 +15,10 @@ Members:
 
 Once you have cloned using git, make sure you have node.js and npm installed, then run: ``` npm install```
 
+Please install the following libraries:
+
+React Datepicker: npm install react-datepicker --save
+React Calendar: npm install react-calendar
+
 After installing all the required dependencies, run ```npm run dev```
+

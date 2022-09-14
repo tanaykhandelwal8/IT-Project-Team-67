@@ -4,6 +4,7 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import ResidentDashboard from "./pages/ResidentDashboard";
 import NoPage from "./pages/NoPage";
+import './styles/styles.css';
 
 export default function App() {
   return (

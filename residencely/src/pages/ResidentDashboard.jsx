@@ -3,11 +3,6 @@ import React from 'react';
 function ResidentDashboard() {
     return (
         <div>
-        <meta charSet="UTF-8" />
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Login Page</title>
-        <link rel="stylesheet" href="../gui/styles/styles.css" />
         <h1 style={{"float": "right"}}>{'{'}First Name{'}'} {'{'}Last Name{'}'}</h1>
         <div className="row">
             <div className="column">

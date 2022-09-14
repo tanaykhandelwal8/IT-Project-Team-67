@@ -20,14 +20,14 @@ const foodSchema= new mongoose.Schema({
 
 const movieSchema= new mongoose.Schema({
     genre: String,
-    movie: String
+    title: String
     //image
 });
 
 const schema = new mongoose.Schema({
     firstName: String,
     lastName: String,
-    username: String,
+    email: String,
     password: String,
     apartmentNum: String,
     dateOfBirth: date,

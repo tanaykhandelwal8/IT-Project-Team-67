@@ -4,7 +4,9 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import ResidentDashboard from "./pages/ResidentDashboard";
 import NoPage from "./pages/NoPage";
-import './styles/styles.css';
+import AddNewResident from "./pages/AddNewResident";
+import AddNewStaff from "./pages/AddNewStaff";
+import "./App.css";
 
 export default function App() {
   return (
@@ -13,6 +15,8 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="resident-dashboard" element={<ResidentDashboard />} />
+          <Route path="add-resident" element={<AddNewResident />} />
+          <Route path="add-staff" element={<AddNewStaff/>}/>
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

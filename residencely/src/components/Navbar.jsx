@@ -1,12 +1,17 @@
 import React from "react";
-import logo from '/Residencely-1.png';
+import {Link} from 'react-router-dom';
 
 function Navbar() {
   return (
-    <div>
-      <img src={logo} width={100} height={100} alt="Residencely" />
-      <a href="/" target="_blank" style={{"float":"right"}}>Log out</a>
-    </div>
+    <nav className="Font">
+      <Link to="resident-dashboard">Resident Dashboard</Link>
+      <a> </a>
+      <Link to="add-resident"> Add New Resident</Link>
+      <a> </a>
+      <Link to="add-staff">Add New Staff</Link>
+      <Link to="/"style={{float:'right'}}>Log Out</Link>
+          
+    </nav>
   );
 }
 

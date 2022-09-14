@@ -1,4 +1,5 @@
 import React from 'react';
+import "../App.css";
 
 function Home() {
     return (
@@ -7,10 +8,9 @@ function Home() {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Login Page</title>
-        <link rel="stylesheet" href="../gui/styles/styles.css" />
         <div className="shadow-box" style={{"--r1":"130%","--r2":"71.5%"}}>
             <div className="header">
-            <img id="logo" src="../public/assets/Residencely-1.png" alt="" />
+            <img id="logo" src="/assets/Residencely-1.png" alt="" />
             </div>
         </div>
         <div className="login-container">

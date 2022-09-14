@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000
 app.use(express.static(__dirname))
 
 // Connect to DB
-/*mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost', {
+mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     dbName: 'residencly'
@@ -35,7 +35,7 @@ const db = mongoose.connection.on('error', err => {
 db.once('open', async () => {
     console.log(`Mongo connection started on ${db.host}:${db.port}`);
 });
-*/
+
 // TODO: add handlebars handling code, can do after adding handlebars helpers
 
 var indexRouter = require('./routes/router')

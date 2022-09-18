@@ -369,3 +369,23 @@ header {
   font-family: 'Roboto', sans-serif;
   background-color: whitesmoke;
 }
+
+.dashboard-button {
+  font-family: 'Roboto', sans-serif;
+  background-color: whitesmoke;
+  border: none;
+  color: black;
+  height: 5vh;
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;  
+}
+
+.button-wrapper {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

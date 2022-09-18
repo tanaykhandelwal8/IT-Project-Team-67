@@ -338,3 +338,34 @@ inset 0 -3em 3em rgba(0,0,0,0.1),
             0.3em 0.3em 1em rgba(0,0,0,0.3); 
 border-radius: 2%;
 }
+
+.centered-box{
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-wrapper{
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+footer{
+  font-family: 'Roboto', sans-serif;
+  background-color: whitesmoke;
+  color: #172b4d;
+  margin-top: 5vw;
+  height: 7vh;
+  font-weight: bold;
+  font-size: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+header {
+  font-family: 'Roboto', sans-serif;
+  background-color: whitesmoke;
+}

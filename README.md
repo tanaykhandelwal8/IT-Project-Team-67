@@ -20,5 +20,5 @@ Please install the following libraries:
 React Datepicker: ```npm install react-datepicker --save```
 React Calendar: ```npm install react-calendar```
 
-After installing all the required dependencies, run ```npm run dev```
+After installing all the required dependencies, run ```npm start``` to start the program.
 

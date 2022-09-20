@@ -40,6 +40,7 @@
 .Font{
   font-family: 'Roboto', sans-serif;
 }
+
 a{
   font-weight: bold;
   font-size: 20px;
@@ -56,6 +57,50 @@ a:hover, a:active {
   background-color: #eff0f2;
 }
 
+button {
+  background-color: #f4f5f7;
+  border: none;
+  color: #172b4d;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+button:hover, button:active {
+  background-color: #eff0f2;
+}
+
+.popup-content {
+  margin: auto;
+  background: #eff0f2;
+  width: 100%;
+  padding: 15px 25px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #172b4d;
+  float: center;
+  border:none;
+}
+
+.popup-arrow {
+  color: #f4f5f7;
+}
+
+[role='tooltip'].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
+}
 table {
   text-align: left;
 }
@@ -207,7 +252,6 @@ p {
 }
 .react-calendar__tile--active {
   background: #6f48eb;
-  color: white;
 }
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {

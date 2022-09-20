@@ -433,3 +433,7 @@ header {
   justify-content: center;
   align-items: center;
 }
+
+.profile-img {
+  display: flex;
+}

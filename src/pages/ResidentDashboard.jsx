@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import UploadImage from "../components/UploadImage";
 
 function ResidentDashboard() {
     return (
@@ -11,12 +12,17 @@ function ResidentDashboard() {
         <br></br>
         <div className="row">
             <div className="column">
-                <h2 className="centered-box">My Picture</h2>
-                <img id="default-profile-pic" src={require('../assets/Portrait-Placeholder.png')} alt="" />
+                <h2 style={{marginBottom: "15vh"}} className="centered-box">My Picture</h2>
                 <div className="button-wrapper">
                     {/*<button className="dashboard-button">Upload Image</button>*/}
-                    <Link to="*">Upload Image</Link>
+                    <UploadImage />
                 </div>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
                 <div className="button-wrapper">
                     {/*<button className="dashboard-button">View all residents</button>*/}
                     <Link to="../view-all-residents">View All Residents</Link>

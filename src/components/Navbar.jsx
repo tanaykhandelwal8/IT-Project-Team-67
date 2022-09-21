@@ -14,6 +14,9 @@ function Navbar() {
         <Link to="community-corner">Community Corner</Link>
         <Link to="/"style={{float:'right'}}>Log Out</Link>
       </header>
+      <br></br>
+      <br></br>
+      <br></br>
     </nav>
   );
 }

@@ -411,6 +411,9 @@ footer{
 header {
   font-family: 'Roboto', sans-serif;
   background-color: whitesmoke;
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 
 .dashboard-button {
@@ -453,3 +456,24 @@ header {
   float: left;
   width: 20%;
 }
+
+.dashboard-favourite-column {
+  width: 100%;
+}
+
+.dashboard-img {
+  height: 25px;
+  width: 25px;
+}
+
+.dashboard-img-wrapper {
+  text-align: center;
+  justify-content: center;
+  float: left;
+  padding: 5px;
+}
+
+h4 {
+  display: inline;
+}
+

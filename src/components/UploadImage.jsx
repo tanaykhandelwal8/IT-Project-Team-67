@@ -33,16 +33,16 @@ class UploadImage extends Component {
         return (
           <div style={{marginBottom: "30vh"}}>
             <br></br>
-            <img id="resident_image" src={this.state.selectedFile} alt="" />
+            <img id="resident_image" src={this.state.selectedFile.name} alt="" />
           </div>
         );
       }
       else {
         return (
-            <div>
-                <br></br>
-                <img id="default-profile-pic" className="profile-img" src={require('../assets/Portrait-Placeholder.png')} alt="" />
-            </div>   
+          <div>
+              <br></br>
+              <img id="default-profile-pic" className="profile-img" src={require('../assets/Portrait-Placeholder.png')} alt="" />
+          </div>   
           );
       }
     };
@@ -51,13 +51,18 @@ class UploadImage extends Component {
     
       return (
         <div>
+            {this.fileData()}
+            <br></br>
+            <br></br>
             <div style={{display: "inline-block"}} className="Font">
                 <input type="file" onChange={this.onFileChange} />
-                <button onClick={this.onFileUpload}>
+                <br></br>
+                <br></br>
+                {/* Uncomment below when adding image to database */}
+                {/*<button onClick={this.onFileUpload}>
                   <b>Upload Image</b>
-                </button>
+                </button>*/}
             </div>
-          {this.fileData()}
         </div>
       );
     }

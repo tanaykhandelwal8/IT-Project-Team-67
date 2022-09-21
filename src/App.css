@@ -280,7 +280,6 @@ p {
     radial-gradient(var(--r1,100%) var(--r2,50%) at bottom,transparent 79.5%,white 80%) top center,
 }
 
-
 body{
   height: 100vw;
 }
@@ -432,4 +431,25 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.profile-img {
+  display: flex;
+}
+
+.image-wrapper {
+  text-align: center;
+  justify-content: center;
+  float: left;
+  padding: 10px;
+}
+
+.gallery-profile-picture {
+  height: 100px;
+  width: 100px;
+}
+
+.gallery-column {
+  float: left;
+  width: 20%;
 }

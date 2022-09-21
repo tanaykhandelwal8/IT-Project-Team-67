@@ -40,6 +40,10 @@
 .Font{
   font-family: 'Roboto', sans-serif;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 a{
   font-weight: bold;
   font-size: 20px;
@@ -56,6 +60,53 @@ a:hover, a:active {
   background-color: #eff0f2;
 }
 
+<<<<<<< HEAD
+=======
+button {
+  background-color: #f4f5f7;
+  border: none;
+  color: #172b4d;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+button:hover, button:active {
+  background-color: #eff0f2;
+}
+
+.popup-content {
+  margin: auto;
+  background: #eff0f2;
+  width: 100%;
+  padding: 15px 25px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: #172b4d;
+  float: center;
+  border:none;
+}
+
+.popup-arrow {
+  color: #f4f5f7;
+}
+
+[role='tooltip'].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
+}
+>>>>>>> main
 table {
   text-align: left;
 }
@@ -207,7 +258,10 @@ p {
 }
 .react-calendar__tile--active {
   background: #6f48eb;
+<<<<<<< HEAD
   color: white;
+=======
+>>>>>>> main
 }
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
@@ -236,7 +290,10 @@ p {
     radial-gradient(var(--r1,100%) var(--r2,50%) at bottom,transparent 79.5%,white 80%) top center,
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 body{
   height: 100vw;
 }
@@ -337,4 +394,79 @@ box-shadow:
 inset 0 -3em 3em rgba(0,0,0,0.1),
             0.3em 0.3em 1em rgba(0,0,0,0.3); 
 border-radius: 2%;
+<<<<<<< HEAD
+=======
+}
+
+.centered-box{
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-wrapper{
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+footer{
+  font-family: 'Roboto', sans-serif;
+  background-color: whitesmoke;
+  color: #172b4d;
+  margin-top: 5vw;
+  height: 7vh;
+  font-weight: bold;
+  font-size: 20px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+header {
+  font-family: 'Roboto', sans-serif;
+  background-color: whitesmoke;
+}
+
+.dashboard-button {
+  font-family: 'Roboto', sans-serif;
+  background-color: whitesmoke;
+  border: none;
+  color: black;
+  height: 5vh;
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;  
+}
+
+.button-wrapper {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-img {
+  display: flex;
+}
+
+.image-wrapper {
+  text-align: center;
+  justify-content: center;
+  float: left;
+  padding: 10px;
+}
+
+.gallery-profile-picture {
+  height: 100px;
+  width: 100px;
+}
+
+.gallery-column {
+  float: left;
+  width: 20%;
+>>>>>>> main
 }

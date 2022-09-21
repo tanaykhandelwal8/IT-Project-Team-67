@@ -9,7 +9,7 @@ export default class AddNewResident extends React.Component {
     this.state = {resident: {
         firstName: props.firstName,
         lastName: props.lastName,
-        apartmentNo: props.apartmentNo,
+        address: props.address,
         dob: props.dob
       }
     }
@@ -28,9 +28,9 @@ export default class AddNewResident extends React.Component {
     this.setState({ resident: resident });
   }
 
-  handleApartmentNoChanged(event) {
+  handleAddressChanged(event) {
     var resident = this.state.resident;
-    resident.apartmentNo = event.target.value;
+    resident.address = event.target.value;
     this.setState({ resident: resident });
   }
 
@@ -66,12 +66,12 @@ export default class AddNewResident extends React.Component {
               </td>
           </tr>
           <tr>
-            <th>Apartment Number</th>
+            <th>Address</th>
               <td>
                 <form>
-                    <input className='Input' type="number" 
-                    value={this.state.resident.apartmentNo}
-                    onChange={this.handleApartmentNoChanged.bind(this)}/>
+                    <input className='Input' type="text" 
+                    value={this.state.resident.address}
+                    onChange={this.handleAddressChanged.bind(this)}/>
                 </form>
               </td>
           </tr>

@@ -29,7 +29,7 @@ const schema = new mongoose.Schema({
     lastName: String,
     email: String,
     password: String,
-    apartmentNum: String,
+    address: String,
     dateOfBirth: date,
     profilePic: imageSchema,
     music: musicSchema,

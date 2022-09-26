@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Preferences</title>
+        <link rel="stylesheet" href="../gui/styles/styles.css">
+        <style>
+            body {
+                font-family: Verdana;color: #172B4D;
+            }
+            h1 {
+                text-align: center;
+            }
+            p {
+                font-size: 15px;
+            }
+
+            h1,p {
+                text-align: center;
+            }
+
+            a{font-weight: bold;}
+            a:link, a:visited {
+                background-color: #f4f5f7; color: #172b4d;
+                padding: 15px 25px;text-align: center;text-decoration: none;
+                display: inline-block;
+            }
+            a:hover, a:active {
+                background-color: #eff0f2;
+            }
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+
+            .column img {
+                margin-left: 35px;
+                opacity: 0.8;
+                cursor: pointer;
+                border: 2px solid black;
+                width: 100px;
+                height: 100px;
+            }
+
+            .column img:hover {
+                opacity: 1;
+            }
+
+            .row {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+        </style>
+    </head>
+    <body>
+        <img src="../gui/assets/Residencely-1.png" width= "100" height = "100" alt="Residencely">
+        <a href="IT_Project_Team_67.pdf" 
+            target="_blank" style="float:right;">Log out</a>
+        <br>
+        <h1>Music Preferences</h1>
+        <br>
+        <br>
+            <div class="row">
+                <div class="column">
+                <img src="../gui/assets/trebleclef.jpeg" alt="Song1">
+                <p>Song Artist</p>
+                <p>Genre</p>
+                </div>
+                <div class="column">
+                <img src="../gui/assets/trebleclef.jpeg" alt="Song2">
+                <p>Song Artist</p>
+                <p>Genre</p>
+                </div>
+                <div class="column">
+                <img src="../gui/assets/trebleclef.jpeg" alt="Song3">
+                <p>Song Artist</p>
+                <p>Genre</p>
+                </div>
+                <div class="column">
+                <img src="../gui/assets/trebleclef.jpeg" alt="Song4">
+                <p>Song Artist</p>
+                <p>Genre</p>
+                </div>
+                <div class="column">
+                <img src="../gui/assets/trebleclef.jpeg" alt="Song1">
+                <p>Song Artist</p>
+                <p>Genre</p>
+                </div>
+                <div class="column">
+                <img src="../gui/assets/trebleclef.jpeg" alt="Song2">
+                <p>Song Artist</p>
+                <p>Genre</p>
+                </div>
+                <div class="column">
+                <img src="../gui/assets/trebleclef.jpeg" alt="Song3">
+                <p>Song Artist</p>
+                <p>Genre</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p style="float: right;">Signed in as Xxxx Xxxxxx</p>
+    </body>
+</html>

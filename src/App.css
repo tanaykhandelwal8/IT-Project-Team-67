@@ -389,6 +389,12 @@ border-radius: 2%;
   align-items: center;
 }
 
+.centered-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
 .dashboard-wrapper{
   margin-left: 10vw;
   margin-right: 10vw;
@@ -448,8 +454,8 @@ header {
 }
 
 .gallery-profile-picture {
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
 }
 
 .gallery-column {

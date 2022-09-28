@@ -127,6 +127,7 @@ h1 {
 p {
   font-size: 20px;
 }
+
 /* Community Corner Calendar Styling */
 .react-calendar { 
   width: 2000px;
@@ -322,9 +323,28 @@ body{
   align-items: center;
 }
 
-.column {
+.split-column {
   float: left;
-  width: 33.33%;
+  width: 50%;
+}
+
+.left-column {
+  float: left;
+  width: 25%;
+}
+
+.right-column {
+  float: left;
+  width: 72%;
+  margin-left: 20px
+}
+
+.gallery-card {
+  background-color: lightsteelblue;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .row:after {
@@ -337,7 +357,14 @@ body{
 @media screen and (max-width: 800px) {
   .column {
     width: 100%;
+    padding: 0;
   }
+}
+
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
 }
 
 #default-profile-pic {
@@ -400,6 +427,13 @@ border-radius: 2%;
   margin-right: 10vw;
 }
 
+.dashboard-title {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: lightsteelblue;
+}
+
 footer{
   font-family: 'Roboto', sans-serif;
   background-color: whitesmoke;
@@ -436,7 +470,6 @@ header {
 }
 
 .button-wrapper {
-  height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -458,6 +491,11 @@ header {
   width: 50px;
 }
 
+.add-more-button {
+  height: 25px;
+  width: 25px;
+}
+
 .gallery-column {
   float: left;
   width: 20%;
@@ -467,9 +505,9 @@ header {
   width: 100%;
 }
 
-.dashboard-img {
-  height: 25px;
-  width: 25px;
+.view-resident-picture {
+  height: 100px;
+  width: 100px;
 }
 
 .dashboard-img-wrapper {
@@ -483,3 +521,16 @@ h4 {
   display: inline;
 }
 
+.dashboard-textarea {
+  background-color: #f4f5f7;
+  border: none;
+  font-family: 'Roboto', sans-serif;
+  resize: vertical;
+  font-size: 15px;
+  color: #172b4d;
+  width: 500px;
+  height: 100px;
+  max-height: 250px;
+  min-width: 100px;
+  max-width: 300px;
+}

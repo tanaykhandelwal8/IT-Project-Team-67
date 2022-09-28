@@ -2,87 +2,315 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import UploadImage from "../components/UploadImage";
 
+import "../App.css";
+
 function ResidentDashboard() {
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        alert('You have saved your changes.')
+    }
+
     return (
-        <div className="dashboard-wrapper">
-            <div className="centered-box">
-                <h1 style={{display: "inline-block"}}>First Name Last Name</h1>
+        <div>
+            <div className="dashboard-title">
+                <h1>John Smith</h1>
             </div>
-        <br></br>
         <div className="row">
-            <div className="column">
-                <br></br>
-                <br></br>
-                <div className="button-wrapper">
-                    {/*<button className="dashboard-button">Upload Image</button>*/}
+            <div className="left-column">
+                <div className="gallery-card">
                     <UploadImage />
+                    <div className="button-wrapper">
+                        <Link to="../view-all-residents">View All Residents</Link>
+                    </div>
+                    <br></br>
+                    <div className="button-wrapper">
+                        <Link to="../community-corner">Visit Community Corner</Link>
+                    </div>
                 </div>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
-                <div className="button-wrapper">
-                    {/*<button className="dashboard-button">View all residents</button>*/}
-                    <Link to="../view-all-residents">View All Residents</Link>
-                </div>
-                <div className="button-wrapper">
-                    {/*<button className="dashboard-button">Visit Community Corner</button>*/}
-                    <Link to="../community-corner">Visit Community Corner</Link>
+                <div className="gallery-card">
+                    <label><h3>Address</h3></label>
+                    <p>42 Wallaby Way, Sydney</p>
+                    <label><h3>Date of Birth</h3></label>
+                    <p>1/01/1970</p>
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            <h3>About Me</h3>
+                        </label>
+                        <textarea className="dashboard-textarea" name="biography"></textarea>
+                        <button style={{height: "3vw"}} type="submit">Save</button>
+                    </form>
                 </div>
             </div>
-            <div className="column">
-                <h2 className="centered-box">About Me</h2>
-                <label htmlFor="test"><h4>Apartment Number</h4></label>
-                <span><input style={{width: "20%", float: "right", marginRight: "4.6vw"}} name="test" id="test" type="text" placeholder="E.g. 102" />
-                </span>
-                <br></br>
-                <br></br>
-                <label htmlFor="test"><h4>Date of Birth</h4></label>
-                <span><input style={{width: "40%", float: "right", marginRight: "4.6vw"}} name="test" id="test" type="text" placeholder="E.g. 1/01/1970" />
-                </span>
-                <br></br>
-                <br></br>
-                <label htmlFor="test"><h4>Biography</h4></label>
-                <br></br>
-                <br></br>
-                <span><input name="test" id="test" type="text" className="bio-input" placeholder="" />
-                </span>
-            </div>
-            <div className="column">
-                <h2 className="centered-box">My Favourite Things</h2>
-                <h3>Interests</h3>
-                {/* forEach loop here for every activity/interest/hobby */}
-                <div className="row">
-                    <div className="dashboard-favourite-column">
-                        <div className="dashboard-img-wrapper">
-                        <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Activity</p>
-                        </div>
-                    </div>
-                    <div className="dashboard-favourite-column">
-                        <div className="dashboard-img-wrapper">
-                        <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Activity</p>
-                        </div>
-                    </div>
-                    <div className="dashboard-favourite-column">
-                        <div className="dashboard-img-wrapper">
-                        <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Activity</p>
-                        </div>
-                    </div>
-                    <div className="dashboard-favourite-column">
-                        <div className="dashboard-img-wrapper">
-                        <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Activity</p>
+            <div className="right-column">
+                <div className="split-column">
+                    <div className="gallery-card">
+                        <h3>Interests</h3>
+                        {/* forEach loop here for every activity/interest/hobby */}
+                        <div className="row">
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
+                                <p>Interest</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
+                                <p>Interest</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
+                                <p>Interest</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
+                                <p>Interest</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
+                                <p style={{color: "blue"}}><i>See More</i></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <h3>Hobbies</h3>
-                <h3>Favourites</h3>
-                <h3>Languages</h3>
+                <div className="split-column">
+                    <div className="gallery-card">
+                        <h3>Hobbies</h3>
+                        {/* forEach loop here for every activity/interest/hobby */}
+                        <div className="row">
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
+                                <p>Hobby</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
+                                <p>Hobby</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
+                                <p>Hobby</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
+                                <p>Hobby</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
+                                <p style={{color: "blue"}}><i>See More</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="split-column">
+                    <div className="gallery-card">
+                        <h3>Favourite Songs</h3>
+                        {/* forEach loop here for every activity/interest/hobby */}
+                        <div className="row">
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
+                                <p>Song</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
+                                <p>Song</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
+                                <p>Song</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
+                                <p>Song</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
+                                <p style={{color: "blue"}}><i>See More</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="split-column">
+                    <div className="gallery-card">
+                        <h3>Favourite Artists</h3>
+                        {/* forEach loop here for every activity/interest/hobby */}
+                        <div className="row">
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
+                                <p>Artist</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
+                                <p>Artist</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
+                                <p>Artist</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
+                                <p style={{color: "blue"}}><i>Add More</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="split-column">
+                    <div className="gallery-card">
+                        <h3>Favourite Films</h3>
+                        {/* forEach loop here for every activity/interest/hobby */}
+                        <div className="row">
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/movie-icon.png')} alt="" />
+                                <p>Film</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/movie-icon.png')} alt="" />
+                                <p>Film</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/movie-icon.png')} alt="" />
+                                <p>Film</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/movie-icon.png')} alt="" />
+                                <p>Film</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
+                                <p style={{color: "blue"}}><i>See More</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="split-column">
+                    <div className="gallery-card">
+                        <h3>Favourite Food</h3>
+                        {/* forEach loop here for every activity/interest/hobby */}
+                        <div className="row">
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/food-icon.png')} alt="" />
+                                <p>Food</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/food-icon.png')} alt="" />
+                                <p>Food</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/food-icon.png')} alt="" />
+                                <p>Food</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/food-icon.png')} alt="" />
+                                <p>Food</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
+                                <p style={{color: "blue"}}><i>See More</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="split-column">
+                    <div className="gallery-card">
+                        <h3>Favourite Animals</h3>
+                        {/* forEach loop here for every activity/interest/hobby */}
+                        <div className="row">
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/animal-icon.png')} alt="" />
+                                <p>Animal</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
+                                <p style={{color: "blue"}}><i>Add More</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="split-column">
+                    <div className="gallery-card">
+                        <h3>Languages Spoken</h3>
+                        {/* forEach loop here for every activity/interest/hobby */}
+                        <div className="row">
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/language-icon.png')} alt="" />
+                                <p>Language</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/language-icon.png')} alt="" />
+                                <p>Language</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
+                                <p style={{color: "blue"}}><i>Add More</i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

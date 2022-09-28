@@ -32,8 +32,7 @@ class UploadImage extends Component {
          
         return (
           <div style={{marginBottom: "30vh"}}>
-            <br></br>
-            <img id="resident_image" src={this.state.selectedFile.name} alt="" />
+            <img id="resident_image" className="profile-img" src={this.state.selectedFile} alt="" />
           </div>
         );
       }
@@ -52,12 +51,10 @@ class UploadImage extends Component {
       return (
         <div>
             {this.fileData()}
-            <br></br>
-            <br></br>
-            <div style={{display: "inline-block"}} className="Font">
+            <div className="centered-box">
+            <div style={{marginLeft: "5vw"}} className="Font">
                 <input type="file" onChange={this.onFileChange} />
-                <br></br>
-                <br></br>
+              </div>
                 {/* Uncomment below when adding image to database */}
                 {/*<button onClick={this.onFileUpload}>
                   <b>Upload Image</b>

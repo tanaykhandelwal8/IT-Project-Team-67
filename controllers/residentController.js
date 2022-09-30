@@ -67,9 +67,33 @@ const updateprofile = async(req, res) => {
     };
   
     res.redirect("/resident/" + residentId + "/dashboard");
-  };
+};
+
+
+// View other resident profile //
+
+const residentView = async (req, res) => {
+    const residentId = req.params.residentId;
+    const thisResident = await DbUtils.getResidentById(residentId);
+  
+    const firstName = thisResident.firstName;
+    const lastName = thisResident.lastName;
+    
+    /*
+    res.render("clinician/patientView.hbs", {
+      layout: "clinician.hbs",
+      patientId: patientId,
+      clinicianId: clinicianId,
+      data: data,
+      firstName: firstName,
+      lastName: lastName,
+    });
+    */
+};
+
 
   module.exports = {
     dashboard,
-    updateprofile
-  };
+    updateprofile,
+    residentView
+};

@@ -30,6 +30,7 @@ const schema = new mongoose.Schema({
     email: String,
     password: String,
     address: String,
+    bio: String,
     dateOfBirth: date,
     profilePic: imageSchema,
     music: musicSchema,

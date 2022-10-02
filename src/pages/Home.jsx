@@ -7,6 +7,7 @@ function Home() {
 
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isStaff, setIsStaff] = useState(false);
 
     //Placeholder backend
     const database = [
@@ -19,6 +20,11 @@ function Home() {
             username: "user2",
             password: "pass2",
             role: "staff"
+        },
+        {
+            username: "user3",
+            password: "pass3",
+            role: "resident"
         }
     ];
     
@@ -48,6 +54,9 @@ function Home() {
             // Invalid password
             setErrorMessages({ name: "pass", message: errors.pass });
           } else {
+            if (userData.role === "staff") {
+                setIsStaff(true);
+            }
             setIsSubmitted(true);
           }
         } else {
@@ -65,7 +74,7 @@ function Home() {
                     <div className="login-class">
                         <h1>Welcome to Residencely</h1>
                     </div>
-                    {isSubmitted ? <div><Navigate replace to="/resident-dashboard" /></div>: <div></div>}
+                    {isSubmitted ? isStaff ? <div><Navigate replace to="/staff-dashboard" /></div>: <div><Navigate replace to="/resident-dashboard" /></div> : <div></div>}
                     <form onSubmit={handleSubmit}>
                         <div className="login-credentials">
                             <p>Username</p>
@@ -74,9 +83,8 @@ function Home() {
                             <p>Password</p>
                             <input className="credential-box" type="password" name="pass" required />
                             {errorMessage("pass")}
-                            <button>
-                            <p>Login</p>
-                            </button>
+                            <br></br>
+                            <button style={{height: "3vw"}}>Login</button>
                         </div>
                     </form>
                 </div>

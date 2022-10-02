@@ -7,6 +7,8 @@ function Navbar() {
       <header>
         <Link to="resident-dashboard">Resident Dashboard</Link>
         <a> </a>
+        <Link to="staff-dashboard">Staff Dashboard</Link>
+        <a> </a>
         <Link to="add-resident"> Add New Resident</Link>
         <a> </a>
         <Link to="add-staff">Add New Staff</Link>

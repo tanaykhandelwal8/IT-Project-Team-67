@@ -8,6 +8,7 @@ import AddNewResident from "./pages/AddNewResident";
 import AddNewStaff from "./pages/AddNewStaff";
 import CommunityCorner from "./pages/CommunityCorner";
 import ViewAllResidents from "./pages/ViewAllResidents";
+import StaffDashboard from "./pages/StaffDashboard";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="resident-dashboard" element={<ResidentDashboard />} />
+          <Route path="staff-dashboard" element={<StaffDashboard />} />
           <Route path="add-resident" element={<AddNewResident />} />
           <Route path="add-staff" element={<AddNewStaff/>}/>
           <Route path="community-corner" element={<CommunityCorner/>}/>

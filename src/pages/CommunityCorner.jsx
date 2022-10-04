@@ -93,18 +93,19 @@ function CommunityCorner() {
   function handleCancelEvent() {
     setNewEvent({title: "", description:"", location: "",
       start: "", end: ""})
+    setAllEvents([...allEvents, selectedEvent])
     closeEditModal()
   }
 
   return (
-    <div className="Font">
+    <div className="CommunityCorner">
       <h1>Community Corner</h1>
       <Calendar localizer={localizer} 
         events={allEvents} 
         startAccessor="start" 
         endAccessor="end" 
         onSelectEvent={handleSelectEvent}
-        style={{height:700, margin:"20px"}}
+        style={{height:500, margin:"20px"}}
         popup
       />
       <div className='Font'>

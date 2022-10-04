@@ -12,6 +12,7 @@ function StaffDashboard() {
     }
 
     return (
+        <div className='Font'>
         <div>
             <div className="dashboard-title">
                 <h1>Welcome Jane Doe</h1>
@@ -116,6 +117,7 @@ function StaffDashboard() {
                 </div>
             </div>
         </div>
+    </div>
     </div>
     );
 }

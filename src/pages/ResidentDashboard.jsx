@@ -12,6 +12,7 @@ function ResidentDashboard() {
     }
 
     return (
+        <div className='Font'>
         <div>
             <div className="dashboard-title">
                 <h1>John Smith</h1>
@@ -313,6 +314,7 @@ function ResidentDashboard() {
                 </div>
             </div>
         </div>
+    </div>
     </div>
     );
 }

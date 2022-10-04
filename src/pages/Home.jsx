@@ -66,6 +66,7 @@ function Home() {
     };
     
     return (
+        <div className='Font'>
         <div>
             <div className="shadow-box" style={{"--r1":"130%","--r2":"71.5%"}}>
             </div>
@@ -89,6 +90,7 @@ function Home() {
                     </form>
                 </div>
             </div>
+        </div>
         </div>
     );
 }

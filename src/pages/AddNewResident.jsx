@@ -84,6 +84,7 @@ export default class AddNewResident extends React.Component {
               </td>
           </tr>
         </table>
+        {/* WILL BE CHANGED TO PROFILE OF NEW RESIDENT */}
         <Popup
           trigger={<button onClick={this.handleButtonClicked.bind(this)}>
             Add Resident</button>}>

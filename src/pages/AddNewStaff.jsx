@@ -72,6 +72,7 @@ export default class AddNewStaff extends React.Component {
                 </td>
             </tr>
           </table>
+          {/* WILL GO TO STAFF DASHBOARD */}
           <Popup
           trigger={<button onClick={this.handleButtonClicked.bind(this)}>
             Add Staff Member</button>}>

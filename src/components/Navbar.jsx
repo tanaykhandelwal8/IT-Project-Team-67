@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 function Navbar() {
   return (
-    <nav>
+    <nav style={{zIndex:"99", position:"relative"}}>
       <header>
         <Link to="resident-dashboard">Resident Dashboard</Link>
         <a> </a>

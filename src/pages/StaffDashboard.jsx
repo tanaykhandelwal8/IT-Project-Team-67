@@ -6,11 +6,6 @@ import "../App.css";
 
 function StaffDashboard() {
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        alert('You have saved your changes.')
-    }
-
     return (
         <div className='Font'>
         <div>

@@ -10,12 +10,13 @@ function StaffDashboard() {
         event.preventDefault();
         alert('You have saved your changes.')
     }
+    const name = "jkdfhskjdsfk";
 
     return (
         <div className='Font'>
         <div>
             <div className="dashboard-title">
-                <h1>Welcome Jane Doe</h1>
+                <h1>Welcome {name}</h1>
             </div>
         <div className="row">
             <div className="left-column">

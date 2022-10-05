@@ -9,6 +9,7 @@ import AddNewStaff from "./pages/AddNewStaff";
 import CommunityCorner from "./pages/CommunityCorner";
 import ViewAllResidents from "./pages/ViewAllResidents";
 import StaffDashboard from "./pages/StaffDashboard";
+import MusicPreferences from "./pages/MusicPreferences";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="add-staff" element={<AddNewStaff/>}/>
           <Route path="community-corner" element={<CommunityCorner/>}/>
           <Route path="view-all-residents" element={<ViewAllResidents/>}/>
+          <Route path="music-preferences" element={<MusicPreferences/>}/>
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

@@ -5,11 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90a265c3-02df-46a7-a8d2-0996ab7e4a8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/passport.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/dbUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/dbUtils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/residentController.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/residentController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/calendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/image.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/resident.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/resident.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/staff.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/staff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/robots.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/residentRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/residentRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/staffRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/staffRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CommunityCorner.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/CommunityCorner.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Portrait-Placeholder.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/Portrait-Placeholder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/Residencely-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/Residencely-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/activity-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/activity-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/animal-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/animal-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/food-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/food-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/language-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/language-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/movie-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/movie-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/music-icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/music-icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/plus.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/plus.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/portrait_test.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/assets/portrait_test.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UploadImage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UploadImage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/logo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddNewResident.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AddNewResident.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AddNewStaff.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AddNewStaff.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CommunityCorner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CommunityCorner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/MusicPreference.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/MusicPreference.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/NoPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/NoPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ResidentDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ResidentDashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/StaffDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/StaffDashboard.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ViewAllResidents.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ViewAllResidents.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reportWebVitals.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/setupTests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/IT_Project_Team_67.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/IT_Project_Team_67.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/Residencely-1.png" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/Residencely-1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/add_new_resident.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/add_new_resident.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/add_new_resident_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/add_new_resident_table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/add_new_staff.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/add_new_staff.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/add_new_staff_table.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/add_new_staff_table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/calendar.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/calendar.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/calendar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/community_corner.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/community_corner.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/favourites-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/favourites-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/host_event.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/host_event.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/music-preferences.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/music-preferences.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/resident-dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/resident-dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/view-all-residents.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/views/view-all-residents.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +100,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/" />
+      <recent name="$PROJECT_DIR$/frontend" />
+      <recent name="$PROJECT_DIR$/frontend/public" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/backend" />
-      <recent name="$PROJECT_DIR$/views" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

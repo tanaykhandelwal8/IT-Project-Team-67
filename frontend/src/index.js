@@ -10,8 +10,10 @@ import CommunityCorner from "./pages/CommunityCorner";
 import ViewAllResidents from "./pages/ViewAllResidents";
 import StaffDashboard from "./pages/StaffDashboard";
 import MusicPreferences from "./pages/MusicPreferences";
+import React, {useEffect, useState} from 'react'
 
 export default function App() {
+
   return (
     <BrowserRouter>
       <Routes>
@@ -28,6 +30,8 @@ export default function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+
+
   );
 }
 

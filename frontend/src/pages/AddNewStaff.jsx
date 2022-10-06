@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import "../App.css"
 import Popup from 'reactjs-popup';
 
@@ -13,6 +13,7 @@ export default class AddNewStaff extends React.Component {
         }
       }
     }
+
     // handle changes of variables
     handleFirstNameChanged(event) {
       var staff = this.state.staff;
@@ -42,7 +43,7 @@ export default class AddNewStaff extends React.Component {
     handleButtonClicked() {
       console.log(this.state.staff);
     }
-  
+
     render() {
       return (
         <div className='Font'>
@@ -79,6 +80,9 @@ export default class AddNewStaff extends React.Component {
                 <div> Staff member Added! </div>
             </Popup>
         </div>
+
+
+
       );
     }
   }

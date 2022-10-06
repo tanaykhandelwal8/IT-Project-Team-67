@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const residentschema = new mongoose.Schema({
+const residentSchema = new mongoose.Schema({
     residentId: mongoose.Schema.Types.ObjectId,
     notes: String //Can make a schema for this if we want to add date?
 });

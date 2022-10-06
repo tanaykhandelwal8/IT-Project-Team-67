@@ -1,27 +1,23 @@
 const mongoose = require("mongoose");
+const imageSchema = require('./image')
 const groupSchema = new mongoose.Schema({
     groupType: String
 });
 const animalSchema= new mongoose.Schema({
-    animal: String
+    animalId: mongoose.Schema.Types.ObjectId
     //image
 });
 
 const musicSchema= new mongoose.Schema({
-    genre: String,
-    artist: String
-    //image
+    musicId: mongoose.Schema.Types.ObjectId
 });
 
 const foodSchema= new mongoose.Schema({
-    food: String
-    //image
+    foodId: mongoose.Schema.Types.ObjectId
 });
 
 const movieSchema= new mongoose.Schema({
-    genre: String,
-    title: String
-    //image
+    movieId: mongoose.Schema.Types.ObjectId
 });
 
 const schema = new mongoose.Schema({
@@ -30,9 +26,8 @@ const schema = new mongoose.Schema({
     email: String,
     password: String,
     address: String,
-    bio: String,
-    dateOfBirth: date,
-    profilePic: imageSchema,
+    dateOfBirth: Date,
+    //profilePic: imageSchema,
     music: musicSchema,
     food: foodSchema,
     moives: movieSchema,

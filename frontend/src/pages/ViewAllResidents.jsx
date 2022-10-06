@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 function ViewAllResidents() {
+
+
     return (
         <div>
         <div className="centered-box">
@@ -85,6 +87,7 @@ function ViewAllResidents() {
                 </div>
             </div>
             </div>
+
         </div>
     );
 }

@@ -5,7 +5,7 @@ import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
 import Popup from 'reactjs-popup';
@@ -96,6 +96,16 @@ function CommunityCorner() {
     setAllEvents([...allEvents, selectedEvent])
     closeEditModal()
   }
+
+  const [backendData, setBackendData] = useState([{}])
+
+    useEffect(() => {
+        fetch('/get-events-data')
+            .then(res => res.json())
+            .then(data => {setBackendData(data)})
+    console.log(backendData)
+    console.log(Object.keys(backendData))
+    }, [])
 
   return (
     <div className="CommunityCorner">
@@ -227,6 +237,22 @@ function CommunityCorner() {
           </div> 
         </Popup>
       </div>
+      <div>
+      {/* This displays the names */}
+        {(typeof backendData === 'undefined') ? (
+                <p> loading</p>
+            ): (
+                <div className='Font'>
+                    <table>
+                    {backendData.map((user, i) =>(
+                    <tr key={i}>
+                        <div>Name:{JSON.stringify(user)}</div>
+                    </tr>
+                ))}
+                    </table>
+                </div>
+            )}
+        </div>
     </div>
   );
 }

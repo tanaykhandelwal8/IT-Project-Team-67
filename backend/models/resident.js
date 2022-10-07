@@ -25,12 +25,12 @@ const schema = new mongoose.Schema({
     lastName: String,
     email: String,
     password: String,
-    address: String,
+    location: String,
     dateOfBirth: Date,
     //profilePic: imageSchema,
     music: musicSchema,
     food: foodSchema,
-    moives: movieSchema,
+    movies: movieSchema,
     animals: animalSchema,
     group:groupSchema
     //image

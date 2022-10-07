@@ -1,8 +1,18 @@
 import React, {useEffect, useState} from 'react';
+import Axios from "axios";
 
 function ViewAllResidents() {
+    
+    const [backendData, setBackendData] = useState([{}])
 
-
+    useEffect(() => {
+        fetch('/get-resident-data')
+            .then(res => res.json())
+            .then(data => {setBackendData(data)})
+    console.log(backendData)
+    console.log(Object.keys(backendData))
+    }, [])
+    
     return (
         <div>
         <div className="centered-box">
@@ -88,6 +98,22 @@ function ViewAllResidents() {
             </div>
             </div>
 
+            <div>
+                {/* This displays the names */}
+            {(typeof backendData === 'undefined') ? (
+                    <p> loading</p>
+                ): (
+                    <div className='Font'>
+                        <table>
+                        {backendData.map((user, i) =>(
+                        <tr key={i}>
+                            <div>Name: {user.firstName} {user.lastName} {JSON.stringify(user)}</div>
+                        </tr>
+                    ))}
+                        </table>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

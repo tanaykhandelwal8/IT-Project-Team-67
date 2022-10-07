@@ -7,6 +7,7 @@ require('./models')
 
 const resident = require('./models/resident')
 const staff = require('./models/staff')
+const calendar = require('./models/calendar')
 app.get('/', (req, res) => {
     res.send("hello world")
 })
@@ -21,6 +22,14 @@ app.get('/get-resident-data', (req, res) => {
 
 app.get('/get-staff-data', (req, res) => {
     staff.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-events-data', (req, res) => {
+    calendar.find().then((result) => {
         res.json(result)
     }).catch((err) => {
         console.error(err)

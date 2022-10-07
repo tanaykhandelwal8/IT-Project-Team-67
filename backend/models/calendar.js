@@ -6,7 +6,7 @@ const residentschema = new mongoose.Schema({
 });
 
 const schema = new mongoose.Schema({
-    eventDateTime: date,
+    eventDateTime: Date,
     host: String,
     location: String,
     //image?

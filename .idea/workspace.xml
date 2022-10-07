@@ -5,28 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90a265c3-02df-46a7-a8d2-0996ab7e4a8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/MusicPreferences.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/image.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/resident.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/resident.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/staff.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/staff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/residentController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/residentController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/UploadImage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/UploadImage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AddNewStaff.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AddNewStaff.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/MusicPreference.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/ResidentDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ResidentDashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/StaffDashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/StaffDashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/ViewAllResidents.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ViewAllResidents.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/calendar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

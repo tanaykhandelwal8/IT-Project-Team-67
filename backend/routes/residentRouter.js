@@ -15,5 +15,8 @@ residentRouter.get('/music-preferences', (req, res) => {
 })
 // TODO: Add all routes for resident page
 
+residentRouter.get('/community-corner', (req, res) => {
+    res.sendFile(path.join(__dirname,'..', 'views', 'community_corner.html'))
+})
 
 module.exports = residentRouter

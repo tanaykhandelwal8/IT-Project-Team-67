@@ -14,7 +14,7 @@ export default class AddNewResident extends React.Component {
       }
     }
   }
-  
+
   // handle changes of variables
   handleFirstNameChanged(event) {
     var resident = this.state.resident;
@@ -47,50 +47,50 @@ export default class AddNewResident extends React.Component {
 
   render() {
     return (
-      <div className='Font'>
-        <table className='Font'>
-          <tr>
-            <th>First Name</th>
+        <div className='Font'>
+          <table className='Font'>
+            <tr>
+              <th>First Name</th>
               <td>
                 <input type="text" className = 'Input '
-                value={this.state.resident.firstName} 
-                onChange={this.handleFirstNameChanged.bind(this)}/>
+                       value={this.state.resident.firstName}
+                       onChange={this.handleFirstNameChanged.bind(this)}/>
               </td>
-          </tr>
-          <tr>
-            <th>Last Name</th>
+            </tr>
+            <tr>
+              <th>Last Name</th>
               <td>
                 <input type="text" className = 'Input '
-                value={this.state.resident.lastName} 
-                onChange={this.handleLastNameChanged.bind(this)}/>
+                       value={this.state.resident.lastName}
+                       onChange={this.handleLastNameChanged.bind(this)}/>
               </td>
-          </tr>
-          <tr>
-            <th>Address</th>
+            </tr>
+            <tr>
+              <th>Address</th>
               <td>
                 <form>
-                    <input className='Input' type="text" 
-                    value={this.state.resident.address}
-                    onChange={this.handleAddressChanged.bind(this)}/>
+                  <input className='Input' type="text"
+                         value={this.state.resident.address}
+                         onChange={this.handleAddressChanged.bind(this)}/>
                 </form>
               </td>
-          </tr>
-          <tr>
-            <th>Date of Birth</th>
+            </tr>
+            <tr>
+              <th>Date of Birth</th>
               <td>
-              <input className='Input' type="date" 
-                    value={this.state.resident.dob}
-                    onChange={this.handleDOBChanged.bind(this)}/>
+                <input className='Input' type="date"
+                       value={this.state.resident.dob}
+                       onChange={this.handleDOBChanged.bind(this)}/>
               </td>
-          </tr>
-        </table>
-        {/* WILL BE CHANGED TO PROFILE OF NEW RESIDENT */}
-        <Popup
-          trigger={<button onClick={this.handleButtonClicked.bind(this)}>
-            Add Resident</button>}>
-                <div> Resident Added!</div>
-            </Popup>
-      </div>
+            </tr>
+          </table>
+          {/* WILL BE CHANGED TO PROFILE OF NEW RESIDENT */}
+          <Popup
+              trigger={<button onClick={this.handleButtonClicked.bind(this)}>
+                Add Resident</button>}>
+            <div> Resident Added!</div>
+          </Popup>
+        </div>
     );
   }
 }

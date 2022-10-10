@@ -1,4 +1,8 @@
 const mongoose = require("mongoose");
+const bcrypt = require('bcryptjs')
+
+const SALT_FACTOR = 10
+
 const imageSchema = require('./image')
 const groupSchema = new mongoose.Schema({
     groupType: String
@@ -28,13 +32,19 @@ const schema = new mongoose.Schema({
     location: String,
     dateOfBirth: Date,
     //profilePic: imageSchema,
-    music: musicSchema,
-    food: foodSchema,
-    movies: movieSchema,
-    animals: animalSchema,
-    group:groupSchema
-    //image
+    //music: musicSchema,
+    //food: foodSchema,
+    //movies: movieSchema,
+    //animals: animalSchema,
+    //group:groupSchema
 });
+
+schema.methods.verifyPassword = function(password, callback) {
+    bcrypt.compare(password, this.password, (err, valid) => {
+        callback(err, valid)
+    })
+}
+
 
 const Resident = mongoose.model('Resident', schema, 'Residents')
 module.exports = Resident

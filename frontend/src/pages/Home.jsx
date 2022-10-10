@@ -21,18 +21,7 @@ function Home() {
             url: "http://localhost:3001/login",
         }).then((res) => console.log(res));
     };
-    //Placeholder backend
 
-    //Error outputs if username/password is incorrect
-    const errors = {
-        uname: "Invalid username or password.",
-        pass: "Invalid username or password."
-    };
-
-    const errorMessage = (name) =>
-        name === errorMessages.name && (
-        <div className="error">{errorMessages.message}</div>
-      );
 
     return (
         <div className='Font'>
@@ -44,17 +33,15 @@ function Home() {
                     <div className="login-class">
                         <h1>Welcome to Residencely</h1>
                     </div>
-                    {isSubmitted ? isStaff ? <div><Navigate replace to="/staff-dashboard" /></div>: <div><Navigate replace to="/resident-dashboard" /></div> : <div></div>}
-                    <form onSubmit={login}>
+                    {isSubmitted ? <div><Navigate replace to="/resident-dashboard" /></div> : <div></div>}
+                    <form >
                         <div className="login-credentials">
                             <p>Username</p>
-                            <input className="credential-box" type="text" name="uname" placeholder="username" onChange={(e) => setLoginUsername(e.target.value)} required />
-                            {errorMessage("uname")}
+                            <input className="credential-box" type="text" placeholder="username" onChange={(e) => setLoginUsername(e.target.value)}  />
                             <p>Password</p>
-                            <input className="credential-box" type="password" name="pass" required placeholder="password" onchange={(e) => setLoginPassword(e.target.value)}/>
-                            {errorMessage("pass")}
+                            <input className="credential-box" type="password" placeholder="password" onchange={(e) => setLoginPassword(e.target.value)}/>
                             <br></br>
-                            <button style={{height: "3vw"}} >Login</button>
+                            <button style={{height: "3vw"}} onClick={login}>Login</button>
                         </div>
                     </form>
                 </div>

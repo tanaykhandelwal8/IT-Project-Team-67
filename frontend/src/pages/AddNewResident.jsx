@@ -8,6 +8,7 @@ function AddNewResident()  {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
   const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   const [location, setLocation] = useState("")
   const [dob, setDOB] = useState("")
   const register = () => {
@@ -17,11 +18,12 @@ function AddNewResident()  {
         firstName:firstName,
         lastName: lastName,
         email: email,
+        password: password,
         location: location,
         dob: dob
       },
       withCredentials: true,
-      url: "http://localhost:3001/register"
+      url: "http://localhost:3001/register-resident"
     }).then((res) => console.log(res))
   }
 
@@ -44,6 +46,15 @@ function AddNewResident()  {
                 onChange={e => setLastName(e.target.value)}/>
               </td>
           </tr>
+          <tr>
+            <th>Password</th>
+            <td>
+              <input type="text" className = 'Input '
+                     value={password}
+                     onChange={e => setPassword(e.target.value)}/>
+            </td>
+          </tr>
+
           <tr>
             <th>Email</th>
             <td>

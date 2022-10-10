@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import "../App.css"
 
-function AddUser(props) {
+function AddUser() {
     const [registerUsername, setRegisterUsername] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [loginUsername, setLoginUsername] = useState("");

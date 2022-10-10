@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import { Navigate } from "react-router-dom";
-
+import axios from 'axios'
 import "../App.css";
 
 function Home() {
@@ -8,26 +8,21 @@ function Home() {
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isStaff, setIsStaff] = useState(false);
-
+    const [loginUsername, setLoginUsername] = useState("")
+    const [loginPassword, setLoginPassword] = useState("")
+    const login = () => {
+        axios({
+            method: "POST",
+            data: {
+                username: loginUsername,
+                password: loginPassword,
+            },
+            withCredentials: true,
+            url: "http://localhost:3001/login",
+        }).then((res) => console.log(res));
+    };
     //Placeholder backend
-    const database = [
-        {
-            username: "user1",
-            password: "pass1",
-            role: "resident"
-        },
-        {
-            username: "user2",
-            password: "pass2",
-            role: "staff"
-        },
-        {
-            username: "user3",
-            password: "pass3",
-            role: "resident"
-        }
-    ];
-    
+
     //Error outputs if username/password is incorrect
     const errors = {
         uname: "Invalid username or password.",
@@ -39,32 +34,6 @@ function Home() {
         <div className="error">{errorMessages.message}</div>
       );
 
-    const handleSubmit = (event) => {
-        // Prevent page reload
-        event.preventDefault();
-
-        var { uname, pass } = document.forms[0];
-
-        // Find user login info
-        const userData = database.find((user) => user.username === uname.value);
-      
-        // Compare user info
-        if (userData) {
-          if (userData.password !== pass.value) {
-            // Invalid password
-            setErrorMessages({ name: "pass", message: errors.pass });
-          } else {
-            if (userData.role === "staff") {
-                setIsStaff(true);
-            }
-            setIsSubmitted(true);
-          }
-        } else {
-          // Username not found
-          setErrorMessages({ name: "uname", message: errors.uname });
-        }
-    };
-    
     return (
         <div className='Font'>
         <div>
@@ -76,16 +45,16 @@ function Home() {
                         <h1>Welcome to Residencely</h1>
                     </div>
                     {isSubmitted ? isStaff ? <div><Navigate replace to="/staff-dashboard" /></div>: <div><Navigate replace to="/resident-dashboard" /></div> : <div></div>}
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={login}>
                         <div className="login-credentials">
                             <p>Username</p>
-                            <input className="credential-box" type="text" name="uname" required />
+                            <input className="credential-box" type="text" name="uname" placeholder="username" onChange={(e) => setLoginUsername(e.target.value)} required />
                             {errorMessage("uname")}
                             <p>Password</p>
-                            <input className="credential-box" type="password" name="pass" required />
+                            <input className="credential-box" type="password" name="pass" required placeholder="password" onchange={(e) => setLoginPassword(e.target.value)}/>
                             {errorMessage("pass")}
                             <br></br>
-                            <button style={{height: "3vw"}}>Login</button>
+                            <button style={{height: "3vw"}} >Login</button>
                         </div>
                     </form>
                 </div>

@@ -1,14 +1,29 @@
 import React, {useState} from 'react';
 import "../App.css"
 import Popup from 'reactjs-popup';
-
+import axios from 'axios'
 
 function AddNewResident()  {
   // temporary constants
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
+  const [email, setEmail] = useState("")
   const [location, setLocation] = useState("")
   const [dob, setDOB] = useState("")
+  const register = () => {
+    axios({
+      method:"post",
+      data: {
+        firstName:firstName,
+        lastName: lastName,
+        email: email,
+        location: location,
+        dob: dob
+      },
+      withCredentials: true,
+      url: "http://localhost:3001/register"
+    }).then((res) => console.log(res))
+  }
 
   return (
       <div className='Font'>
@@ -30,6 +45,14 @@ function AddNewResident()  {
               </td>
           </tr>
           <tr>
+            <th>Email</th>
+            <td>
+              <input type="text" className = 'Input '
+                     value={email}
+                     onChange={e => setEmail(e.target.value)}/>
+            </td>
+          </tr>
+          <tr>
             <th>Location</th>
               <td>
                 <form>
@@ -49,7 +72,7 @@ function AddNewResident()  {
           </tr>
         </table>
         {/* WILL BE CHANGED TO PROFILE OF NEW RESIDENT */}
-        <button onClick={console.log(firstName, lastName, location, dob)}>
+        <button onClick={register}>
             Add Resident</button>
       </div>
     );

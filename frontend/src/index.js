@@ -1,4 +1,5 @@
 import ReactDOM from "react-dom";
+//import App from "./App.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
@@ -9,6 +10,7 @@ import AddNewStaff from "./pages/AddNewStaff";
 import CommunityCorner from "./pages/CommunityCorner";
 import ViewAllResidents from "./pages/ViewAllResidents";
 import StaffDashboard from "./pages/StaffDashboard";
+import React from "react";
 
 export default function App() {
   return (
@@ -30,3 +32,4 @@ export default function App() {
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
+

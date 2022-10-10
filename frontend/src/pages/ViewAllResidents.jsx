@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
 
 function ViewAllResidents() {
+    const [residents, setResidents]= useState([])
+
+    useEffect(() =>{
+        getResidents();
+
+        
+    },[])
+
+    const getResidents = async () => {
+        let result = await fetch("/view-all-residents");
+            result = await result.json();
+            setResidents(result); 
+    }
+
+    console.warn(residents)
     return (
         <div>
         <div className="centered-box">

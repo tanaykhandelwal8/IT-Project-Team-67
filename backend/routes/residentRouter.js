@@ -2,6 +2,9 @@ const express = require('express')
 const path = require("path");
 const residentRouter = express.Router()
 
+residentRouter.get('/api', (req, res) => {
+    res.json({"users":["userOne","userTwo"]})
+})
 residentRouter.get('/resident-dashboard', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'views', 'resident-dashboard.html'))
 })

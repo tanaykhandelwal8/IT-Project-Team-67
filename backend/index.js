@@ -1,14 +1,16 @@
 const express = require('express')
 
 const app = express()
-const PORT = process.env.PORT || 6000
+const PORT = process.env.PORT || 9000
 
 require('./models/index')
 app.use(express.static(__dirname))
 
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
-  
+
+var residentRouter = require("./routes/residentRouter")
+
 var fs = require('fs');
 var path = require('path');
 require('dotenv/config');
@@ -31,6 +33,8 @@ var storage = multer.diskStorage({
 });
   
 var upload = multer({ storage: storage });
+
+app.use('/resident', residentRouter);
 
 app.get('/', (req, res) => {
     res.send("Hello World!")

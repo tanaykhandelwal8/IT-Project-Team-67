@@ -8,7 +8,7 @@ app.use(express.static(__dirname))
 
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
-
+const Residents = require("./models/resident")
 var residentRouter = require("./routes/residentRouter")
 
 var fs = require('fs');
@@ -39,6 +39,19 @@ app.use('/resident', residentRouter);
 app.get('/', (req, res) => {
     res.send("Hello World!")
 })
+
+
+
+app.get('/view-all-residents', async (req, res) => {
+    const residents = await Residents.find()
+    if (residents.length > 0){
+        res.send(residents)
+    }   else {
+        res.send( {result: "No Residents Found"})
+    }
+
+})
+
 app.listen(PORT, () => {
     console.log('Listening on Port ' + PORT);
 })

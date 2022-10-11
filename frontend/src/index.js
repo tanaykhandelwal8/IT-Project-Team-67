@@ -12,6 +12,7 @@ import StaffDashboard from "./pages/StaffDashboard";
 import MusicPreferences from "./pages/MusicPreferences";
 import FavouriteFood from "./pages/FavouriteFood";
 import FavouriteAnimals from "./pages/FavouriteAnimals";
+import FavouriteMovies from "./pages/FavouriteMovies";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="music-preferences" element={<MusicPreferences/>}/>
           <Route path="favourite-food" element={<FavouriteFood/>}/>
           <Route path="favourite-animals" element={<FavouriteAnimals/>}/>
+          <Route path="favourite-movies" element={<FavouriteMovies/>}/>
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

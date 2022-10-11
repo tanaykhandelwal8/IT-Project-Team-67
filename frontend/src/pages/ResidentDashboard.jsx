@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
 import UploadImage from "../components/UploadImage";
 
 import "../App.css";
@@ -11,41 +10,6 @@ function ResidentDashboard() {
         event.preventDefault();
         alert('You have saved your changes.')
     }
-
-    const [backendData, setBackendData] = useState([{}])
-    const getEvents = () => {
-      axios.get("http://localhost:3001/get-resident-data")
-      .then((res) => {setBackendData(res.data)})
-    }
-    getEvents()
-
-    const songData = [ 
-    {
-        title: "song1",
-        artist: "artist1",
-        genre: "rock"
-    },
-    {
-        title: "song2",
-        artist: "artist2",
-        genre: "pop"
-    },
-    {
-        title: "song3",
-        artist: "artist3",
-        genre: "pop"
-    },
-    {
-        title: "song4",
-        artist: "artist4",
-        genre: "country"
-    },
-    {
-        title: "song5",
-        artist: "artist5",
-        genre: "classical"
-    },
-];
 
     return (
         <div className='Font'>
@@ -66,10 +30,10 @@ function ResidentDashboard() {
                     </div>
                 </div>
                 <div className="gallery-card">
-                    <label><h3>Location</h3></label>
-                    <p>{backendData.location}</p>
+                    <label><h3>Address</h3></label>
+                    <p>42 Wallaby Way, Sydney</p>
                     <label><h3>Date of Birth</h3></label>
-                    <p>{backendData.dateOfBirth}</p>
+                    <p>1/01/1970</p>
                     <form onSubmit={handleSubmit}>
                         <label>
                             <h3>About Me</h3>
@@ -159,16 +123,32 @@ function ResidentDashboard() {
                 <div className="split-column">
                     <div className="gallery-card">
                         <h3>Favourite Songs</h3>
+                        {/* forEach loop here for every activity/interest/hobby */}
                         <div className="row">
-                            {songData.slice(0,4).map((item, key) => (
-                                <div className="dashboard-favourite-column">
-                                    <div className="dashboard-img-wrapper">
-                                    <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
-                                    <p>{item.title}</p>
-                                    </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
+                                <p>Song</p>
                                 </div>
-
-                            ))}
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
+                                <p>Song</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
+                                <p>Song</p>
+                                </div>
+                            </div>
+                            <div className="dashboard-favourite-column">
+                                <div className="dashboard-img-wrapper">
+                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
+                                <p>Song</p>
+                                </div>
+                            </div>
                             <div className="dashboard-favourite-column">
                                 <div className="dashboard-img-wrapper">
                                 <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
@@ -280,7 +260,7 @@ function ResidentDashboard() {
                             <div className="dashboard-favourite-column">
                                 <div className="dashboard-img-wrapper">
                                 <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                                <p><Link to="*" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                                <p><Link to="../favourite-food" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                                 </div>
                             </div>
                         </div>

@@ -10,11 +10,9 @@ import CommunityCorner from "./pages/CommunityCorner";
 import ViewAllResidents from "./pages/ViewAllResidents";
 import StaffDashboard from "./pages/StaffDashboard";
 import MusicPreferences from "./pages/MusicPreferences";
-import addUser from "./pages/addUser";
-import React, {useEffect, useState} from 'react'
+import FavouriteFood from "./pages/FavouriteFood";
 
 export default function App() {
-
   return (
     <BrowserRouter>
       <Routes>
@@ -27,13 +25,11 @@ export default function App() {
           <Route path="community-corner" element={<CommunityCorner/>}/>
           <Route path="view-all-residents" element={<ViewAllResidents/>}/>
           <Route path="music-preferences" element={<MusicPreferences/>}/>
-          <Route path="add-user" element={<addUser/>}/>
+          <Route path="favourite-food" element={<FavouriteFood/>}/>
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
-
-
   );
 }
 

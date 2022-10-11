@@ -49,7 +49,7 @@ function AddNewResident()  {
           <tr>
             <th>Password</th>
             <td>
-              <input type="text" className = 'Input '
+              <input type="password" className = 'Input '
                      value={password}
                      onChange={e => setPassword(e.target.value)}/>
             </td>

@@ -122,7 +122,40 @@ app.post('/register-staff', (req, res) => {
     })
 })
 
+/* sending a new event to mongo */ 
+app.post('/add-event', (req, res) => {
+    calendar.findOne({title:req.body.title}, async (err, doc) => {
+        if(err) throw err
+        if(doc) res.send('event already exists')
+        if(!doc) {
+            const newEvent = new calendar({
+                title: req.body.title,
+                description: req.body.description,
+                location: req.body.location,
+                host: req.body.host,
+                start: req.body.start,
+                end: req.body.end
+            })
+            await newEvent.save()
+            console.log('event added')
+        }
+    })
+})
 
+/* deleting an event from mongo */ 
+app.post('/delete-event', (req, res) =>{
+    calendar.deleteOne({ 
+        title: req.body.title,
+        description: req.body.description,
+        location: req.body.location,
+        host: req.body.host,
+        start: req.body.start,
+        end: req.body.end},
+        function (err) {
+            if(err) console.log(err);
+            console.log("Successful deletion");
+      });
+})
 app.listen(PORT, () => {
     console.log('Listening on Port ' + PORT);
 })

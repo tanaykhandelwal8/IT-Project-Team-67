@@ -14,6 +14,7 @@ import FavouriteFood from "./pages/FavouriteFood";
 import FavouriteAnimals from "./pages/FavouriteAnimals";
 import FavouriteMovies from "./pages/FavouriteMovies";
 import LanguagePreferences from "./pages/LanguagePreferences";
+import HobbiesInterests from "./pages/HobbiesInterests";
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="favourite-animals" element={<FavouriteAnimals/>}/>
           <Route path="favourite-movies" element={<FavouriteMovies/>}/>
           <Route path="language-preferences" element={<LanguagePreferences/>}/>
+          <Route path="hobbies-interests" element={<HobbiesInterests/>}/>
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

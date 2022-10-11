@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser')
 const bcrypt = require('bcryptjs')
 const session = require('express-session')
 const bodyParser = require('body-parser')
-const passport = require('passport')
 const passportlocal = require('passport-local').Strategy
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -22,9 +21,9 @@ app.use(session({
     resave: true,
     saveUninitialized:true
 }))
+const passport = require('./config/passport')
 app.use(passport.initialize())
 app.use(passport.session())
-//require('./config/passport')(passport)
 
 app.use(cookieParser("secretcode"))
 
@@ -60,6 +59,17 @@ app.get('/get-events-data', (req, res) => {
 app.get('/user', (req, res) => {
 
 })
+
+app.get('/success', (req, res) => {
+    res.send('success')
+
+})
+
+app.get('/failure', (req, res) => {
+    res.send('failure')
+
+})
+
 // 404 for everything else
 app.get('*', function(req, res){
     res.status(404).send('404');
@@ -68,18 +78,11 @@ app.get('*', function(req, res){
 
 
 app.post('/login', (req, res, next) => {
-     // passport.authenticate("local", (err, user, info) => {
-     //     if(err) throw err
-     //     if(!user) res.send('no user exists')
-     //     else {
-     //         req.login(user, err => {
-     //             if(err) throw err
-     //             res.send('logged in')
-     //             console.log(req.user)
-     //         })
-     //     }
-     // })(req, res, next)
-    console.log(req.body)
+    passport.authenticate('resident-local', {
+        successRedirect:'success',
+        failureRedirect:'failure',
+        failureFlash: true
+    })
 })
 app.post('/register-resident', (req, res) => {
     resident.findOne({email:req.body.email}, async (err, doc) => {

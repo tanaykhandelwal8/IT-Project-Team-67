@@ -24,7 +24,7 @@ const movieSchema= new mongoose.Schema({
     movieId: mongoose.Schema.Types.ObjectId
 });
 
-const schema = new mongoose.Schema({
+const residentSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
     email: String,
@@ -39,12 +39,11 @@ const schema = new mongoose.Schema({
     //group:groupSchema
 });
 
-schema.methods.verifyPassword = function(password, callback) {
+residentSchema.methods.verifyPassword = function(password, callback) {
     bcrypt.compare(password, this.password, (err, valid) => {
         callback(err, valid)
     })
 }
 
-
-const Resident = mongoose.model('Resident', schema, 'Residents')
+const Resident = mongoose.model('Resident', residentSchema, 'Residents')
 module.exports = Resident

@@ -9,10 +9,7 @@
       <change beforePath="$PROJECT_DIR$/backend/config/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/models/resident.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/resident.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AddNewResident.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AddNewResident.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AddNewStaff.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AddNewStaff.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/staff.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/staff.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +64,7 @@
       <updated>1662533669474</updated>
       <workItem from="1662533670496" duration="1554000" />
       <workItem from="1664523232868" duration="289000" />
-      <workItem from="1665232544778" duration="13376000" />
+      <workItem from="1665232544778" duration="17817000" />
     </task>
     <servers />
   </component>

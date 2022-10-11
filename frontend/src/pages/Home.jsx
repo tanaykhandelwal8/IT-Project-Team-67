@@ -39,7 +39,7 @@ function Home() {
                             <p>Username</p>
                             <input className="credential-box" type="text" placeholder="username" onChange={(e) => setLoginUsername(e.target.value)}  />
                             <p>Password</p>
-                            <input className="credential-box" type="password" placeholder="password" onchange={(e) => setLoginPassword(e.target.value)}/>
+                            <input className="credential-box" type="password" placeholder="password" onChange={(e) => setLoginPassword(e.target.value)}/>
                             <br></br>
                             <button style={{height: "3vw"}} onClick={login}>Login</button>
                         </div>

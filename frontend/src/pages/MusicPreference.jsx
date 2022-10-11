@@ -14,43 +14,43 @@ const MusicPreference = () => {
                                 <img src="../gui/assets/trebleclef.jpeg" alt="Song1">
                                     <p>Song Artist</p>
                                     <p>Genre</p>
-                                </></div>
+                                </img></div>
                             <div class="column">
                                 <img src="../gui/assets/trebleclef.jpeg" alt="Song2">
                                     <p>Song Artist</p>
                                     <p>Genre</p>
-                                </></div>
+                                </img></div>
                             <div class="column">
                                 <img src="../gui/assets/trebleclef.jpeg" alt="Song3">
                                     <p>Song Artist</p>
                                     <p>Genre</p>
-                                </></div>
+                                </img></div>
                             <div class="column">
                                 <img src="../gui/assets/trebleclef.jpeg" alt="Song4">
                                     <p>Song Artist</p>
                                     <p>Genre</p>
-                                </></div>
+                                </img></div>
                             <div class="column">
                                 <img src="../gui/assets/trebleclef.jpeg" alt="Song1">
                                     <p>Song Artist</p>
                                     <p>Genre</p>
-                                </></div>
+                                </img></div>
                             <div class="column">
                                 <img src="../gui/assets/trebleclef.jpeg" alt="Song2">
                                     <p>Song Artist</p>
                                     <p>Genre</p>
-                                </></div>
+                                </img></div>
                             <div class="column">
                                 <img src="../gui/assets/trebleclef.jpeg" alt="Song3">
                                     <p>Song Artist</p>
                                     <p>Genre</p>
-                                </></div>
+                                </img></div>
                         </div>
                     </br>
                 </br>
             </br>
-        </br><p style="float: right;">Signed in as Xxxx Xxxxxx</p></>
+        </img><p style="float: right;">Signed in as Xxxx Xxxxxx</p></>
     )
 }
 
-export default Layout;
+export default MusicPreference;

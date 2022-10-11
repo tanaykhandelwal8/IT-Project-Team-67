@@ -10,6 +10,7 @@ import AddNewStaff from "./pages/AddNewStaff";
 import CommunityCorner from "./pages/CommunityCorner";
 import ViewAllResidents from "./pages/ViewAllResidents";
 import StaffDashboard from "./pages/StaffDashboard";
+import Music from "./pages/MusicPreference";
 import React from "react";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="staff-dashboard" element={<StaffDashboard />} />
           <Route path="add-resident" element={<AddNewResident />} />
           <Route path="add-staff" element={<AddNewStaff/>}/>
+          <Route path="music" element={<Music/>}/>
           <Route path="community-corner" element={<CommunityCorner/>}/>
           <Route path="view-all-residents" element={<ViewAllResidents/>}/>
           <Route path="*" element={<NoPage />} />

@@ -1,16 +1,14 @@
 import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 
 function ViewAllResidents() {
     
     const [backendData, setBackendData] = useState([{}])
-
-    useEffect(() => {
-        fetch('/get-resident-data')
-            .then(res => res.json())
-            .then(data => {setBackendData(data)})
-    console.log(backendData)
-    console.log(Object.keys(backendData))
-    }, [])
+    const getEvents = () => {
+      axios.get("http://localhost:3001/get-resident-data")
+      .then((res) => {setBackendData(res.data)})
+    }
+    getEvents()
     
     return (
         <div>
@@ -103,13 +101,27 @@ function ViewAllResidents() {
                     <p> loading</p>
                 ): (
                     <div className='Font'>
-                        <table>
                         {backendData.map((user, i) =>(
-                        <tr key={i}>
-                            <div>Name: {user.firstName} {user.lastName} {JSON.stringify(user)}</div>
-                        </tr>
-                    ))}
-                        </table>
+                            ((i+1) % 5 == 0) 
+                            ?
+                            <div key={i} className="row">
+                                <div className="gallery-column">
+                                    <div className="image-wrapper">
+                                    <img className="view-resident-picture" src={require('../assets/Portrait-Placeholder.png')} alt="" />
+                                    <p>{user.firstName} {user.lastName} {JSON.stringify(user)}</p>
+                                    <p>{user.location}</p>   
+                                    </div>
+                                </div>
+                            </div>
+                            :
+                            <div className="gallery-column">
+                                <div className="image-wrapper">
+                                <img className="view-resident-picture" src={require('../assets/Portrait-Placeholder.png')} alt="" />
+                                    <p>{user.firstName} {user.lastName} {JSON.stringify(user)}</p>
+                                    <p>{user.location}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 )}
             </div>

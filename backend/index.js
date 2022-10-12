@@ -17,6 +17,7 @@ const Foods = require("./models/food")
 const Animals = require("./models/animal")
 const Movies = require("./models/movie")
 
+
 var fs = require('fs');
 var path = require('path');
 require('dotenv/config');
@@ -28,7 +29,7 @@ app.use(bodyParser.json())
 app.set("view engine", "ejs");
 
 var multer = require('multer');
-const Music = require('./models/music')
+const ImageModel = require("./models/image")
   
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -39,7 +40,25 @@ var storage = multer.diskStorage({
     }
 });
   
-var upload = multer({ storage: storage });
+var upload = multer({ storage: storage }).single('testImg');
+
+app.post('/post', (req, res) => {
+    upload(req, res, (err)=>{
+        if (err){
+            console.log(err);
+        }
+        else{
+            const newImage = new ImageModel({
+                name: req.body.name,
+                img:{
+                    data: req.file.filename,
+                    contentType: 'image/png'
+                }
+            })
+            newImage.save().then(() => res.send('success').catch(err=>console.log(err)))
+        }
+    })
+})
 
 app.use('/resident', residentRouter);
 

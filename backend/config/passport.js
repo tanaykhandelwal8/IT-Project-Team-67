@@ -24,11 +24,16 @@ module.exports = function(passport) {
             }
         ))
 
-    passport.serializeUser((user, cb) => {
-        cb.(null, user.id)
+    passport.serializeUser((user, done) => {
+        done(undefined, user._id)
     })
 
     passport.deserializeUser((id, cb) => {
-        resident.findOne({_id:id})
+        resident.findOne({_id:id}, (err, user) => {
+            const userInfo = {
+                username: user.email
+            }
+            cb(err, userInfo)
+        })
     })
 }

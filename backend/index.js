@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser')
 const bcrypt = require('bcryptjs')
 const session = require('express-session')
 const bodyParser = require('body-parser')
+const passport = require('passport')
 const passportlocal = require('passport-local').Strategy
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -23,6 +24,10 @@ app.use(session({
 }))
 
 app.use(cookieParser("secretcode"))
+app.use(passport.initialize())
+app.use(passport.session())
+require('./config/passport')(passport)
+
 
 require('./models')
 const resident = require('./models/resident')
@@ -53,19 +58,7 @@ app.get('/get-events-data', (req, res) => {
         console.error(err)
     })
 })
-app.get('/user', (req, res) => {
 
-})
-
-app.get('/success', (req, res) => {
-    res.send('success')
-
-})
-
-app.get('/failure', (req, res) => {
-    res.send('failure')
-
-})
 
 // 404 for everything else
 app.get('*', function(req, res){
@@ -75,8 +68,20 @@ app.get('*', function(req, res){
 
 
 app.post('/login', (req, res, next) => {
-
+    passport.authenticate("local", (err, user, info) => {
+        if(err)
+            throw err
+        if(!user)
+            res.send("no user")
+        req.logIn(user, err => {
+            if(err)
+                throw err
+            res.send("authenticated")
+            console.log(req.user)
+        })
+    })(req, res, next)
 })
+
 app.post('/register-resident', (req, res) => {
     resident.findOne({email:req.body.email}, async (err, doc) => {
         if(err) throw err

@@ -1,24 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import "../App.css"
-import Popup from 'reactjs-popup';
 import axios from 'axios'
 
 function AddNewStaff() {
-    const [firstName, setFirstName] = useState("")
-    const [lastName, setLastName] = useState("")
-    const [password, setPassword] = useState("")
-    const [email, setEmail] = useState("")
-    const [dob, setDOB] = useState("")
+    // local format for creating a staff member
+    const [newStaff, setNewStaff] = useState({
+      firstName:"",
+      lastName: "",
+      email:"",
+      password:"",
+      dob:""
+    })
+
     const register = () => {
         axios({
             method:"post",
-            data: {
-                firstName:firstName,
-                lastName: lastName,
-                password: password,
-                email: email,
-                dob: dob
-            },
+            data: newStaff,
             withCredentials: true,
             url: "http://localhost:3001/register-staff"
         }).then((res) => console.log(res))
@@ -31,41 +28,40 @@ function AddNewStaff() {
           <th>First Name</th>
             <td>
               <input type="text" className = 'Input '
-              value={firstName} 
-              onChange={e => setFirstName(e.target.value)}/>
+              value={newStaff.firstName} 
+              onChange={e => setNewStaff({...newStaff, firstName: e.target.value})}/>
             </td>
           </tr>
           <tr>
             <th>Last Name</th>
             <td>
               <input type="text" className = 'Input '
-              value={lastName} 
-              onChange={e => setLastName(e.target.value)}/>
+              value={newStaff.lastName} 
+              onChange={e => setNewStaff({...newStaff, lastName: e.target.value})}/>
             </td>
         </tr>
           <tr>
               <th>Email</th>
               <td>
                   <input type="text" className = 'Input '
-                         value={email}
-                         onChange={e => setEmail(e.target.value)}/>
+                         value={newStaff.email}
+                         onChange={e => setNewStaff({...newStaff, email: e.target.value})}/>
               </td>
           </tr>
-
           <tr>
               <th>Password</th>
               <td>
                   <input type="password" className = 'Input '
-                         value={password}
-                         onChange={e => setPassword(e.target.value)}/>
+                         value={newStaff.password}
+                         onChange={e => setNewStaff({...newStaff, password: e.target.value})}/>
               </td>
           </tr>
           <tr>
             <th>Date of Birth</th>
             <td>
             <input className='Input' type="date" 
-                  value={dob}
-                  onChange={e => setDOB(e.target.value)}/>
+                  value={newStaff.dob}
+                  onChange={e => setNewStaff({...newStaff, dob: e.target.value})}/>
             </td>
         </tr>
       </table>

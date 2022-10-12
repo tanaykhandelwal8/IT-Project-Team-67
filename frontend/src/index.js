@@ -9,17 +9,14 @@ import AddNewStaff from "./pages/AddNewStaff";
 import CommunityCorner from "./pages/CommunityCorner";
 import ViewAllResidents from "./pages/ViewAllResidents";
 import StaffDashboard from "./pages/StaffDashboard";
-<<<<<<< HEAD
 import Music from "./pages/MusicPreference";
 import React from "react";
-=======
 import MusicPreferences from "./pages/MusicPreferences";
 import FavouriteFood from "./pages/FavouriteFood";
 import FavouriteAnimals from "./pages/FavouriteAnimals";
 import FavouriteMovies from "./pages/FavouriteMovies";
 import LanguagePreferences from "./pages/LanguagePreferences";
 import HobbiesInterests from "./pages/HobbiesInterests";
->>>>>>> main
 
 export default function App() {
   return (

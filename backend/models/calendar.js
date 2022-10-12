@@ -6,12 +6,12 @@ const residentschema = new mongoose.Schema({
 });
 
 const schema = new mongoose.Schema({
-    eventDateTime: date,
+    title: String, 
+    description: String, 
+    location: String, 
     host: String,
-    location: String,
-    //image?
-    description: String
-
+    start: Date, 
+    end: Date
 });
 
 const Calendar = mongoose.model('Calendar', schema, 'Calendars')

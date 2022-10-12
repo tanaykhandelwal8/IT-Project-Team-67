@@ -1,6 +1,10 @@
 import React,{useState} from 'react';
 import { Navigate } from "react-router-dom";
+<<<<<<< HEAD
 
+=======
+import axios from 'axios'
+>>>>>>> main
 import "../App.css";
 
 function Home() {
@@ -8,6 +12,7 @@ function Home() {
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isStaff, setIsStaff] = useState(false);
+<<<<<<< HEAD
 
     //Placeholder backend
     const database = [
@@ -65,6 +70,23 @@ function Home() {
         }
     };
     
+=======
+    const [loginUsername, setLoginUsername] = useState("")
+    const [loginPassword, setLoginPassword] = useState("")
+    const login = () => {
+        axios({
+            method: "POST",
+            data: {
+                username: loginUsername,
+                password: loginPassword,
+            },
+            withCredentials: true,
+            url: "http://localhost:3001/login",
+        }).then((res) => console.log(res));
+    };
+
+
+>>>>>>> main
     return (
         <div className='Font'>
         <div>
@@ -75,6 +97,7 @@ function Home() {
                     <div className="login-class">
                         <h1>Welcome to Residencely</h1>
                     </div>
+<<<<<<< HEAD
                     {isSubmitted ? isStaff ? <div><Navigate replace to="/staff-dashboard" /></div>: <div><Navigate replace to="/resident-dashboard" /></div> : <div></div>}
                     <form onSubmit={handleSubmit}>
                         <div className="login-credentials">
@@ -86,6 +109,17 @@ function Home() {
                             {errorMessage("pass")}
                             <br></br>
                             <button style={{height: "3vw"}}>Login</button>
+=======
+                    {isSubmitted ? <div><Navigate replace to="/resident-dashboard" /></div> : <div></div>}
+                    <form >
+                        <div className="login-credentials">
+                            <p>Username</p>
+                            <input className="credential-box" type="text" placeholder="username" onChange={(e) => setLoginUsername(e.target.value)}  />
+                            <p>Password</p>
+                            <input className="credential-box" type="password" placeholder="password" onChange={(e) => setLoginPassword(e.target.value)}/>
+                            <br></br>
+                            <button style={{height: "3vw"}} onClick={login}>Login</button>
+>>>>>>> main
                         </div>
                     </form>
                 </div>

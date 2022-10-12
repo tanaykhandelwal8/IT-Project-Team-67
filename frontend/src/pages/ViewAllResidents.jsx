@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState} from 'react';
 
 function ViewAllResidents() {
@@ -16,6 +17,20 @@ function ViewAllResidents() {
     }
 
     console.warn(residents)
+=======
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
+
+function ViewAllResidents() {
+    
+    const [backendData, setBackendData] = useState([{}])
+    const getEvents = () => {
+      axios.get("http://localhost:3001/get-resident-data")
+      .then((res) => {setBackendData(res.data)})
+    }
+    getEvents()
+    
+>>>>>>> main
     return (
         <div>
         <div className="centered-box">
@@ -99,6 +114,37 @@ function ViewAllResidents() {
                     </div>
                 </div>
             </div>
+            </div>
+
+            <div>
+                {/* This displays the names */}
+            {(typeof backendData === 'undefined') ? (
+                    <p> loading</p>
+                ): (
+                    <div className='Font'>
+                        {backendData.map((user, i) =>(
+                            ((i+1) % 5 == 0) 
+                            ?
+                            <div key={i} className="row">
+                                <div className="gallery-column">
+                                    <div className="image-wrapper">
+                                    <img className="view-resident-picture" src={require('../assets/Portrait-Placeholder.png')} alt="" />
+                                    <p>{user.firstName} {user.lastName} {JSON.stringify(user)}</p>
+                                    <p>{user.location}</p>   
+                                    </div>
+                                </div>
+                            </div>
+                            :
+                            <div className="gallery-column">
+                                <div className="image-wrapper">
+                                <img className="view-resident-picture" src={require('../assets/Portrait-Placeholder.png')} alt="" />
+                                    <p>{user.firstName} {user.lastName} {JSON.stringify(user)}</p>
+                                    <p>{user.location}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );

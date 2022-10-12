@@ -9,8 +9,6 @@
       <change beforePath="$PROJECT_DIR$/backend/config/passport.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/passport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/models/resident.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/resident.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/staff.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/staff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +63,10 @@
       <workItem from="1662533670496" duration="1554000" />
       <workItem from="1664523232868" duration="289000" />
       <workItem from="1665232544778" duration="17817000" />
+      <workItem from="1665459023526" duration="36000" />
+      <workItem from="1665467026465" duration="359000" />
+      <workItem from="1665493123548" duration="156000" />
+      <workItem from="1665539082998" duration="2742000" />
     </task>
     <servers />
   </component>

@@ -21,9 +21,6 @@ app.use(session({
     resave: true,
     saveUninitialized:true
 }))
-const passport = require('./config/passport')
-app.use(passport.initialize())
-app.use(passport.session())
 
 app.use(cookieParser("secretcode"))
 
@@ -78,11 +75,7 @@ app.get('*', function(req, res){
 
 
 app.post('/login', (req, res, next) => {
-    passport.authenticate('resident-local', {
-        successRedirect:'success',
-        failureRedirect:'failure',
-        failureFlash: true
-    })
+
 })
 app.post('/register-resident', (req, res) => {
     resident.findOne({email:req.body.email}, async (err, doc) => {

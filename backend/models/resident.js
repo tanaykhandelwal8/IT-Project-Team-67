@@ -32,18 +32,13 @@ const residentSchema = new mongoose.Schema({
     location: String,
     dateOfBirth: Date,
     //profilePic: imageSchema,
-    //music: musicSchema,
-    //food: foodSchema,
-    //movies: movieSchema,
-    //animals: animalSchema,
-    //group:groupSchema
+    // music: musicSchema,
+    // food: foodSchema,
+    // movies: movieSchema,
+    // animals: animalSchema,
+    // group:groupSchema
 });
 
-residentSchema.methods.verifyPassword = function(password, callback) {
-    bcrypt.compare(password, this.password, (err, valid) => {
-        callback(err, valid)
-    })
-}
 
 const Resident = mongoose.model('Resident', residentSchema, 'Residents')
 module.exports = Resident

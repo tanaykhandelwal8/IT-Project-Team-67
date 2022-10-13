@@ -56,16 +56,15 @@ app.post('/post', (req, res) => {
                 }
             })
             newImage.save().then(() => res.send('success').catch(err=>console.log(err)))
+        }
+    })
+})
 // Imports
-const express = require('express')
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const bcrypt = require('bcryptjs')
 const session = require('express-session')
-const bodyParser = require('body-parser')
 const passportlocal = require('passport-local').Strategy
-const app = express()
-const PORT = process.env.PORT || 3001
 
 // middleware
 app.use(bodyParser.json())
@@ -275,4 +274,3 @@ app.post('/delete-event', (req, res) =>{
 app.listen(PORT, () => {
     console.log('Listening on Port ' + PORT);
 })
-

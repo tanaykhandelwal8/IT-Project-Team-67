@@ -1,27 +1,23 @@
 import React, {useState} from 'react';
 import "../App.css"
-import Popup from 'reactjs-popup';
 import axios from 'axios'
 
 function AddNewResident()  {
-  // temporary constants
-  const [firstName, setFirstName] = useState("")
-  const [lastName, setLastName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [location, setLocation] = useState("")
-  const [dob, setDOB] = useState("")
+  // local format for creating a resident
+  const [newResident, setNewResident] = useState({
+    firstName:"",
+    lastName: "",
+    email:"",
+    password:"",
+    location:"",
+    dob:""
+  })
+  
+  /* send resident details to the backend */
   const register = () => {
     axios({
       method:"post",
-      data: {
-        firstName:firstName,
-        lastName: lastName,
-        email: email,
-        password: password,
-        location: location,
-        dob: dob
-      },
+      data: newResident,
       withCredentials: true,
       url: "http://localhost:3001/register-resident"
     }).then((res) => console.log(res))
@@ -34,33 +30,32 @@ function AddNewResident()  {
             <th>First Name</th>
               <td>
                 <input type="text" className = 'Input '
-                value={firstName} 
-                onChange={e => setFirstName(e.target.value)}/>
+                value={newResident.firstName} 
+                onChange={e => setNewResident({...newResident, firstName: e.target.value})}/>
               </td>
             </tr>
             <tr>
               <th>Last Name</th>
               <td>
                 <input type="text" className = 'Input '
-                value={lastName} 
-                onChange={e => setLastName(e.target.value)}/>
+                value={newResident.lastName} 
+                onChange={e => setNewResident({...newResident, lastName: e.target.value})}/>
               </td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>
+              <input type="text" className = 'Input '
+                     value={newResident.email}
+                     onChange={e => setNewResident({...newResident, email: e.target.value})}/>
+            </td>
           </tr>
           <tr>
             <th>Password</th>
             <td>
               <input type="password" className = 'Input '
-                     value={password}
-                     onChange={e => setPassword(e.target.value)}/>
-            </td>
-          </tr>
-
-          <tr>
-            <th>Email</th>
-            <td>
-              <input type="text" className = 'Input '
-                     value={email}
-                     onChange={e => setEmail(e.target.value)}/>
+                     value={newResident.password}
+                     onChange={e => setNewResident({...newResident, password: e.target.value})}/>
             </td>
           </tr>
           <tr>
@@ -68,8 +63,8 @@ function AddNewResident()  {
               <td>
                 <form>
                     <input className='Input' type="text" 
-                    value={location}
-                    onChange={e => setLocation(e.target.value)}/>
+                    value={newResident.location}
+                    onChange={e => setNewResident({...newResident, location: e.target.value})}/>
                 </form>
               </td>
             </tr>
@@ -77,8 +72,8 @@ function AddNewResident()  {
               <th>Date of Birth</th>
               <td>
               <input className='Input' type="date" 
-                    value={dob}
-                    onChange={e => setDOB(e.target.value)}/>
+                    value={newResident.dob}
+                    onChange={e => setNewResident({...newResident, dob: e.target.value})}/>
               </td>
           </tr>
         </table>

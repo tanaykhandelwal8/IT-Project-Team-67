@@ -1,22 +1,10 @@
-<<<<<<< HEAD
-const passport = require('passport')
-const LocalStrategy = require('passport-local').Strategy
-
-=======
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
->>>>>>> main
 const resident = require('../models/resident')
 const staff = require('../models/staff')
 
 passport.serializeUser((user, done) => {
-<<<<<<< HEAD
-    // Use id to serialize user
-    done(undefined, user._id)
-})
-
-=======
     done(undefined, user._id)
 })
 
@@ -74,4 +62,3 @@ passport.use('staff-local',
 
 
 module.exports = passport
->>>>>>> main

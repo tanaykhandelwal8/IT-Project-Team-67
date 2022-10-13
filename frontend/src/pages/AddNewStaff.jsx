@@ -19,6 +19,7 @@ function AddNewStaff() {
             withCredentials: true,
             url: "http://localhost:3001/register-staff"
         }).then((res) => console.log(res))
+        alert('You have successfully created a new staff member.')
     }
 
     return (

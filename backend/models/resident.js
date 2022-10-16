@@ -4,9 +4,7 @@ const bcrypt = require('bcryptjs')
 const SALT_FACTOR = 10
 
 const imageSchema = require('./image')
-const groupSchema = new mongoose.Schema({
-    groupType: String
-});
+
 const animalSchema= new mongoose.Schema({
     animalId: mongoose.Schema.Types.ObjectId
     //image
@@ -31,13 +29,12 @@ const residentSchema = new mongoose.Schema({
     password: String,
     location: String,
     dateOfBirth: Date,
-    role: String
+    role: String,
     //profilePic: imageSchema,
-    //music: musicSchema,
-    //food: foodSchema,
-    //movies: movieSchema,
-    //animals: animalSchema,
-    //group:groupSchema
+    music: musicSchema,
+    food: foodSchema,
+    movies: movieSchema,
+    animals: animalSchema,
 });
 
 residentSchema.methods.verifyPassword = function(password, callback) {

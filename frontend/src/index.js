@@ -18,25 +18,33 @@ import FavouriteMovies from "./pages/FavouriteMovies";
 import LanguagePreferences from "./pages/LanguagePreferences";
 import HobbiesInterests from "./pages/HobbiesInterests";
 
+
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
+          //Public route
           <Route index element={<Home />} />
-          <Route path="resident-dashboard" element={<ResidentDashboard />} />
-          <Route path="staff-dashboard" element={<StaffDashboard />} />
-          <Route path="add-resident" element={<AddNewResident />} />
-          <Route path="add-staff" element={<AddNewStaff/>}/>
-          <Route path="music" element={<Music/>}/>
-          <Route path="community-corner" element={<CommunityCorner/>}/>
-          <Route path="view-all-residents" element={<ViewAllResidents/>}/>
-          <Route path="music-preferences" element={<MusicPreferences/>}/>
-          <Route path="favourite-food" element={<FavouriteFood/>}/>
-          <Route path="favourite-animals" element={<FavouriteAnimals/>}/>
-          <Route path="favourite-movies" element={<FavouriteMovies/>}/>
-          <Route path="language-preferences" element={<LanguagePreferences/>}/>
-          <Route path="hobbies-interests" element={<HobbiesInterests/>}/>
+          // Staff routes
+          // Resident routes
+          // Shared routes
+          
+            <Route path="resident-dashboard" element={<ResidentDashboard />} />
+            <Route path="staff-dashboard" element={<StaffDashboard />} />
+            <Route path="add-resident" element={<AddNewResident />} />
+            <Route path="add-staff" element={<AddNewStaff/>}/>
+            <Route path="music" element={<Music/>}/>
+            <Route path="community-corner" element={<CommunityCorner/>}/>
+            <Route path="view-all-residents" element={<ViewAllResidents/>}/>
+            <Route path="music-preferences" element={<MusicPreferences/>}/>
+            <Route path="favourite-food" element={<FavouriteFood/>}/>
+            <Route path="favourite-animals" element={<FavouriteAnimals/>}/>
+            <Route path="favourite-movies" element={<FavouriteMovies/>}/>
+            <Route path="language-preferences" element={<LanguagePreferences/>}/>
+            <Route path="hobbies-interests" element={<HobbiesInterests/>}/>
+          
+          // Catch all
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

@@ -28,12 +28,12 @@ function Home() {
                 }
                 if (response.data.redirect == '/staff-dashboard') {
                     window.location = "/staff-dashboard"
-                } else if (response.data.redirect == '/login'){
-                    window.location = "/login"
+                } else if (response.data.redirect == '/'){
+                    window.location = "/"
                 }
             })
             .catch(function(error) {
-                window.location = "/login"
+                window.location = "/"
             })
     }
 

@@ -281,7 +281,7 @@ function ResidentDashboard() {
                             <div className="dashboard-favourite-column">
                                 <div className="dashboard-img-wrapper">
                                 <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                                <p><Link to="../favourite-food" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                                <p><Link to="../favourite-food" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                                 </div>
                             </div>
                         </div>

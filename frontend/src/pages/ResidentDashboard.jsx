@@ -137,38 +137,25 @@ function ResidentDashboard() {
                 <div className="split-column">
                     <div className="gallery-card">
                         <h3>Favourite Songs</h3>
+                        {residentData.map((user, key) => (
+                            user._id === userID ? 
+                            user.songs.slice(0,4).map((item, key) => ( 
+                                <div className="dashboard-favourite-column">
+                                    <div className="dashboard-img-wrapper">
+                                    <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
+                                    <p>{item}</p>
+                                    </div>
+                                </div>
+                            ))
+                            : <div></div>
+                        ))}
                         {/* forEach loop here for every activity/interest/hobby */}
-                        <div className="row">
-                            <div className="dashboard-favourite-column">
-                                <div className="dashboard-img-wrapper">
-                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
-                                <p>Song</p>
-                                </div>
+                        <div className="dashboard-favourite-column">
+                            <div className="dashboard-img-wrapper">
+                            <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
+                            <p><Link to="../music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
-                            <div className="dashboard-favourite-column">
-                                <div className="dashboard-img-wrapper">
-                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
-                                <p>Song</p>
-                                </div>
-                            </div>
-                            <div className="dashboard-favourite-column">
-                                <div className="dashboard-img-wrapper">
-                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
-                                <p>Song</p>
-                                </div>
-                            </div>
-                            <div className="dashboard-favourite-column">
-                                <div className="dashboard-img-wrapper">
-                                <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />
-                                <p>Song</p>
-                                </div>
-                            </div>
-                            <div className="dashboard-favourite-column">
-                                <div className="dashboard-img-wrapper">
-                                <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                                <p><Link to="../music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
-                                </div>
-                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -328,7 +315,6 @@ function ResidentDashboard() {
                 </div>
             </div>
         </div>
-    </div>
     );
 }
 

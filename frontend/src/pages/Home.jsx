@@ -1,26 +1,43 @@
-import React,{useState} from 'react';
+import React,{useState, Component} from 'react';
 import { Navigate } from "react-router-dom";
+import { Link, useNavigate, useLocation} from "react-router-dom";
 import axios from 'axios'
+import useAuth from '../hooks/useAuths';
 import "../App.css";
 
 function Home() {
+    const { setAuth } = useAuth;
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    //const from = location.state?.from?.pathname || "/";
 
     const [errorMessages, setErrorMessages] = useState({});
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isStaff, setIsStaff] = useState(false);
     const [loginUsername, setLoginUsername] = useState("")
     const [loginPassword, setLoginPassword] = useState("")
-    const login = () => {
-        axios({
-            method: "POST",
-            data: {
-                username: loginUsername,
-                password: loginPassword,
-            },
-            withCredentials: true,
-            url: "http://localhost:3001/login",
-        }).then((res) => console.log(res));
-    };
+   
+    const login = (e) => {
+        e.preventDefault()
+        alert(loginUsername);
+        //const {loginUsername, loginPassword} = this.state;
+        axios.post('/login', {username: loginUsername, password: loginPassword})
+            .then(function (response) {
+                console.log(response)
+                if (response.data.redirect == '/resident-dashboard') {
+                    window.location = "/resident-dashboard"
+                }
+                if (response.data.redirect == '/staff-dashboard') {
+                    window.location = "/staff-dashboard"
+                } else if (response.data.redirect == '/login'){
+                    window.location = "/login"
+                }
+            })
+            .catch(function(error) {
+                window.location = "/login"
+            })
+    }
 
 
     return (

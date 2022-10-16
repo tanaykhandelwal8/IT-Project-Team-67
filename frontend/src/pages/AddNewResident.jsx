@@ -10,7 +10,12 @@ function AddNewResident()  {
     email:"",
     password:"",
     location:"",
-    dob:""
+    dob:"",
+    biography:"",
+    music: [],
+    food: [],
+    movies: [],
+    animals: []
   })
   
   /* send resident details to the backend */

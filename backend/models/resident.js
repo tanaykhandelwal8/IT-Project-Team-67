@@ -30,6 +30,7 @@ const residentSchema = new mongoose.Schema({
     location: String,
     dateOfBirth: Date,
     role: String,
+    biography: String,
     //profilePic: imageSchema,
     music: musicSchema,
     food: foodSchema,

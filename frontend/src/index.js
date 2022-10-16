@@ -27,20 +27,11 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           //Public route
           <Route index element={<Home />} />
-<<<<<<< HEAD
           // Catch all
           <Route path="*" element={<NoPage />} />
         </Route>
         // Staff routes
         <Route path="/staff/:id" element={<Layout />}>
-=======
-          // Staff routes
-          // Resident routes
-          // Shared routes
-          
-            <Route path="resident-dashboard" element={<ResidentDashboard />} />
-            <Route path="edit-resident-dashboard" element={<EditResidentDashboard />} />
->>>>>>> 68143c9d54bfcfa87204a428b1d0b12ccad9914c
             <Route path="staff-dashboard" element={<StaffDashboard />} />
             <Route path="add-resident" element={<AddNewResident />} />
             <Route path="add-staff" element={<AddNewStaff/>}/>

@@ -29,16 +29,10 @@ function Home() {
                     window.location = "/resident/"+userid+"/resident-dashboard"
                 }
                 if (response.data.redirect == '/staff-dashboard') {
-<<<<<<< HEAD
                     const userid = response.data.id
                     window.location = "/staff/"+userid+"/staff-dashboard"
                 } else if (response.data.redirect == '/login'){
                     window.location = "/login"
-=======
-                    window.location = "/staff-dashboard"
-                } else if (response.data.redirect == '/'){
-                    window.location = "/"
->>>>>>> 68143c9d54bfcfa87204a428b1d0b12ccad9914c
                 }
             })
             .catch(function(error) {

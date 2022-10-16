@@ -65,13 +65,18 @@ router.post(
         if (req.user.role == 'Resident') {
             console.log('redirect to resident dash')
             console.log(req.user.email)
-            var redir = { redirect: "/resident-dashboard" };
+            userId = req.session.passport.user
+            console.log(req.user.id)
+            console.log(userId)
+            var redir = { redirect: "/resident-dashboard",
+                        id: userId  };
             return res.json(redir);
         }
         else if (req.user.role == 'Staff') {
             console.log('redirect to staff dash')
             console.log(req.user.email)
-            var redir = { redirect: "/staff-dashboard" };
+            var redir = { redirect: "/staff-dashboard",
+                          id: req.user.id };
             return res.json(redir);
         }
         else{

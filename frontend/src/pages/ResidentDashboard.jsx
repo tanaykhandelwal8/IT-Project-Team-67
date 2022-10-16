@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import {useParams} from "react-router-dom";
+
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import UploadImage from "../components/UploadImage";
@@ -14,11 +16,13 @@ function ResidentDashboard() {
     }
     getResidentData()
 
+    const params = useParams();
+
     return (
         <div className='Font'>
         <div>
             <div className="dashboard-title">
-                <h1 style={{display: "inline"}}>{backendData[0].firstName} {backendData[0].lastName} </h1>
+                <h1 style={{display: "inline"}}>{backendData[0].firstName} {backendData[0].lastName}</h1>
                 <Link to="../edit-resident-dashboard" style={{float: "right"}}>Edit Profile</Link>
             </div>
         <div className="row">

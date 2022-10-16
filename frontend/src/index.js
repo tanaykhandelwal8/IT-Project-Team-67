@@ -35,6 +35,8 @@ export default function App() {
             <Route path="staff-dashboard" element={<StaffDashboard />} />
             <Route path="add-resident" element={<AddNewResident />} />
             <Route path="add-staff" element={<AddNewStaff/>}/>
+            <Route path="community-corner" element={<CommunityCorner/>}/>
+            <Route path="view-all-residents" element={<ViewAllResidents/>}/>
         </Route>
           // Resident routes
           <Route path="/resident/:id" element={<Layout />}>

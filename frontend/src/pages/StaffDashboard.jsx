@@ -1,4 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
+import {useParams} from "react-router-dom";
+
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import UploadImage from "../components/UploadImage";
@@ -21,11 +23,13 @@ function StaffDashboard() {
     }
     getResidentData()
 
+    const params = useParams();
+
     return (
         <div className='Font'>
         <div>
             <div className="dashboard-title">
-                <h1>Welcome {staffData[0].firstName} {staffData[0].firstName} </h1>
+                <h1>Welcome {staffData[0].firstName} {staffData[0].lastName} {params.id}</h1>
             </div>
         <div className="row">
             <div className="left-column">

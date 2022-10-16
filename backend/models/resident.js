@@ -31,6 +31,7 @@ const residentSchema = new mongoose.Schema({
     password: String,
     location: String,
     dateOfBirth: Date,
+    role: String
     //profilePic: imageSchema,
     //music: musicSchema,
     //food: foodSchema,

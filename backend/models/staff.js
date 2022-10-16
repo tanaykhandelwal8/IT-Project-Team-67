@@ -11,7 +11,7 @@ const clinicianSchema = new mongoose.Schema({
     lastName: String,
     email: String,
     password: String,
-    residents: residentSchema
+    role: String,
 });
 
 clinicianSchema.methods.verifyPassword = function(password, callback) {

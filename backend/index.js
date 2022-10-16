@@ -9,7 +9,7 @@ app.use(express.static(__dirname))
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose')
 
-var residentRouter = require("./routes/residentRouter")
+//var residentRouter = require("./routes/residentRouter")
 
 const Residents = require("./models/resident")
 const Musics = require("./models/music")
@@ -64,6 +64,7 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const bcrypt = require('bcryptjs')
 const session = require('express-session')
+const flash = require('express-flash')
 const passportlocal = require('passport-local').Strategy
 
 // middleware
@@ -83,6 +84,23 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(cookieParser("secretcode"))
+
+app.use(flash())
+
+const residentRouter = require("./routes/residentRouter");
+const staffRouter = require("./routes/staffRouter");
+app.use("/patient", residentRouter);
+app.use("/clinician", staffRouter);
+
+/*app.post('/login', (req,res) => {
+    console.log("HELLO");
+    console.log(req.body);
+    
+})
+*/
+
+const authRouter = require('./routes/auth')
+app.use(authRouter.router)
 
 require('./models')
 const resident = require('./models/resident')
@@ -133,7 +151,7 @@ app.get('*', function(req, res){
 });
 
 
-
+/*
 app.post('/login', (req, res, next) => {
     passport.authenticate('resident-local', {
         successRedirect:'success',
@@ -141,6 +159,7 @@ app.post('/login', (req, res, next) => {
         failureFlash: true
     })
 })
+*/
 app.post('/register-resident', (req, res) => {
     resident.findOne({email:req.body.email}, async (err, doc) => {
         if(err) throw err
@@ -153,7 +172,8 @@ app.post('/register-resident', (req, res) => {
                 password: hashedPassword,
                 email: req.body.email,
                 location: req.body.location,
-                dateOfBirth: req.body.dob
+                dateOfBirth: req.body.dob,
+                role: "Resident"
             })
             await newResident.save()
             console.log('resident created')
@@ -171,7 +191,8 @@ app.post('/register-staff', (req, res) => {
                 lastName: req.body.lastName,
                 password: hashedPassword,
                 email: req.body.email,
-                dateOfBirth: req.body.dob
+                dateOfBirth: req.body.dob,
+                role: "Staff"
             })
             await newStaff.save()
             console.log('staff added')
@@ -179,7 +200,7 @@ app.post('/register-staff', (req, res) => {
     })
 })
 
-app.use('/resident', residentRouter);
+//app.use('/resident', residentRouter);
 
 app.get('/', (req, res) => {
     res.send("Hello World!")

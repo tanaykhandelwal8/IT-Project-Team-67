@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {useParams} from "react-router-dom";
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import UploadImage from "../components/UploadImage";
@@ -12,19 +13,26 @@ function ResidentDashboard() {
         alert('You have saved your changes.')
     }
 
-    const [backendData, setBackendData] = useState([{}])
+    const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
       axios.get("http://localhost:3001/get-resident-data")
-      .then((res) => {setBackendData(res.data)})
+      .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
+
+    const params = useParams();
+    const userID = params.id;
 
     return (
         <div className='Font'>
         <div>
             <div className="dashboard-title">
-                <h1 style={{display: "inline"}}>{backendData[0].firstName} {backendData[0].lastName} </h1>
-                <Link to="../resident-dashboard" style={{float: "right"}}>View Profile</Link>
+                {residentData.map((user, key) => (
+                    <div>
+                    {(user._id === userID) ? <h1 style={{display: "inline"}}>Welcome {user.firstName} {user.lastName}</h1> : <div></div>}
+                    {(user._id === userID) ? <Link to="../resident-dashboard" style={{float: "right"}}>View Profile</Link> : <div></div>}
+                    </div>
+                ))}
             </div>
         <div className="row">
             <div className="left-column">
@@ -40,9 +48,13 @@ function ResidentDashboard() {
                 </div>
                 <div className="gallery-card">
                     <label><h3>Location</h3></label>
-                    <p>{backendData[0].location}</p>
+                    {residentData.map((user, key) => (
+                        (user._id == userID) ? <h1>{user.location}</h1> : <div></div>
+                    ))}
                     <label><h3>Date of Birth</h3></label>
-                    <p>{backendData[0].dateOfBirth}</p>
+                    {residentData.map((user, key) => (
+                        (user._id == userID) ? <h1>{user.dateOfBirth.slice(0,10)}</h1> : <div></div>
+                    ))}
                     <form onSubmit={handleSubmit}>
                         <label>
                             <h3>About Me</h3>

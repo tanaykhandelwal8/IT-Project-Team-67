@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {useParams} from "react-router-dom";
-
-import axios from 'axios';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 import UploadImage from "../components/UploadImage";
 
 import "../App.css";
@@ -24,12 +23,22 @@ function StaffDashboard() {
     getResidentData()
 
     const params = useParams();
+    const userID = params.id;
+
+    const findStaffById = () => {
+        return staffData.find((staff) => {
+          return staff._id === userID;
+        })
+    }
+    const user = findStaffById()
 
     return (
         <div className='Font'>
         <div>
             <div className="dashboard-title">
-                <h1>Welcome {staffData[0].firstName} {staffData[0].lastName} {params.id}</h1>
+            {staffData.map((user, key) => (
+                (user._id == userID) ? <h1>Welcome {user.firstName} {user.lastName}</h1> : <div></div>
+            ))}
             </div>
         <div className="row">
             <div className="left-column">

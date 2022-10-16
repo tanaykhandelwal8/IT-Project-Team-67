@@ -41,6 +41,7 @@ export default function App() {
           // Resident routes
           <Route path="/resident/:id" element={<Layout />}>
             <Route path="resident-dashboard" element={<ResidentDashboard />} />
+            <Route path="edit-resident-dashboard" element={<EditResidentDashboard />} />
             <Route path="music" element={<Music/>}/>
             <Route path="community-corner" element={<CommunityCorner/>}/>
             <Route path="view-all-residents" element={<ViewAllResidents/>}/>

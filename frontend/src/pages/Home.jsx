@@ -18,16 +18,19 @@ function Home() {
    
     const login = (e) => {
         e.preventDefault()
-        alert(loginUsername);
+        //alert(loginUsername);
         //const {loginUsername, loginPassword} = this.state;
         axios.post('/login', {username: loginUsername, password: loginPassword})
             .then(function (response) {
                 console.log(response)
                 if (response.data.redirect == '/resident-dashboard') {
-                    window.location = "/resident-dashboard"
+                    const userid = response.data.id
+                    console.log(userid)
+                    window.location = "/resident/"+userid+"/resident-dashboard"
                 }
                 if (response.data.redirect == '/staff-dashboard') {
-                    window.location = "/staff-dashboard"
+                    const userid = response.data.id
+                    window.location = "/staff/"+userid+"/staff-dashboard"
                 } else if (response.data.redirect == '/login'){
                     window.location = "/login"
                 }

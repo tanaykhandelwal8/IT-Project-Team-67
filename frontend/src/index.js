@@ -26,14 +26,18 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           //Public route
           <Route index element={<Home />} />
-          // Staff routes
-          // Resident routes
-          // Shared routes
-          
-            <Route path="resident-dashboard" element={<ResidentDashboard />} />
+          // Catch all
+          <Route path="*" element={<NoPage />} />
+        </Route>
+        // Staff routes
+        <Route path="/staff/:id" element={<Layout />}>
             <Route path="staff-dashboard" element={<StaffDashboard />} />
             <Route path="add-resident" element={<AddNewResident />} />
             <Route path="add-staff" element={<AddNewStaff/>}/>
+        </Route>
+          // Resident routes
+          <Route path="/resident/:id" element={<Layout />}>
+            <Route path="resident-dashboard" element={<ResidentDashboard />} />
             <Route path="music" element={<Music/>}/>
             <Route path="community-corner" element={<CommunityCorner/>}/>
             <Route path="view-all-residents" element={<ViewAllResidents/>}/>
@@ -43,14 +47,11 @@ export default function App() {
             <Route path="favourite-movies" element={<FavouriteMovies/>}/>
             <Route path="language-preferences" element={<LanguagePreferences/>}/>
             <Route path="hobbies-interests" element={<HobbiesInterests/>}/>
+          </Route>
           
-          // Catch all
-          <Route path="*" element={<NoPage />} />
-        </Route>
       </Routes>
     </BrowserRouter>
   );
 }
-
 ReactDOM.render(<App />, document.getElementById("root"));
 

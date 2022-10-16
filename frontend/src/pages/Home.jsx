@@ -2,11 +2,9 @@ import React,{useState, Component} from 'react';
 import { Navigate } from "react-router-dom";
 import { Link, useNavigate, useLocation} from "react-router-dom";
 import axios from 'axios'
-import useAuth from '../hooks/useAuths';
 import "../App.css";
 
 function Home() {
-    const { setAuth } = useAuth;
 
     const navigate = useNavigate();
     const location = useLocation();

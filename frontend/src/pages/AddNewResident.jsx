@@ -21,6 +21,7 @@ function AddNewResident()  {
       withCredentials: true,
       url: "http://localhost:3001/register-resident"
     }).then((res) => console.log(res))
+    alert('You have successfully created a new resident.')
   }
 
   return (

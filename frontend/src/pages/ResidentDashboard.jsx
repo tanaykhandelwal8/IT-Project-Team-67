@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import {Link} from 'react-router-dom';
 import UploadImage from "../components/UploadImage";
 
@@ -11,11 +12,18 @@ function ResidentDashboard() {
         alert('You have saved your changes.')
     }
 
+    const [backendData, setBackendData] = useState([{}])
+    const getResidentData = () => {
+      axios.get("http://localhost:3001/get-resident-data")
+      .then((res) => {setBackendData(res.data)})
+    }
+    getResidentData()
+
     return (
         <div className='Font'>
         <div>
             <div className="dashboard-title">
-                <h1>John Smith</h1>
+                <h1>{backendData[0].firstName} {backendData[0].lastName} </h1>
             </div>
         <div className="row">
             <div className="left-column">
@@ -30,15 +38,15 @@ function ResidentDashboard() {
                     </div>
                 </div>
                 <div className="gallery-card">
-                    <label><h3>Address</h3></label>
-                    <p>42 Wallaby Way, Sydney</p>
+                    <label><h3>Location</h3></label>
+                    <p>{backendData[0].location}</p>
                     <label><h3>Date of Birth</h3></label>
-                    <p>1/01/1970</p>
+                    <p>{backendData[0].dateOfBirth}</p>
                     <form onSubmit={handleSubmit}>
                         <label>
                             <h3>About Me</h3>
                         </label>
-                        <textarea className="dashboard-textarea" name="biography"></textarea>
+                        <textarea className="dashboard-textarea" style={{height: "160px"}} name="biography"></textarea>
                         <button style={{height: "3vw"}} type="submit">Save</button>
                     </form>
                 </div>
@@ -47,7 +55,7 @@ function ResidentDashboard() {
                 <div className="split-column">
                     <div className="gallery-card">
                         <h3>Interests</h3>
-                        {/* forEach loop here for every activity/interest/hobby */}
+                        {/* {interestData.slice(0,4).map((item, key) => ( */}
                         <div className="row">
                             <div className="dashboard-favourite-column">
                                 <div className="dashboard-img-wrapper">

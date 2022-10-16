@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import ResidentDashboard from "./pages/ResidentDashboard";
+import EditResidentDashboard from "./pages/EditResidentDashboard";
 import NoPage from "./pages/NoPage";
 import AddNewResident from "./pages/AddNewResident";
 import AddNewStaff from "./pages/AddNewStaff";
@@ -31,6 +32,7 @@ export default function App() {
           // Shared routes
           
             <Route path="resident-dashboard" element={<ResidentDashboard />} />
+            <Route path="edit-resident-dashboard" element={<EditResidentDashboard />} />
             <Route path="staff-dashboard" element={<StaffDashboard />} />
             <Route path="add-resident" element={<AddNewResident />} />
             <Route path="add-staff" element={<AddNewStaff/>}/>

@@ -7,6 +7,11 @@ import "../App.css";
 
 function ResidentDashboard() {
 
+    const handleSubmit = event => {
+        event.preventDefault();
+        alert('You have saved your changes.')
+    }
+
     const [backendData, setBackendData] = useState([{}])
     const getResidentData = () => {
       axios.get("http://localhost:3001/get-resident-data")
@@ -19,7 +24,7 @@ function ResidentDashboard() {
         <div>
             <div className="dashboard-title">
                 <h1 style={{display: "inline"}}>{backendData[0].firstName} {backendData[0].lastName} </h1>
-                <Link to="../edit-resident-dashboard" style={{float: "right"}}>Edit Profile</Link>
+                <Link to="../resident-dashboard" style={{float: "right"}}>View Profile</Link>
             </div>
         <div className="row">
             <div className="left-column">
@@ -38,10 +43,13 @@ function ResidentDashboard() {
                     <p>{backendData[0].location}</p>
                     <label><h3>Date of Birth</h3></label>
                     <p>{backendData[0].dateOfBirth}</p>
-                    <label>
-                        <h3>About Me</h3>
-                    </label>
-                    <textarea value="Put read-only bio here." className="dashboard-textarea" style={{height: "160px"}} name="biography">Hi</textarea>
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            <h3>About Me</h3>
+                        </label>
+                        <textarea className="dashboard-textarea" style={{height: "160px"}} name="biography"></textarea>
+                        <button style={{height: "3vw"}} type="submit">Save</button>
+                    </form>
                 </div>
             </div>
             <div className="right-column">
@@ -77,7 +85,7 @@ function ResidentDashboard() {
                             <div className="dashboard-favourite-column">
                                 <div className="dashboard-img-wrapper">
                                 <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                                <p><Link to="../hobbies-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                                <p><Link to="../hobbies-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +123,7 @@ function ResidentDashboard() {
                             <div className="dashboard-favourite-column">
                                 <div className="dashboard-img-wrapper">
                                 <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                                <p><Link to="../hobbies-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                                <p><Link to="../hobbies-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                                 </div>
                             </div>
                         </div>
@@ -153,7 +161,7 @@ function ResidentDashboard() {
                             <div className="dashboard-favourite-column">
                                 <div className="dashboard-img-wrapper">
                                 <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                                <p><Link to="../music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                                <p><Link to="../music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +193,7 @@ function ResidentDashboard() {
                             <div className="dashboard-favourite-column">
                                 <div className="dashboard-img-wrapper">
                                 <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                                <p><Link to="*" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                                <p><Link to="*" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                                 </div>
                             </div>
                         </div>
@@ -223,7 +231,7 @@ function ResidentDashboard() {
                             <div className="dashboard-favourite-column">
                                 <div className="dashboard-img-wrapper">
                                 <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                                <p><Link to="../favourite-movies" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                                <p><Link to="../favourite-movies" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                                 </div>
                             </div>
                         </div>
@@ -281,7 +289,7 @@ function ResidentDashboard() {
                             <div className="dashboard-favourite-column">
                                 <div className="dashboard-img-wrapper">
                                 <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                                <p><Link to="../favourite-animals" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                                <p><Link to="../favourite-animals" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                                 </div>
                             </div>
                         </div>
@@ -307,7 +315,7 @@ function ResidentDashboard() {
                             <div className="dashboard-favourite-column">
                                 <div className="dashboard-img-wrapper">
                                 <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                                <p><Link to="../language-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                                <p><Link to="../language-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                                 </div>
                             </div>
                         </div>

@@ -209,7 +209,7 @@ body{
 .gallery-card {
   background-color: lightsteelblue;
   border-radius: 5px;
-  padding: 20px;
+  padding: 10px;
   margin-top: 20px;
   margin-left: 20px;
 }
@@ -378,6 +378,8 @@ header {
   text-align: center;
   justify-content: center;
   float: left;
+  width: 75px;
+  word-wrap: break-word;
   padding: 5px;
 }
 

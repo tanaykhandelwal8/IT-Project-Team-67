@@ -135,8 +135,8 @@ function ResidentDashboard() {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card">
-                        <h3>Favourite Songs</h3>
+                    <div className="gallery-card" style={{height: "16vw", padding: "0px"}}>
+                        <h3 style={{marginLeft: "10px"}}>Favourite Songs</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ? 
                             user.songs.slice(0,4).map((item, key) => ( 
@@ -155,7 +155,6 @@ function ResidentDashboard() {
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
                             <p><Link to="../music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
@@ -315,6 +314,7 @@ function ResidentDashboard() {
                 </div>
             </div>
         </div>
+    </div>
     );
 }
 

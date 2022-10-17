@@ -51,8 +51,7 @@ function StaffDashboard() {
                     <div className="button-wrapper">
                         <Link to="../add-resident">Add New Resident</Link>
                     </div>
-                </div>
-                <div className="gallery-card">
+                    <br></br>
                     <div className="button-wrapper">
                         <Link to="../view-all-residents">View All Residents</Link>
                     </div>
@@ -63,9 +62,8 @@ function StaffDashboard() {
                 </div>
             </div>
             <div className="right-column">
-                <div className="gallery-card">
+                <div className="gallery-card" style={{height: "40vw"}}>
                     <h2 className="centered-element">Residents List</h2>
-                    <div>
                     {(typeof residentData === 'undefined') ? (
                             <p> loading</p>
                         ): (
@@ -81,8 +79,9 @@ function StaffDashboard() {
                             ))}
                         </div>
                     )}
-                    </div>
+                    
                 </div>
+                <p><Link to="../view-all-residents" className="centered-element" style={{padding: "0", backgroundColor: "white", color: "blue", marginLeft: "28vw"}}>View All Residents</Link></p>
             </div>
         </div>
     </div>

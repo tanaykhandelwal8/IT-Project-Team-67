@@ -4,8 +4,7 @@ import { Link, useNavigate, useLocation} from "react-router-dom";
 import axios from 'axios'
 import "../App.css";
 
-function Home() {
-
+function Home(props) {
     const navigate = useNavigate();
     const location = useLocation();
     //const from = location.state?.from?.pathname || "/";
@@ -16,6 +15,9 @@ function Home() {
     const [loginUsername, setLoginUsername] = useState("")
     const [loginPassword, setLoginPassword] = useState("")
    
+    /* Navbar does not need to be displayed on this page */
+    props.funcNav(false)
+    
     const login = (e) => {
         e.preventDefault()
         //alert(loginUsername);
@@ -39,7 +41,6 @@ function Home() {
                 window.location = "/"
             })
     }
-
 
     return (
         <div className='Font'>

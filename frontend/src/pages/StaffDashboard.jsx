@@ -6,8 +6,10 @@ import UploadImage from "../components/UploadImage";
 
 import "../App.css";
 
-function StaffDashboard() {
-
+function StaffDashboard(props) {
+    /* Navbar should be shown on this page */
+    props.funcNav(true)
+    
     const [staffData, setStaffData] = useState([{}])
     const getStaffData = () => {
       axios.get("http://localhost:3001/get-staff-data")

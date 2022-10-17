@@ -6,8 +6,10 @@ import UploadImage from "../components/UploadImage";
 
 import "../App.css";
 
-function ResidentDashboard() {
-
+function ResidentDashboard(props) {
+    /* Navbar should be shown on this page */
+    props.funcNav(true)
+    
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
       axios.get("http://localhost:3001/get-resident-data")

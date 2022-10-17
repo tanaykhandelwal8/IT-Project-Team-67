@@ -1,20 +1,15 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import logo from "../assets/logoFlat.png"
+import "../Navbar.css"
 
 function Navbar() {
   return (
-    <nav style={{zIndex:"99", position:"relative"}}>
-      <header>
-        <Link to="resident-dashboard">Resident Dashboard</Link>
-        <a> </a>
-        <Link to="staff-dashboard">Staff Dashboard</Link>
-        <a> </a>
-        <Link to="community-corner">Community Corner</Link>
-        <Link to="/"style={{float:'right'}}>Log Out</Link>
+    <nav style={{zIndex:"99",position:"fixed"}}>
+      <header className="Navbar">
+        <img src={logo} className="Logo"></img>
+        <Link to="/" className="Logout">Log Out</Link>
       </header>
-      <br></br>
-      <br></br>
-      <br></br>
     </nav>
   );
 }

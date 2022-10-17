@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
-function ViewAllResidents() {
+function ViewAllResidents(props) {
+    /* Navbar should be shown on this page */
+    props.funcNav(true)
     
     const [backendData, setBackendData] = useState([{}])
     const getResidentData = () => {

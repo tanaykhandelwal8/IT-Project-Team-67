@@ -2,7 +2,9 @@ import React, {useEffect, useState} from 'react';
 import "../App.css"
 import axios from 'axios'
 
-function AddNewStaff() {
+function AddNewStaff(props) {
+  /* Navbar should be shown on this page */
+  props.funcNav(true)
     // local format for creating a staff member
     const [newStaff, setNewStaff] = useState({
       firstName:"",

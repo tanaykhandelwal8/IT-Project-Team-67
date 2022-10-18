@@ -10,7 +10,6 @@ import AddNewStaff from "./pages/AddNewStaff";
 import CommunityCorner from "./pages/CommunityCorner";
 import ViewAllResidents from "./pages/ViewAllResidents";
 import StaffDashboard from "./pages/StaffDashboard";
-import Music from "./pages/MusicPreference";
 import React, { useState } from "react";
 import MusicPreferences from "./pages/MusicPreferences";
 import FavouriteFood from "./pages/FavouriteFood";
@@ -54,7 +53,6 @@ export default function App() {
           <Route path="/resident/:id" element={<Layout />}>
             <Route path="resident-dashboard" element={<ResidentDashboard funcNav={setShowNav}/>} />
             <Route path="edit-resident-dashboard" element={<EditResidentDashboard funcNav={setShowNav}/>} />
-            <Route path="music" element={<Music funcNav={setShowNav}/>}/>
             <Route path="community-corner" element={<CommunityCorner funcNav={setShowNav}/>}/>
             <Route path="view-all-residents" element={<ViewAllResidents funcNav={setShowNav}/>}/>
             <Route path="music-preferences" element={<MusicPreferences funcNav={setShowNav}/>}/>

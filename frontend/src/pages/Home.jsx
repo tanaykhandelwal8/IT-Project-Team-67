@@ -25,15 +25,15 @@ function Home(props) {
         axios.post('/login', {username: loginUsername, password: loginPassword})
             .then(function (response) {
                 console.log(response)
-                if (response.data.redirect == '/resident-dashboard') {
+                if (response.data.redirect === '/resident-dashboard') {
                     const userid = response.data.id
                     console.log(userid)
                     window.location = "/resident/"+userid+"/resident-dashboard"
                 }
-                if (response.data.redirect == '/staff-dashboard') {
+                if (response.data.redirect === '/staff-dashboard') {
                     const userid = response.data.id
                     window.location = "/staff/"+userid+"/staff-dashboard"
-                } else if (response.data.redirect == '/login'){
+                } else if (response.data.redirect === '/login'){
                     window.location = "/login"
                 }
             })

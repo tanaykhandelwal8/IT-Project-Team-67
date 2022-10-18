@@ -14,6 +14,7 @@ function AddNewStaff(props) {
       dob:""
     })
 
+    /* Send new staff member data to the backend */
     const register = () => {
         axios({
             method:"post",
@@ -68,7 +69,7 @@ function AddNewStaff(props) {
             </td>
         </tr>
       </table>
-      {/* WILL BE CHANGED TO PROFILE OF NEW RESIDENT */}
+      {/* will link to staff dashboard */}
       <button onClick={register}>
           Add Staff</button>
     </div>

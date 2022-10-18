@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 import {Link} from 'react-router-dom';
@@ -22,7 +22,7 @@ function ResidentDashboard(props) {
 
     const userBiography = residentData.map((user, key) => (
         (user._id === userID) ? user.biography : <div></div>
-    ),[])
+    ))
 
     return (
         <div className='Font'>
@@ -51,11 +51,11 @@ function ResidentDashboard(props) {
                 <div className="gallery-card">
                     <label><h3>Location</h3></label>
                     {residentData.map((user, key) => (
-                        (user._id == userID) ? <h1>{user.location}</h1> : <div></div>
+                        (user._id === userID) ? <h1>{user.location}</h1> : <div></div>
                     ))}
                     <label><h3>Date of Birth</h3></label>
                     {residentData.map((user, key) => (
-                        (user._id == userID) ? <h1>{user.dateOfBirth.slice(0,10)}</h1> : <div></div>
+                        (user._id === userID) ? <h1>{user.dateOfBirth.slice(0,10)}</h1> : <div></div>
                     ))}
                     <label>
                         <h3>About Me</h3>

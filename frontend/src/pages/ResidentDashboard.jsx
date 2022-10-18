@@ -12,7 +12,7 @@ function ResidentDashboard(props) {
     
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("http://localhost:3001/get-resident-data")
+      axios.get("http://localhost:3001/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
@@ -22,7 +22,7 @@ function ResidentDashboard(props) {
 
     const userBiography = residentData.map((user, key) => (
         (user._id === userID) ? user.biography : <div></div>
-    ))
+    ),[])
 
     return (
         <div className='Font'>

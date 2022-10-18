@@ -12,7 +12,7 @@ function StaffDashboard(props) {
     
     const [staffData, setStaffData] = useState([{}])
     const getStaffData = () => {
-      axios.get("http://localhost:3001/get-staff-data")
+      axios.get("http://localhost:3001/staff/get-staff-data")
       .then((res) => {setStaffData(res.data)})
     }
     getStaffData()

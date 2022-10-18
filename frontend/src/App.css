@@ -94,6 +94,7 @@ body{
   align-items: center;
   margin-top: -300px;
 }
+
 .login-class{
   display: flex; justify-content: space-around;
 

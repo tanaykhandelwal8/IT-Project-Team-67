@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useParams, Link} from "react-router-dom";
 import { MultiSelect } from "react-multi-select-component";
 import axios from 'axios';
@@ -20,6 +20,10 @@ function EditMusicPreferences(props) {
 
     const [selected, setSelected] = useState([]);
 
+    function handleSelect(data) {
+        setSelected(data);
+    }
+
     return (
         <div>
             <div className="dashboard-title">
@@ -35,8 +39,7 @@ function EditMusicPreferences(props) {
                     options={musicData}
                     value={selected}
                     onChange={setSelected}
-                    labelledBy={"Select..."}
-                    isCreatable={true}
+                    labelledBy={"Select"}
                 />
             </div>
 

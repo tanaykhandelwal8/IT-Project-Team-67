@@ -18,6 +18,7 @@ import FavouriteAnimals from "./pages/FavouriteAnimals";
 import FavouriteMovies from "./pages/FavouriteMovies";
 import LanguagePreferences from "./pages/LanguagePreferences";
 import HobbiesInterests from "./pages/HobbiesInterests";
+import ChangePassword from "./pages/ChangePassword";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -63,6 +64,7 @@ export default function App() {
             <Route path="favourite-movies" element={<FavouriteMovies funcNav={setShowNav}/>}/>
             <Route path="language-preferences" element={<LanguagePreferences funcNav={setShowNav}/>}/>
             <Route path="hobbies-interests" element={<HobbiesInterests funcNav={setShowNav}/>}/>
+            <Route path="change-password" element={<ChangePassword funcNav={setShowNav}/>}/>
           </Route>
           
       </Routes>

@@ -19,6 +19,7 @@
     "react-multi-select-component": "^4.3.4",
     "react-router-dom": "^6.4.2",
     "react-scripts": "^5.0.1",
+    "react-select": "^5.5.2",
     "react-textarea-autosize": "^8.3.4",
     "reactjs-popup": "^2.0.5",
     "web-vitals": "^2.1.4"

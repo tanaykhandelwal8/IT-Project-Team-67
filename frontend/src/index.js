@@ -52,18 +52,6 @@ export default function App() {
         </Route>
           // Resident routes
           <Route path="/resident/:id" element={<Layout />}>
-<<<<<<< HEAD
-            <Route path="resident-dashboard" element={<ResidentDashboard />} />
-            <Route path="edit-resident-dashboard" element={<EditResidentDashboard />} />
-            <Route path="community-corner" element={<CommunityCorner/>}/>
-            <Route path="view-all-residents" element={<ViewAllResidents/>}/>
-            <Route path="music-preferences" element={<MusicPreferences/>}/>
-            <Route path="favourite-food" element={<FavouriteFood/>}/>
-            <Route path="favourite-animals" element={<FavouriteAnimals/>}/>
-            <Route path="favourite-movies" element={<FavouriteMovies/>}/>
-            <Route path="language-preferences" element={<LanguagePreferences/>}/>
-            <Route path="hobbies-interests" element={<HobbiesInterests/>}/>
-=======
             <Route path="resident-dashboard" element={<ResidentDashboard funcNav={setShowNav}/>} />
             <Route path="edit-resident-dashboard" element={<EditResidentDashboard funcNav={setShowNav}/>} />
             <Route path="music" element={<Music funcNav={setShowNav}/>}/>
@@ -75,7 +63,6 @@ export default function App() {
             <Route path="favourite-movies" element={<FavouriteMovies funcNav={setShowNav}/>}/>
             <Route path="language-preferences" element={<LanguagePreferences funcNav={setShowNav}/>}/>
             <Route path="hobbies-interests" element={<HobbiesInterests funcNav={setShowNav}/>}/>
->>>>>>> 047f6761dcb4f06abaabaefbbbe9e189354bb14c
           </Route>
           
       </Routes>

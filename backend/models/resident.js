@@ -48,14 +48,14 @@ const residentSchema = new mongoose.Schema({
     role: String,
     biography: String,
     //profilePic: imageSchema,
-    music: musicSchema,
-    food: foodSchema,
-    movies: movieSchema,
-    animals: animalSchema,
-    hobby: hobbySchema,
-    interest: interestSchema,
-    musician: musicianSchema,
-    language: languageSchema,
+    music: [musicSchema],
+    food: [foodSchema],
+    movies: [movieSchema],
+    animals: [animalSchema],
+    hobby: [hobbySchema],
+    interest: [interestSchema],
+    musician: [musicianSchema],
+    language: [languageSchema],
 });
 
 residentSchema.methods.verifyPassword = function(password, callback) {

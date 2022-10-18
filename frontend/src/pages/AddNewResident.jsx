@@ -18,7 +18,11 @@ function AddNewResident(props)  {
     music: [],
     food: [],
     movies: [],
-    animals: []
+    animals: [],
+    hobbies: [],
+    interests: [],
+    musicians: [],
+    languages: [],
   })
   
   /* send resident details to the backend */

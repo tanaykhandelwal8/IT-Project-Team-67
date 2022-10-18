@@ -20,6 +20,10 @@ function ResidentDashboard(props) {
     const params = useParams();
     const userID = params.id;
 
+    const userBiography = residentData.map((user, key) => (
+        (user._id == userID) ? user.biography : <div></div>
+    ))
+
     return (
         <div className='Font'>
         <div>
@@ -56,7 +60,8 @@ function ResidentDashboard(props) {
                     <label>
                         <h3>About Me</h3>
                     </label>
-                    <textarea value="Put read-only bio here." className="dashboard-textarea" style={{height: "160px"}} name="biography">Hi</textarea>
+                    <textarea value={userBiography} className="dashboard-textarea" style={{height: "160px"}} name="biography">
+                    </textarea>
                 </div>
             </div>
             <div className="right-column">
@@ -141,7 +146,7 @@ function ResidentDashboard(props) {
                         <h3 style={{marginLeft: "10px"}}>Favourite Songs</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ? 
-                            user.songs.slice(0,4).map((item, key) => ( 
+                            user.music.slice(0,4).map((item, key) => ( 
                                 <div className="dashboard-favourite-column">
                                     <div className="dashboard-img-wrapper">
                                     <img className="gallery-profile-picture" src={require('../assets/music-icon.png')} alt="" />

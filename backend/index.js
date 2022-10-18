@@ -173,6 +173,7 @@ app.post('/register-resident', (req, res) => {
                 email: req.body.email,
                 location: req.body.location,
                 dateOfBirth: req.body.dob,
+                biography: "Edit Me!",
                 role: "Resident"
             })
             await newResident.save()

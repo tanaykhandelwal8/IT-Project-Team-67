@@ -12,6 +12,7 @@ const clinicianSchema = new mongoose.Schema({
     email: String,
     password: String,
     role: String,
+    //profilePic: imageSchema,
 });
 
 clinicianSchema.methods.verifyPassword = function(password, callback) {

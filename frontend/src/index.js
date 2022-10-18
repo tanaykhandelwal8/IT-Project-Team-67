@@ -54,7 +54,6 @@ export default function App() {
           <Route path="/resident/:id" element={<Layout />}>
             <Route path="resident-dashboard" element={<ResidentDashboard funcNav={setShowNav}/>} />
             <Route path="edit-resident-dashboard" element={<EditResidentDashboard funcNav={setShowNav}/>} />
-            <Route path="music" element={<Music funcNav={setShowNav}/>}/>
             <Route path="community-corner" element={<CommunityCorner funcNav={setShowNav}/>}/>
             <Route path="view-all-residents" element={<ViewAllResidents funcNav={setShowNav}/>}/>
             <Route path="music-preferences" element={<MusicPreferences funcNav={setShowNav}/>}/>

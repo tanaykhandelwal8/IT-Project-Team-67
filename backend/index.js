@@ -204,6 +204,17 @@ app.post('/register-staff', (req, res) => {
     })
 })
 
+app.post('/update-music-preferences', (req, res) => {
+    resident.findOneAndUpdate({
+        email:req.body.email
+    }, {
+        $push: {
+            music: selected
+        }
+    })
+    console.log('staff added')
+})
+
 //app.use('/resident', residentRouter);
 
 app.get('/', (req, res) => {
@@ -237,7 +248,6 @@ app.get('/foods', async (req, res) => {
     }   else {
         res.send( {result: "No foods Found"})
     }
-
 })
 
 app.get('/animals', async (req, res) => {

@@ -8,20 +8,21 @@ function EditMusicPreferences(props) {
     /* Navbar should be shown on this page */
     props.funcNav(true)
 
+    const params = useParams();
+    const userID = params.id;
+
+    const [selected, setSelected] = useState([]);
+
     const [musicData, setMusicData] = useState([{}])
     const getMusicData = () => {
       axios.get("http://localhost:3001/get-music-data")
       .then((res) => {setMusicData(res.data)})
     }
     getMusicData()
-    
-    const params = useParams();
-    const userID = params.id;
 
-    const [selected, setSelected] = useState([]);
-
-    function handleSelect(data) {
-        setSelected(data);
+      const handleSubmit = event => {
+        event.preventDefault();
+        alert('You have saved your changes.')
     }
 
     return (
@@ -42,7 +43,8 @@ function EditMusicPreferences(props) {
                     labelledBy={"Select"}
                 />
             </div>
-
+            <br></br>
+            <button style={{height: "3vw"}} type="submit" onClick={handleSubmit}>Save</button>
 
         </div>
     )

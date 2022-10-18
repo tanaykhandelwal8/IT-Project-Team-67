@@ -1,7 +1,9 @@
+/* Font used across the site*/
 .Font{
   font-family: 'Roboto', sans-serif;
 }
 
+/* CSS for links*/
 a{
   font-weight: bold;
   font-size: 20px;
@@ -14,11 +16,10 @@ a:link, a:visited {
   text-decoration: none;
   display: inline-block;
 }
-
 a:hover, a:active {
   background-color: #eff0f2;
 }
-
+/* Buttons should look the same as <Link>'s*/
 button {
   background-color: #f4f5f7;
   border: none;
@@ -35,7 +36,7 @@ button:hover, button:active {
   background-color: #eff0f2;
 }
 
-
+/* Table CSS, used for add new resident and staff*/
 table {
   text-align: left;
 }
@@ -46,7 +47,7 @@ td {
   background-color: #f4f5f7; border: 8px solid #FFFFFF;
   border-collapse: collapse; text-align: center;
 }
-
+/* how input fields should look*/
 .Input {
   background-color: #FFFFFF00;
   border:0px;

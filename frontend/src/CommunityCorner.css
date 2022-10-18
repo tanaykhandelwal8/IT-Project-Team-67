@@ -16,6 +16,7 @@
     text-align: left;
   }
   
+  /* how buttons on community corner page should look */
   button.CommunityCorner {
     background-color: #f4f5f7;
     border: none;
@@ -32,6 +33,7 @@
   button:hover, button:active {
     background-color: #eff0f2;
   }
+
   .Input {
     background-color: #FFFFFF00;
     border:0px;
@@ -52,6 +54,7 @@
     min-width: 500px;
     max-width: 500px;
   }
+  /* Popup CSS */
   .popup-content {
     margin: auto;
     background: #ffffff;

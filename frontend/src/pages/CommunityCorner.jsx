@@ -29,17 +29,19 @@ const localizer = dateFnsLocalizer({
 function CommunityCorner(props) {
   /* Navbar should be shown on this page */
   props.funcNav(true)
-  /* function to get events from backend */
+  // variable to store data fetched from backend
   const [backendData, setBackendData] = useState([{}])
+  /* function to get events from backend */
   const getEvents = () => {
     axios.get("http://localhost:3001/get-events-data")
     .then((res) => {setBackendData(res.data)})
-    /* format all sent dates into date objects*/
+    /* format all sent dates into date objects to work with JS correctly*/
     for (let i=0;i<backendData.length;i++){
       backendData[i].start = new Date(backendData[i].start)
       backendData[i].end = new Date(backendData[i].end)
     }
   }
+  //Constantly fetch events from backend
   getEvents()
 
   /* send an event to the backend */ 
@@ -51,7 +53,8 @@ function CommunityCorner(props) {
       url: "http://localhost:3001/add-event"
     }).then((res) => console.log(res))
   }
-  /* function to delete an event from the backend */ 
+
+  /* delete an event from the backend */ 
   const deleteEvent = () => {
     axios({
       method:"post",
@@ -60,7 +63,7 @@ function CommunityCorner(props) {
       url: "http://localhost:3001/delete-event"
     }).then((res) => console.log(res))
   }
-  /* Add a new event*/
+  /* Blank new event */
   const [newEvent, setNewEvent] = useState({
     title: "", 
     description:"", 
@@ -69,7 +72,7 @@ function CommunityCorner(props) {
     start: "", 
     end: ""})
 
-  /* Add a new event*/
+  /* blank selected event, used for when viewing / editing an event */
   const [selectedEvent, setSelectedEvent] = useState({
     title: "", 
     description:"", 
@@ -78,18 +81,19 @@ function CommunityCorner(props) {
     start: "", 
     end: ""})
 
-  /* Add a new Event */ 
+  /* should the popup for adding an event be open again */ 
   const [addOpen, setAddOpen] = useState(false)
   const closeAddModal = () => setAddOpen(false)
 
-  /* send an event to the backend and then fetch new backend data*/ 
+  /* send an event to the backend and then fetch new backend data, close add 
+  event popup*/ 
   function handleAddEvent() {
     registerEvent()
     getEvents()
     closeAddModal()
   }
 
-  /* Select an Event*/
+  /* Select an Event to edit and set both */
   function handleSelectEvent(event) {
     setSelectedEvent(event)
     setNewEvent(event)
@@ -100,7 +104,8 @@ function CommunityCorner(props) {
   const [editOpen, setEditOpen] = useState(false)
   const closeEditModal = () => setEditOpen(false)
 
-  /* Save changes to an event */
+  /* Save changes to an event by first deleting it from backend then sending the
+  updated event*/
   function handleSaveEvent() {
     deleteEvent()
     registerEvent()
@@ -119,7 +124,9 @@ function CommunityCorner(props) {
     start: "", end: ""});
     closeEditModal();
   }
-  /* edit event window is closed without saving */
+
+  /* edit event window is closed without saving so send the previously selected 
+  event back to the backend*/
   function handleCancelEvent() {
     setNewEvent({title: "", description:"", location: "",
       start: "", end: ""})
@@ -139,7 +146,7 @@ function CommunityCorner(props) {
       />
       <div className='Font'>
       <button onClick={() => setAddOpen(o => !o)}>Add New Event</button>
-      {/* Add a new Event */}
+      {/* Popup for Adding a new Event */}
         <Popup open={addOpen} onClose={closeAddModal} position='right center'>
         <div style={{marginLeft:"20px"}}>
           <h2>Add New Event</h2>
@@ -206,7 +213,7 @@ function CommunityCorner(props) {
           </div> 
         </Popup>
 
-        {/* Edit an Event */}
+        {/* Popup for Editing an Event */}
         <Popup open={editOpen} onClose={closeEditModal} position='right center'>
         <div style={{marginLeft:"20px"}}>
         <h2>Add New Event</h2>
@@ -273,9 +280,11 @@ function CommunityCorner(props) {
             <button onClick={handleCancelEvent}> Cancel </button>
           </div> 
         </Popup>
+      {/* Show staff dashboard button if logged in as staff */}
       {props.role == "staff" &&
         <Link to="../add-staff">Staff Dashboard</Link>
       }
+      {/* Show resident dashboard button if logged in as resident */}
       {props.role == "resident" &&
         <Link to="../resident-dashboard">Resident Dashboard</Link>
       }

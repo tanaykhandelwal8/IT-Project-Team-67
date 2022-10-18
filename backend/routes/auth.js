@@ -42,7 +42,6 @@ router.get('/login', (req, res) => {
     var redir = { redirect: "/fail"}
     console.log("login failure")
     return res.json(redir);
-    console.log("login failure")
 
 })
 

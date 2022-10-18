@@ -65,6 +65,10 @@ function ResidentDashboard(props) {
                         <textarea className="dashboard-textarea" style={{height: "160px"}} name="biography"></textarea>
                         <button style={{height: "3vw"}} type="submit">Save</button>
                     </form>
+                    <br></br>
+                    <div className="button-wrapper">
+                        <Link to="../change-password">Change Password</Link>
+                    </div>
                 </div>
             </div>
             <div className="right-column">

@@ -12,6 +12,7 @@ import ViewAllResidents from "./pages/ViewAllResidents";
 import StaffDashboard from "./pages/StaffDashboard";
 import React, { useState } from "react";
 import MusicPreferences from "./pages/MusicPreferences";
+import EditMusicPreferences from "./pages/EditMusicPreferences";
 import FavouriteFood from "./pages/FavouriteFood";
 import FavouriteAnimals from "./pages/FavouriteAnimals";
 import FavouriteMovies from "./pages/FavouriteMovies";
@@ -56,6 +57,7 @@ export default function App() {
             <Route path="community-corner" element={<CommunityCorner funcNav={setShowNav}/>}/>
             <Route path="view-all-residents" element={<ViewAllResidents funcNav={setShowNav}/>}/>
             <Route path="music-preferences" element={<MusicPreferences funcNav={setShowNav}/>}/>
+            <Route path="edit-music-preferences" element={<EditMusicPreferences funcNav={setShowNav}/>}/>
             <Route path="favourite-food" element={<FavouriteFood funcNav={setShowNav}/>}/>
             <Route path="favourite-animals" element={<FavouriteAnimals funcNav={setShowNav}/>}/>
             <Route path="favourite-movies" element={<FavouriteMovies funcNav={setShowNav}/>}/>

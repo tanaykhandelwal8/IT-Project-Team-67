@@ -106,6 +106,7 @@ require('./models')
 const resident = require('./models/resident')
 const staff = require('./models/staff')
 const calendar = require('./models/calendar')
+const music = require('./models/music')
 
 app.get('/', (req, res) => {
     res.send("hello world")
@@ -131,6 +132,15 @@ app.get('/get-events-data', (req, res) => {
         console.error(err)
     })
 })
+
+app.get('/get-music-data', (req, res) => {
+    music.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
 app.get('/user', (req, res) => {
 
 })
@@ -206,8 +216,6 @@ app.post('/register-staff', (req, res) => {
 app.get('/', (req, res) => {
     res.send("Hello World!")
 })
-
-
 
 app.get('/view-all-residents', async (req, res) => {
     const residents = await Residents.find()
@@ -293,6 +301,7 @@ app.post('/delete-event', (req, res) =>{
             console.log("Successful deletion");
       });
 })
+
 app.listen(PORT, () => {
     console.log('Listening on Port ' + PORT);
 })

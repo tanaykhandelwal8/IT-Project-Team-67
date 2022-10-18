@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
-    title: String,
     genre: String,
-    artist: String
-
+    artist: String,
+    title: String
 });
 
 

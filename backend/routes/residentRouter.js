@@ -3,7 +3,13 @@ const path = require("path");
 const residentRouter = express.Router()
 const Residents = require("../models/resident")
 const bcrypt = require("bcryptjs");
+const session = require('express-session')
 
+residentRouter.use(session({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized:true
+}))
 
 residentRouter.get('/get-resident-data', (req, res) => {
     Residents.find().then((result) => {

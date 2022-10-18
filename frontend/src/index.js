@@ -11,35 +11,48 @@ import CommunityCorner from "./pages/CommunityCorner";
 import ViewAllResidents from "./pages/ViewAllResidents";
 import StaffDashboard from "./pages/StaffDashboard";
 import Music from "./pages/MusicPreference";
-import React from "react";
+import React, { useState } from "react";
 import MusicPreferences from "./pages/MusicPreferences";
 import FavouriteFood from "./pages/FavouriteFood";
 import FavouriteAnimals from "./pages/FavouriteAnimals";
 import FavouriteMovies from "./pages/FavouriteMovies";
 import LanguagePreferences from "./pages/LanguagePreferences";
 import HobbiesInterests from "./pages/HobbiesInterests";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 
 export default function App() {
+  /* Should navbar and footer be displayed on the page */
+  const [showNav, setShowNav] = useState(false)
   return (
     <BrowserRouter>
+      {/* Display Navbar if needbe with extra space added so page displays 
+      properly */}
+      {showNav && 
+        <div>
+          <Navbar />
+          <div style={{height:"96px"}}></div>
+        </div>
+      }
       <Routes>
         <Route path="/" element={<Layout />}>
           //Public route
-          <Route index element={<Home />} />
+          <Route index element={<Home funcNav={setShowNav}/>} />
           // Catch all
           <Route path="*" element={<NoPage />} />
         </Route>
         // Staff routes
         <Route path="/staff/:id" element={<Layout />}>
-            <Route path="staff-dashboard" element={<StaffDashboard />} />
-            <Route path="add-resident" element={<AddNewResident />} />
-            <Route path="add-staff" element={<AddNewStaff/>}/>
-            <Route path="community-corner" element={<CommunityCorner/>}/>
-            <Route path="view-all-residents" element={<ViewAllResidents/>}/>
+            <Route path="staff-dashboard" element={<StaffDashboard funcNav={setShowNav}/>} />
+            <Route path="add-resident" element={<AddNewResident funcNav={setShowNav}/>} />
+            <Route path="add-staff" element={<AddNewStaff funcNav={setShowNav}/>}/>
+            <Route path="community-corner" element={<CommunityCorner funcNav={setShowNav} role="staff"/>}/>
+            <Route path="view-all-residents" element={<ViewAllResidents funcNav={setShowNav}/>}/>
         </Route>
           // Resident routes
           <Route path="/resident/:id" element={<Layout />}>
+<<<<<<< HEAD
             <Route path="resident-dashboard" element={<ResidentDashboard />} />
             <Route path="edit-resident-dashboard" element={<EditResidentDashboard />} />
             <Route path="community-corner" element={<CommunityCorner/>}/>
@@ -50,9 +63,30 @@ export default function App() {
             <Route path="favourite-movies" element={<FavouriteMovies/>}/>
             <Route path="language-preferences" element={<LanguagePreferences/>}/>
             <Route path="hobbies-interests" element={<HobbiesInterests/>}/>
+=======
+            <Route path="resident-dashboard" element={<ResidentDashboard funcNav={setShowNav}/>} />
+            <Route path="edit-resident-dashboard" element={<EditResidentDashboard funcNav={setShowNav}/>} />
+            <Route path="music" element={<Music funcNav={setShowNav}/>}/>
+            <Route path="community-corner" element={<CommunityCorner funcNav={setShowNav}/>}/>
+            <Route path="view-all-residents" element={<ViewAllResidents funcNav={setShowNav}/>}/>
+            <Route path="music-preferences" element={<MusicPreferences funcNav={setShowNav}/>}/>
+            <Route path="favourite-food" element={<FavouriteFood funcNav={setShowNav}/>}/>
+            <Route path="favourite-animals" element={<FavouriteAnimals funcNav={setShowNav}/>}/>
+            <Route path="favourite-movies" element={<FavouriteMovies funcNav={setShowNav}/>}/>
+            <Route path="language-preferences" element={<LanguagePreferences funcNav={setShowNav}/>}/>
+            <Route path="hobbies-interests" element={<HobbiesInterests funcNav={setShowNav}/>}/>
+>>>>>>> 047f6761dcb4f06abaabaefbbbe9e189354bb14c
           </Route>
           
       </Routes>
+      {/* Display footer if needbe with extra space added so page displays 
+      properly */}
+      {showNav && 
+        <div>
+          <div style={{height:"48px"}}></div>
+          <Footer />
+        </div>
+      }
     </BrowserRouter>
   );
 }

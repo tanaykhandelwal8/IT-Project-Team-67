@@ -4,8 +4,7 @@ import { Link, useNavigate, useLocation} from "react-router-dom";
 import axios from 'axios'
 import "../App.css";
 
-function Home() {
-
+function Home(props) {
     const navigate = useNavigate();
     const location = useLocation();
     //const from = location.state?.from?.pathname || "/";
@@ -16,6 +15,9 @@ function Home() {
     const [loginUsername, setLoginUsername] = useState("")
     const [loginPassword, setLoginPassword] = useState("")
    
+    /* Navbar does not need to be displayed on this page */
+    props.funcNav(false)
+    
     const login = (e) => {
         e.preventDefault()
         //alert(loginUsername);
@@ -23,15 +25,15 @@ function Home() {
         axios.post('/login', {username: loginUsername, password: loginPassword})
             .then(function (response) {
                 console.log(response)
-                if (response.data.redirect == '/resident-dashboard') {
+                if (response.data.redirect === '/resident-dashboard') {
                     const userid = response.data.id
                     console.log(userid)
                     window.location = "/resident/"+userid+"/resident-dashboard"
                 }
-                if (response.data.redirect == '/staff-dashboard') {
+                if (response.data.redirect === '/staff-dashboard') {
                     const userid = response.data.id
                     window.location = "/staff/"+userid+"/staff-dashboard"
-                } else if (response.data.redirect == '/login'){
+                } else if (response.data.redirect === '/login'){
                     window.location = "/login"
                 }
             })
@@ -39,7 +41,6 @@ function Home() {
                 window.location = "/"
             })
     }
-
 
     return (
         <div className='Font'>

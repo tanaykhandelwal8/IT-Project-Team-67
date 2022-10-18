@@ -40,7 +40,7 @@ router.get('/loginredirect', (req, res) => {
 // Login page (with failure message displayed upon login failure)
 router.get('/login', (req, res) => {
     console.log("login failure")
-    res.render('login', { flash: req.flash('error'), title: 'Login' })
+
 })
 
 // Handle login

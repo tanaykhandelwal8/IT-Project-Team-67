@@ -11,6 +11,7 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
 import Popup from 'reactjs-popup';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 const locales = {
   "en-AU": require("date-fns/locale/en-AU")
@@ -25,7 +26,9 @@ const localizer = dateFnsLocalizer({
   locales
 })
 
-function CommunityCorner() {
+function CommunityCorner(props) {
+  /* Navbar should be shown on this page */
+  props.funcNav(true)
   /* function to get events from backend */
   const [backendData, setBackendData] = useState([{}])
   const getEvents = () => {
@@ -270,6 +273,12 @@ function CommunityCorner() {
             <button onClick={handleCancelEvent}> Cancel </button>
           </div> 
         </Popup>
+      {props.role == "staff" &&
+        <Link to="../add-staff">Staff Dashboard</Link>
+      }
+      {props.role == "resident" &&
+        <Link to="../resident-dashboard">Resident Dashboard</Link>
+      }
       </div>
     </div>
   );

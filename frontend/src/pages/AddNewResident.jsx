@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import "../App.css"
 import axios from 'axios'
+import Navbar from "../components/Navbar";
 
-function AddNewResident()  {
+function AddNewResident(props)  {
+  /* Navbar should be shown on this page */
+  props.funcNav(true)
   // local format for creating a resident
   const [newResident, setNewResident] = useState({
     firstName:"",
@@ -15,7 +18,11 @@ function AddNewResident()  {
     music: [],
     food: [],
     movies: [],
-    animals: []
+    animals: [],
+    hobbies: [],
+    interests: [],
+    musicians: [],
+    languages: [],
   })
   
   /* send resident details to the backend */
@@ -31,6 +38,11 @@ function AddNewResident()  {
 
   return (
       <div className='Font'>
+        <div>
+          <Navbar />
+          <div style={{height:"96px"}}></div>
+        </div>
+        <h1 className='Font'> Add New Resident</h1>
         <table className='Font'>
           <tr>
             <th>First Name</th>

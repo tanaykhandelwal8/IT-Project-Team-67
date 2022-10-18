@@ -6,8 +6,11 @@ import UploadImage from "../components/UploadImage";
 
 import "../App.css";
 
-function ResidentDashboard() {
+function ResidentDashboard(props) {
 
+    /* Navbar should be shown on this page */
+    props.funcNav(true)
+    
     const handleSubmit = event => {
         event.preventDefault();
         alert('You have saved your changes.')

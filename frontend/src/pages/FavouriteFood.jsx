@@ -2,7 +2,9 @@ import React from 'react';
 
 import "../App.css";
 
-function FavouriteFood() {
+function FavouriteFood(props) {
+    /* Navbar should be shown on this page */
+    props.funcNav(true)
     return (
         <div>
         <div className="centered-box">

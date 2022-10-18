@@ -22,6 +22,22 @@ const movieSchema= new mongoose.Schema({
     movieId: mongoose.Schema.Types.ObjectId
 });
 
+const hobbySchema= new mongoose.Schema({
+    hobbyId: mongoose.Schema.Types.ObjectId
+});
+
+const interestSchema= new mongoose.Schema({
+    interestId: mongoose.Schema.Types.ObjectId
+});
+
+const musicianSchema= new mongoose.Schema({
+    musicianId: mongoose.Schema.Types.ObjectId
+});
+
+const languageSchema= new mongoose.Schema({
+    languageId: mongoose.Schema.Types.ObjectId
+});
+
 const residentSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
@@ -36,6 +52,10 @@ const residentSchema = new mongoose.Schema({
     food: foodSchema,
     movies: movieSchema,
     animals: animalSchema,
+    hobby: hobbySchema,
+    interest: interestSchema,
+    musician: musicianSchema,
+    language: languageSchema,
 });
 
 residentSchema.methods.verifyPassword = function(password, callback) {

@@ -89,8 +89,8 @@ app.use(flash())
 
 const residentRouter = require("./routes/residentRouter");
 const staffRouter = require("./routes/staffRouter");
-app.use("/patient", residentRouter);
-app.use("/clinician", staffRouter);
+app.use("/resident", residentRouter);
+app.use("/staff", staffRouter);
 
 /*app.post('/login', (req,res) => {
     console.log("HELLO");
@@ -98,7 +98,6 @@ app.use("/clinician", staffRouter);
     
 })
 */
-
 const authRouter = require('./routes/auth')
 app.use(authRouter.router)
 
@@ -111,13 +110,7 @@ const music = require('./models/music')
 app.get('/', (req, res) => {
     res.send("hello world")
 })
-app.get('/get-resident-data', (req, res) => {
-    resident.find().then((result) => {
-        res.json(result)
-    }).catch((err) => {
-        console.error(err)
-    })
-})
+
 app.get('/get-staff-data', (req, res) => {
     staff.find().then((result) => {
         res.json(result)

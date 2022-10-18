@@ -1,37 +1,72 @@
+/* ======================== START OF IMPORTS ========================== */
 const express = require('express')
+const cors = require('cors')
+const cookieParser = require('cookie-parser')
+const bcrypt = require('bcryptjs')
+const session = require('express-session')
+const flash = require('express-flash')
+const fs = require('fs');
+const path = require('path');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose')
+const multer = require('multer');
 
-const app = express()
-const PORT = process.env.PORT || 3001
-
-require('./models/index')
-app.use(express.static(__dirname))
-
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose')
-
-//var residentRouter = require("./routes/residentRouter")
-
+/* ====================== IMPORTING SCHEMA MODELS ==================== */
+require('./models')
+const Staff = require('./models/staff')
+const Calendar = require('./models/calendar')
 const Residents = require("./models/resident")
 const Musics = require("./models/music")
 const Foods = require("./models/food")
 const Animals = require("./models/animal")
 const Movies = require("./models/movie")
-
-
-var fs = require('fs');
-var path = require('path');
+const Image = require("./models/image")
 require('dotenv/config');
+require('./models/index')
 
+/* ==================== IMPORTING ROUTERS ======================= */
+const residentRouter = require("./routes/residentRouter");
+const staffRouter = require("./routes/staffRouter");
+const authRouter = require('./routes/auth')
+
+/* ================== IMPORTING CONFIGS ======================= */
+const passport = require('./config/passport')
+
+/* ==================== END OF IMPORTS ============================ */
+
+
+/* ==================== START OF MIDDLEWARE ====================== */
+
+const app = express()
+const PORT = process.env.PORT || 3001
+
+app.use(express.static(__dirname))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-  
-// Set EJS as templating engine 
-app.set("view engine", "ejs");
+app.use(authRouter.router)
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true
+}))
+app.use(session({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized:true
+}))
+app.use(passport.initialize())
+app.use(passport.session())
 
-var multer = require('multer');
-const ImageModel = require("./models/image")
-  
-var storage = multer.diskStorage({
+app.use(cookieParser("secretcode"))
+
+app.use(flash())
+
+app.use("/patient", residentRouter);
+app.use("/clinician", staffRouter);
+
+
+const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads')
     },
@@ -48,7 +83,7 @@ app.post('/post', (req, res) => {
             console.log(err);
         }
         else{
-            const newImage = new ImageModel({
+            const newImage = new Image({
                 name: req.body.name,
                 img:{
                     data: req.file.filename,
@@ -59,80 +94,25 @@ app.post('/post', (req, res) => {
         }
     })
 })
-// Imports
-const cors = require('cors')
-const cookieParser = require('cookie-parser')
-const bcrypt = require('bcryptjs')
-const session = require('express-session')
-const flash = require('express-flash')
-const passportlocal = require('passport-local').Strategy
 
 // middleware
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(cors({
-    origin: "http://localhost:3000",
-    credentials: true
-}))
-app.use(session({
-    secret: "secretcode",
-    resave: true,
-    saveUninitialized:true
-}))
-const passport = require('./config/passport')
-app.use(passport.initialize())
-app.use(passport.session())
 
-app.use(cookieParser("secretcode"))
 
-app.use(flash())
 
-const residentRouter = require("./routes/residentRouter");
-const staffRouter = require("./routes/staffRouter");
-app.use("/patient", residentRouter);
-app.use("/clinician", staffRouter);
-
-/*app.post('/login', (req,res) => {
-    console.log("HELLO");
-    console.log(req.body);
-    
-})
-*/
-
-const authRouter = require('./routes/auth')
-app.use(authRouter.router)
-
-require('./models')
-const resident = require('./models/resident')
-const staff = require('./models/staff')
-const calendar = require('./models/calendar')
-
-app.get('/', (req, res) => {
-    res.send("hello world")
-})
-app.get('/get-resident-data', (req, res) => {
-    resident.find().then((result) => {
-        res.json(result)
-    }).catch((err) => {
-        console.error(err)
-    })
-})
 app.get('/get-staff-data', (req, res) => {
-    staff.find().then((result) => {
+    Staff.find().then((result) => {
         res.json(result)
     }).catch((err) => {
         console.error(err)
     })
 })
-app.get('/get-events-data', (req, res) => {
-    calendar.find().then((result) => {
-        res.json(result)
-    }).catch((err) => {
-        console.error(err)
-    })
-})
-app.get('/user', (req, res) => {
 
+app.get('/get-events-data', (req, res) => {
+    Calendar.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
 })
 
 app.get('/success', (req, res) => {
@@ -160,34 +140,13 @@ app.post('/login', (req, res, next) => {
     })
 })
 */
-app.post('/register-resident', (req, res) => {
-    resident.findOne({email:req.body.email}, async (err, doc) => {
-        if(err) throw err
-        if(doc) res.send('user already exists')
-        if(!doc) {
-            const hashedPassword = await bcrypt.hash(req.body.password, 10)
-            const newResident = new resident({
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                password: hashedPassword,
-                email: req.body.email,
-                location: req.body.location,
-                dateOfBirth: req.body.dob,
-                biography: "Edit Me!",
-                role: "Resident"
-            })
-            await newResident.save()
-            console.log('resident created')
-        }
-    })
-})
 app.post('/register-staff', (req, res) => {
-    staff.findOne({email:req.body.email}, async (err, doc) => {
+    Staff.findOne({email:req.body.email}, async (err, doc) => {
         if(err) throw err
         if(doc) res.send('user already exists')
         if(!doc) {
             const hashedPassword = await bcrypt.hash(req.body.password, 10)
-            const newStaff = new staff({
+            const newStaff = new Staff({
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 password: hashedPassword,
@@ -201,7 +160,6 @@ app.post('/register-staff', (req, res) => {
     })
 })
 
-//app.use('/resident', residentRouter);
 
 app.get('/', (req, res) => {
     res.send("Hello World!")
@@ -261,11 +219,11 @@ app.get('/movies', async (req, res) => {
 
 /* sending a new event to mongo */ 
 app.post('/add-event', (req, res) => {
-    calendar.findOne({title:req.body.title}, async (err, doc) => {
+    Calendar.findOne({title:req.body.title}, async (err, doc) => {
         if(err) throw err
         if(doc) res.send('event already exists')
         if(!doc) {
-            const newEvent = new calendar({
+            const newEvent = new Calendar({
                 title: req.body.title,
                 description: req.body.description,
                 location: req.body.location,
@@ -281,7 +239,7 @@ app.post('/add-event', (req, res) => {
 
 /* deleting an event from mongo */ 
 app.post('/delete-event', (req, res) =>{
-    calendar.deleteOne({ 
+    Calendar.deleteOne({
         title: req.body.title,
         description: req.body.description,
         location: req.body.location,

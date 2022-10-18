@@ -10,7 +10,6 @@ import AddNewStaff from "./pages/AddNewStaff";
 import CommunityCorner from "./pages/CommunityCorner";
 import ViewAllResidents from "./pages/ViewAllResidents";
 import StaffDashboard from "./pages/StaffDashboard";
-import Music from "./pages/MusicPreference";
 import React, { useState } from "react";
 import MusicPreferences from "./pages/MusicPreferences";
 import FavouriteFood from "./pages/FavouriteFood";

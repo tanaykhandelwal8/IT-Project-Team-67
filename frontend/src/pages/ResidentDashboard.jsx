@@ -129,7 +129,30 @@ function ResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../hobbies-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            <p><Link to="../music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="split-column">
+                    <div className="gallery-card" style={{height: "16vw"}}>
+                        <h3>Favourite Musician</h3>
+                        {residentData.map((user, key) => (
+                            user._id === userID ?
+                            user.musician.slice(0,4).map((item, key) => ( 
+                                <div className="dashboard-favourite-column">
+                                    <div className="dashboard-img-wrapper">
+                                    <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
+                                    <p>{item}</p>
+                                    </div>
+                                </div>
+                            ))
+                            : <div></div>
+                        ))}
+                        <div className="dashboard-favourite-column">
+                            <div className="dashboard-img-wrapper">
+                            <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
+                            <p><Link to="../music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -152,7 +175,30 @@ function ResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../hobbies-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            <p><Link to="../favourite-movies" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="split-column">
+                    <div className="gallery-card" style={{height: "16vw"}}>
+                        <h3>Favourite Foods</h3>
+                        {residentData.map((user, key) => (
+                            user._id === userID ?
+                            user.food.slice(0,4).map((item, key) => ( 
+                                <div className="dashboard-favourite-column">
+                                    <div className="dashboard-img-wrapper">
+                                    <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
+                                    <p>{item}</p>
+                                    </div>
+                                </div>
+                            ))
+                            : <div></div>
+                        ))}
+                        <div className="dashboard-favourite-column">
+                            <div className="dashboard-img-wrapper">
+                            <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
+                            <p><Link to="../favourite-food" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -175,14 +221,14 @@ function ResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../hobbies-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            <p><Link to="../favourite-animals" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="split-column">
                     <div className="gallery-card" style={{height: "16vw"}}>
-                        <h3>Favourite Languages</h3>
+                        <h3>Languages Spoken</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
                             user.language.slice(0,4).map((item, key) => ( 
@@ -198,7 +244,7 @@ function ResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../hobbies-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            <p><Link to="../language-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
                         </div>
                     </div>

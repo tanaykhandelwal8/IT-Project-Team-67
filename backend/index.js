@@ -204,15 +204,14 @@ app.post('/register-staff', (req, res) => {
     })
 })
 
-app.post('/update-music-preferences', (req, res) => {
-    resident.findOneAndUpdate({
-        email:req.body.email
-    }, {
-        $push: {
-            music: selected
-        }
-    })
-    console.log('staff added')
+app.post('/update-music-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {music: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('music preferences updated');
+
 })
 
 //app.use('/resident', residentRouter);

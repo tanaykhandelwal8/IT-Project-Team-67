@@ -11,18 +11,22 @@ function EditMusicPreferences(props) {
     const params = useParams();
     const userID = params.id;
 
-    const [selected, setSelected] = useState([]);
+    const [selectedData, setSelectedData] = useState([]);
 
     const [musicData, setMusicData] = useState([{}])
     const getMusicData = () => {
-      axios.get("http://localhost:3001/get-music-data")
-      .then((res) => {setMusicData(res.data)})
+        axios.get("http://localhost:3001/get-music-data")
+        .then((res) => {setMusicData(res.data)})
     }
     getMusicData()
 
-      const handleSubmit = event => {
-        event.preventDefault();
-        alert('You have saved your changes.')
+    const handleSubmit = () => {
+        axios({
+            method:"post",
+            data: {objects: [userID, selectedData]},
+            withCredentials: true,
+            url: "http://localhost:3001/update-music-preferences"
+        }).then((res) => console.log(res))
     }
 
     return (
@@ -35,11 +39,11 @@ function EditMusicPreferences(props) {
                 <h1>
                     Select your favourite songs!
                 </h1>
-                <pre>{JSON.stringify(selected)}</pre>
+                <pre>{JSON.stringify(selectedData)}</pre>
                 <MultiSelect
                     options={musicData}
-                    value={selected}
-                    onChange={setSelected}
+                    value={selectedData}
+                    onChange={setSelectedData}
                     labelledBy={"Select"}
                 />
             </div>

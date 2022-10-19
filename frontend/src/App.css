@@ -340,3 +340,8 @@ h4 {
   min-width: 100px;
   max-width: 300px;
 }
+/* CSS For logo on login page */
+img.LoginLogo {
+  height: 84px;
+  padding: none;
+}

@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import { Link, useNavigate, useLocation} from "react-router-dom";
 import axios from 'axios'
 import "../App.css";
+import logo from "../assets/logoFlat.png"
 
 function Home(props) {
     const errRef = useRef();
@@ -59,6 +60,9 @@ function Home(props) {
     return (
         
         <div className='Font'>
+            <div style={{"background-color": "whitesmoke"}}>
+                <img src={logo} className="LoginLogo"></img>
+            </div>
         <div>
             <div className="shadow-box" style={{"--r1":"130%","--r2":"71.5%"}}>
             </div>

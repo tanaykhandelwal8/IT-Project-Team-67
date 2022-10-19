@@ -24,13 +24,13 @@ require('dotenv/config');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-  
+
 // Set EJS as templating engine 
 app.set("view engine", "ejs");
 
 var multer = require('multer');
 const ImageModel = require("./models/image")
-  
+
 var storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads')
@@ -39,7 +39,7 @@ var storage = multer.diskStorage({
         cb(null, file.fieldname + '-' + Date.now())
     }
 });
-  
+
 var upload = multer({ storage: storage }).single('testImg');
 
 app.post('/post', (req, res) => {
@@ -95,7 +95,7 @@ app.use("/staff", staffRouter);
 /*app.post('/login', (req,res) => {
     console.log("HELLO");
     console.log(req.body);
-    
+
 })
 */
 const authRouter = require('./routes/auth')
@@ -204,6 +204,17 @@ app.post('/register-staff', (req, res) => {
     })
 })
 
+app.post('/update-music-preferences', (req, res) => {
+    resident.findOneAndUpdate({
+        email:req.body.email
+    }, {
+        $push: {
+            music: selected
+        }
+    })
+    console.log('staff added')
+})
+
 //app.use('/resident', residentRouter);
 
 app.get('/', (req, res) => {
@@ -237,7 +248,6 @@ app.get('/foods', async (req, res) => {
     }   else {
         res.send( {result: "No foods Found"})
     }
-
 })
 
 app.get('/animals', async (req, res) => {
@@ -260,7 +270,7 @@ app.get('/movies', async (req, res) => {
 
 })
 
-/* sending a new event to mongo */ 
+/* sending a new event to mongo */
 app.post('/add-event', (req, res) => {
     calendar.findOne({title:req.body.title}, async (err, doc) => {
         if(err) throw err
@@ -280,19 +290,19 @@ app.post('/add-event', (req, res) => {
     })
 })
 
-/* deleting an event from mongo */ 
+/* deleting an event from mongo */
 app.post('/delete-event', (req, res) =>{
-    calendar.deleteOne({ 
-        title: req.body.title,
-        description: req.body.description,
-        location: req.body.location,
-        host: req.body.host,
-        start: req.body.start,
-        end: req.body.end},
+    calendar.deleteOne({
+            title: req.body.title,
+            description: req.body.description,
+            location: req.body.location,
+            host: req.body.host,
+            start: req.body.start,
+            end: req.body.end},
         function (err) {
             if(err) console.log(err);
             console.log("Successful deletion");
-      });
+        });
 })
 
 app.listen(PORT, () => {

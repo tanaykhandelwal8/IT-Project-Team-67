@@ -1,6 +1,24 @@
 {
+  "name": "it-project-team-67",
+  "version": "1.0.0",
+  "description": "## IT Project, SEM 2 2022",
+  "main": "index.js",
   "scripts": {
-    "heroku-prebuild": "cd backend && npm install && npm run dev && cd .. && cd frontend && npm install",
-    "start": "cd frontend && npm start"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanaykhandelwal8/IT-Project-Team-67.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanaykhandelwal8/IT-Project-Team-67/issues"
+  },
+  "homepage": "https://github.com/tanaykhandelwal8/IT-Project-Team-67#readme",
+  "dependencies": {
+    "concurrently": "^7.4.0"
   }
 }

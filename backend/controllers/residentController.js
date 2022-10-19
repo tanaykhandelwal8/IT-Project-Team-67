@@ -36,6 +36,9 @@ const dashboard = async (req, res) => {
 };
 
 
+
+
+
 // Update resident profile //
 
 const updateprofile = async(req, res) => {

@@ -29,8 +29,6 @@ function ChangePassword(props) {
             <div>
             <div className="login-container" style={{marginTop: "0"}}>
                 <form >
-                    <p>Current Password</p>
-                    <input className="credential-box" type="text" placeholder="current password" />
                     <p>New Password</p>
                     <input className="credential-box" type="password" placeholder="password" />
                     <p>Confirm New Password</p>

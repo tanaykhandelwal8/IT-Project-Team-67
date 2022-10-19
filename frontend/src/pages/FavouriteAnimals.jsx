@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Link} from "react-router-dom";
 import "../App.css";
 
 function FavouriteAnimals(props) {
@@ -78,6 +78,16 @@ function FavouriteAnimals(props) {
                     </div>
                 </div>
             </div>
+        </div>
+        <div className='Font'>
+            {/* Show staff dashboard button if logged in as staff */}
+            {props.role == "staff" &&
+                <Link to="../staff-dashboard">Staff Dashboard</Link>
+            }
+            {/* Show resident dashboard button if logged in as resident */}
+            {props.role == "resident" &&
+                <Link to="../resident-dashboard">Resident Dashboard</Link>
+            }
         </div>
     </div>
     )

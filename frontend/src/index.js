@@ -49,21 +49,21 @@ export default function App() {
             <Route path="add-resident" element={<AddNewResident funcNav={setShowNav}/>} />
             <Route path="add-staff" element={<AddNewStaff funcNav={setShowNav}/>}/>
             <Route path="community-corner" element={<CommunityCorner funcNav={setShowNav} role="staff"/>}/>
-            <Route path="view-all-residents" element={<ViewAllResidents funcNav={setShowNav}/>}/>
+            <Route path="view-all-residents" element={<ViewAllResidents funcNav={setShowNav} role="staff"/>}/>
         </Route>
           // Resident routes
           <Route path="/resident/:id" element={<Layout />}>
             <Route path="resident-dashboard" element={<ResidentDashboard funcNav={setShowNav}/>} />
             <Route path="edit-resident-dashboard" element={<EditResidentDashboard funcNav={setShowNav}/>} />
-            <Route path="community-corner" element={<CommunityCorner funcNav={setShowNav}/>}/>
-            <Route path="view-all-residents" element={<ViewAllResidents funcNav={setShowNav}/>}/>
-            <Route path="music-preferences" element={<MusicPreferences funcNav={setShowNav}/>}/>
+            <Route path="community-corner" element={<CommunityCorner funcNav={setShowNav} role="resident"/>}/>
+            <Route path="view-all-residents" element={<ViewAllResidents funcNav={setShowNav} role="resident"/>}/>
+            <Route path="music-preferences" element={<MusicPreferences funcNav={setShowNav} role="resident"/>}/>
             <Route path="edit-music-preferences" element={<EditMusicPreferences funcNav={setShowNav}/>}/>
-            <Route path="favourite-food" element={<FavouriteFood funcNav={setShowNav}/>}/>
-            <Route path="favourite-animals" element={<FavouriteAnimals funcNav={setShowNav}/>}/>
-            <Route path="favourite-movies" element={<FavouriteMovies funcNav={setShowNav}/>}/>
-            <Route path="language-preferences" element={<LanguagePreferences funcNav={setShowNav}/>}/>
-            <Route path="hobbies-interests" element={<HobbiesInterests funcNav={setShowNav}/>}/>
+            <Route path="favourite-food" element={<FavouriteFood funcNav={setShowNav} role="resident"/>}/>
+            <Route path="favourite-animals" element={<FavouriteAnimals funcNav={setShowNav} role="resident"/>}/>
+            <Route path="favourite-movies" element={<FavouriteMovies funcNav={setShowNav} role="resident"/>}/>
+            <Route path="language-preferences" element={<LanguagePreferences funcNav={setShowNav} role="resident"/>}/>
+            <Route path="hobbies-interests" element={<HobbiesInterests funcNav={setShowNav} role="resident"/>}/>
             <Route path="change-password" element={<ChangePassword funcNav={setShowNav}/>}/>
           </Route>
           

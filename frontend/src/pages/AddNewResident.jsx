@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import "../App.css"
 import axios from 'axios'
 import Navbar from "../components/Navbar";
+import {Link} from "react-router-dom";
 
 function AddNewResident(props)  {
   /* Navbar should be shown on this page */
@@ -96,8 +97,8 @@ function AddNewResident(props)  {
           </tr>
         </table>
         {/* WILL BE CHANGED TO PROFILE OF NEW RESIDENT */}
-        <button onClick={register}>
-            Add Resident</button>
+        <button onClick={register}>Add Resident</button>
+        <Link to="../staff-dashboard">Staff Dashboard</Link>
       </div>
     );
 }

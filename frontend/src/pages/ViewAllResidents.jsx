@@ -13,6 +13,33 @@ function ViewAllResidents(props) {
     }
     getResidentData()
     
+    const view = (e) => {
+        /*
+        e.preventDefault()
+        //alert(loginUsername);
+        //const {loginUsername, loginPassword} = this.state;
+        axios.post('/view-other-resident', {fName: user.firstName, lName: user.lastName})
+            .then(function (response) {
+                console.log(response)
+                if (response.data.redirect === '/resident-dashboard') {
+                    //const userid = response.data.id
+                    //console.log(userid)
+                    //window.location = "/resident/"+userid+"/resident-dashboard"
+                }
+                if (response.data.redirect === '/staff-dashboard') {
+                    //const userid = response.data.id
+                    //window.location = "/staff/"+userid+"/staff-dashboard"
+                } else if (response.data.redirect === '/fail'){
+                    console.log("HELLOOOOOOO")
+                    return                    
+                }
+            })
+            .catch(function(error) {
+                window.location = "/"
+            })
+            
+        */
+    }
     return (
         <div className='Font'>
             {/* Show staff dashboard button if logged in as staff */}
@@ -33,11 +60,12 @@ function ViewAllResidents(props) {
                 ): (
                     <div className='Font'>
                         {residentData.map((user, i) =>(
-                            <div className="gallery-column">
+                            <div className="gallery-column" key = {user.id}>
                                 <div className="image-wrapper">
                                 <img className="view-resident-picture" src={require('../assets/Portrait-Placeholder.png')} alt="" />
                                 <p>{user.firstName} {user.lastName}</p>
                                 <p>{user.location}</p>   
+                                <button style={{height: "3vw"}} onClick={view}>View</button>
                                 </div>
                             </div>
                         ))}

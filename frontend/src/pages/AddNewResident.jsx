@@ -33,7 +33,25 @@ function AddNewResident(props)  {
       data: newResident,
       withCredentials: true,
       url: "http://localhost:3001/register-resident"
-    }).then((res) => console.log(res))
+    }).then(function (response) {
+      console.log(response)
+      if (response.data.redirect === '/success') {
+          const userid = response.data.id
+          //console.log(userid)
+          window.location = "/resident/"+userid+"/resident-dashboard"
+      }
+      if (response.data.redirect === '/staff-dashboard') {
+          //const userid = response.data.id
+          //window.location = "/staff/"+userid+"/staff-dashboard"
+      } else if (response.data.redirect === '/fail'){
+          console.log("HELLOOOOOOO")
+          return                    
+      }
+  })
+  .catch(function(error) {
+      window.location = "/"
+  })
+    
     alert('You have successfully created a new resident.')
   }
 

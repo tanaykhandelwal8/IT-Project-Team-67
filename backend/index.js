@@ -189,6 +189,17 @@ app.post('/register-resident', (req, res) => {
             })
             await newResident.save()
             console.log('resident created')
+            resident.findOne({email:req.body.email}, async (err, doc) => {
+                if(err) throw err
+                if(doc) {
+                    userId = doc.id;
+                
+                var redir = { redirect: "/success",
+                        id: userId  };
+                return res.json(redir);
+                }
+                console.log("uh oh");
+            })
         }
     })
 })

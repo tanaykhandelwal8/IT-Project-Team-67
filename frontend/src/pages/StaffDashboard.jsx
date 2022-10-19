@@ -19,7 +19,7 @@ function StaffDashboard(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("http://localhost:3001/get-resident-data")
+      axios.get("http://localhost:3001/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()

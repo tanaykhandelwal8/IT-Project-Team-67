@@ -3,7 +3,9 @@ const mongoose = require("mongoose");
 const schema = new mongoose.Schema({
     genre: String,
     artist: String,
-    title: String
+    label: String,
+    value: String
+
 });
 
 

@@ -5,10 +5,10 @@ function ViewAllResidents(props) {
     /* Navbar should be shown on this page */
     props.funcNav(true)
     
-    const [backendData, setBackendData] = useState([{}])
+    const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("http://localhost:3001/get-resident-data")
-      .then((res) => {setBackendData(res.data)})
+      axios.get("http://localhost:3001/resident/get-resident-data")
+      .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
     
@@ -19,11 +19,11 @@ function ViewAllResidents(props) {
             </div>
             <div>
                 {/* This displays the names */}
-            {(typeof backendData === 'undefined') ? (
+            {(typeof residentData === 'undefined') ? (
                     <p> loading</p>
                 ): (
                     <div className='Font'>
-                        {backendData.map((user, i) =>(
+                        {residentData.map((user, i) =>(
                             <div className="gallery-column">
                                 <div className="image-wrapper">
                                 <img className="view-resident-picture" src={require('../assets/Portrait-Placeholder.png')} alt="" />

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 import {Link} from 'react-router-dom';
@@ -6,25 +6,24 @@ import UploadImage from "../components/UploadImage";
 
 import "../App.css";
 
-function ResidentDashboard(props) {
-
+function EditResidentDashboard(props) {
     /* Navbar should be shown on this page */
     props.funcNav(true)
     
-    const handleSubmit = event => {
-        event.preventDefault();
-        alert('You have saved your changes.')
-    }
-
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("http://localhost:3001/get-resident-data")
+      axios.get("http://localhost:3001/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
     const params = useParams();
     const userID = params.id;
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        alert('You have saved your changes.')
+    }
 
     return (
         <div className='Font'>
@@ -37,6 +36,7 @@ function ResidentDashboard(props) {
                     </div>
                 ))}
             </div>
+        </div>
         <div className="row">
             <div className="left-column">
                 <div className="gallery-card">
@@ -52,11 +52,11 @@ function ResidentDashboard(props) {
                 <div className="gallery-card">
                     <label><h3>Location</h3></label>
                     {residentData.map((user, key) => (
-                        (user._id == userID) ? <h1>{user.location}</h1> : <div></div>
+                        (user._id === userID) ? <h1>{user.location}</h1> : <div></div>
                     ))}
                     <label><h3>Date of Birth</h3></label>
                     {residentData.map((user, key) => (
-                        (user._id == userID) ? <h1>{user.dateOfBirth.slice(0,10)}</h1> : <div></div>
+                        (user._id === userID) ? <h1>{user.dateOfBirth.slice(0,10)}</h1> : <div></div>
                     ))}
                     <form onSubmit={handleSubmit}>
                         <label>
@@ -72,7 +72,7 @@ function ResidentDashboard(props) {
                 </div>
             </div>
             <div className="right-column">
-            <div className="split-column">
+                <div className="split-column">
                     <div className="gallery-card" style={{height: "16vw"}}>
                         <h3>Interests</h3>
                         {residentData.map((user, key) => (
@@ -90,7 +90,7 @@ function ResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../hobbies-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            <p><Link to="../hobbies-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@ function ResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../hobbies-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            <p><Link to="../hobbies-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -136,7 +136,7 @@ function ResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../edit-music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            <p><Link to="../edit-music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -159,7 +159,7 @@ function ResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            <p><Link to="../music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -182,7 +182,7 @@ function ResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../favourite-movies" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            <p><Link to="../favourite-movies" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -205,7 +205,7 @@ function ResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../favourite-food" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            <p><Link to="../favourite-food" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -228,7 +228,7 @@ function ResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../favourite-animals" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            <p><Link to="../favourite-animals" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -251,7 +251,7 @@ function ResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../language-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
+                            <p><Link to="../language-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -259,8 +259,7 @@ function ResidentDashboard(props) {
             </div>
         </div>
     </div>
-    </div>
     );
 }
 
-export default ResidentDashboard;
+export default EditResidentDashboard;

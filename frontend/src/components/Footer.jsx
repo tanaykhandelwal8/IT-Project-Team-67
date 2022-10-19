@@ -25,12 +25,12 @@ function Footer() {
     <nav>
         <footer style={{zIndex:"109", position:"fixed"}}>
             <p style={{"float": "left", "margin-left": "5vw"}}><i>Residencely</i></p>
-            {residentData.map((user, key) => (
+            {/*{residentData.map((user, key) => (
               (user._id === userID) ? <p style={{"float":"right", "margin-right": "5vw"}}>Signed in as {user.firstName} {user.lastName}</p> : <div></div>
             ))}
             {staffData.map((user, key) => (
               (user._id === userID) ? <p style={{"float":"right", "margin-right": "5vw"}}>Signed in as {user.firstName} {user.lastName}</p> : <div></div>
-            ))}
+            ))} */}
         </footer>
     </nav>
   );

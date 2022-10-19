@@ -101,6 +101,10 @@ app.use("/staff", staffRouter);
 const authRouter = require('./routes/auth')
 app.use(authRouter.router)
 
+app.post('/view-other-resident', (req, res) => {
+    console.log("HERE");
+})
+
 require('./models')
 const resident = require('./models/resident')
 const staff = require('./models/staff')

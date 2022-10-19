@@ -282,7 +282,7 @@ function CommunityCorner(props) {
         </Popup>
       {/* Show staff dashboard button if logged in as staff */}
       {props.role == "staff" &&
-        <Link to="../add-staff">Staff Dashboard</Link>
+        <Link to="../staff-dashboard">Staff Dashboard</Link>
       }
       {/* Show resident dashboard button if logged in as resident */}
       {props.role == "resident" &&

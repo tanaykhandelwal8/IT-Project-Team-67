@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "## IT Project, SEM 2 2022",
   "main": "index.js",
+  "engines": {
+    "node":"16.15.x",
+    "npm":"8.11.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"cd backend && npm install && npm run dev\" \"cd frontend && npm install && npm start\" "
+    "start": "concurrently \"cd backend && npm install && npm run dev\" \"cd frontend && npm install && npm start\" "
   },
   "repository": {
     "type": "git",

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import "../App.css"
 import axios from 'axios'
+import {Link} from "react-router-dom";
 
 function AddNewStaff(props) {
   /* Navbar should be shown on this page */
@@ -70,8 +71,8 @@ function AddNewStaff(props) {
         </tr>
       </table>
       {/* will link to staff dashboard */}
-      <button onClick={register}>
-          Add Staff</button>
+      <button onClick={register}>Add Staff</button>
+      <Link to="../staff-dashboard">Staff Dashboard</Link>
     </div>
       );
     }

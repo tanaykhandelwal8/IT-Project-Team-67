@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 function ViewAllResidents(props) {
     /* Navbar should be shown on this page */
@@ -40,7 +41,15 @@ function ViewAllResidents(props) {
         */
     }
     return (
-        <div>
+        <div className='Font'>
+            {/* Show staff dashboard button if logged in as staff */}
+            {props.role == "staff" &&
+                <Link to="../staff-dashboard">Staff Dashboard</Link>
+            }
+            {/* Show resident dashboard button if logged in as resident */}
+            {props.role == "resident" &&
+                <Link to="../resident-dashboard">Resident Dashboard</Link>
+      }
             <div className="centered-box">
                 <h1 className='Font'>All Residents</h1>
             </div>

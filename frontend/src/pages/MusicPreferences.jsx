@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 import "../App.css";
+import {Link} from "react-router-dom";
 
 function MusicPreferences(props) {
     /* Navbar should be shown on this page */
@@ -48,6 +49,16 @@ function MusicPreferences(props) {
                 ))
                 : <div></div>
             ))}
+        </div>
+        <div className='Font'>
+            {/* Show staff dashboard button if logged in as staff */}
+            {props.role == "staff" &&
+                <Link to="../staff-dashboard">Staff Dashboard</Link>
+            }
+            {/* Show resident dashboard button if logged in as resident */}
+            {props.role == "resident" &&
+                <Link to="../resident-dashboard">Resident Dashboard</Link>
+            }
         </div>
     </div>
     )

@@ -39,7 +39,6 @@ function EditMusicPreferences(props) {
                 <h1>
                     Select your favourite songs!
                 </h1>
-                <pre>{JSON.stringify(selectedData)}</pre>
                 <MultiSelect
                     options={musicData}
                     value={selectedData}

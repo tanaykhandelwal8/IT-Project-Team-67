@@ -216,7 +216,7 @@ function CommunityCorner(props) {
         {/* Popup for Editing an Event */}
         <Popup open={editOpen} onClose={closeEditModal} position='right center'>
         <div style={{marginLeft:"20px"}}>
-        <h2>Add New Event</h2>
+        <h2>Edit Event</h2>
             <input type="text" placeholder='Add Title' 
               style={{marginRight:"10px", fontSize:"20px"}} 
               value={newEvent.title} 
@@ -282,11 +282,11 @@ function CommunityCorner(props) {
         </Popup>
       {/* Show staff dashboard button if logged in as staff */}
       {props.role == "staff" &&
-        <Link to="../staff-dashboard">Staff Dashboard</Link>
+        <Link to="../staff-dashboard" style={{"float":"right"}}>Staff Dashboard</Link>
       }
       {/* Show resident dashboard button if logged in as resident */}
       {props.role == "resident" &&
-        <Link to="../resident-dashboard">Resident Dashboard</Link>
+        <Link to="../resident-dashboard" style={{"float":"right"}}>Resident Dashboard</Link>
       }
       </div>
     </div>

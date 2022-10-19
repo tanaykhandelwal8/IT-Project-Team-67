@@ -52,27 +52,22 @@ function ResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="gallery-card">
-                    <label><h3>Location</h3></label>
                     {residentData.map((user, key) => (
-                        (user._id === userID) ? <h1>{user.location}</h1> : <div></div>
+                        (user._id === userID) ?
+                        <div>
+                            <label><h3>Location</h3></label>
+                            <h1>{user.location}</h1>
+
+                            <label><h3>Date of Birth</h3></label>
+                            <h1>{user.dateOfBirth.slice(0,10)}</h1>
+
+                            <label><h3>About Me</h3></label>
+                            <div className="biography-card">
+                                <p>{user.biography}</p>
+                            </div>
+                        </div>
+                        : <div></div>
                     ))}
-                    <label><h3>Date of Birth</h3></label>
-                    {residentData.map((user, key) => (
-                        (user._id === userID) ? <h1>{user.dateOfBirth.slice(0,10)}</h1> : <div></div>
-                    ))}
-                    <label>
-                        <h3>About Me</h3>
-                    </label>
-                    {residentData.map((user, key) => {
-                            (user._id === userID) ? <p>{user.biography}</p>
-                            : <div></div>
-                    })}
-                    <div className="biography-card">
-                        {residentData.map((user, key) => {
-                            (user._id === userID) ? <p>{user.biography}</p>
-                            : <div></div>
-                        })}
-                    </div>
                 </div>
             </div>
             <div className="right-column">

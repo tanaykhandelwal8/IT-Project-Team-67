@@ -17,6 +17,13 @@ function EditResidentDashboard(props) {
     }
     getResidentData()
 
+    const [musicData, setMusicData] = useState([{}])
+    const getMusicData = () => {
+      axios.get("http://localhost:3001/get-music-data")
+      .then((res) => {setMusicData(res.data)})
+    }
+    getMusicData()
+
     const params = useParams();
     const userID = params.id;
 
@@ -123,13 +130,17 @@ function EditResidentDashboard(props) {
                         <h3>Favourite Songs</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
-                            user.music.slice(0,4).map((item, key) => ( 
-                                <div className="dashboard-favourite-column">
-                                    <div className="dashboard-img-wrapper">
-                                    <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
-                                    <p>{item}</p>
+                            user.music.slice(0,4).map((item, key) => (
+                                musicData.map((song, key) => (
+                                    item._id === song._id ?
+                                    <div className="gallery-column">
+                                        <div className="dashboard-img-wrapper">
+                                            <img className="preference-image" src={require('../assets/music-icon.png')} alt="" />
+                                            <p>{song.label}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                    : <div></div>
+                                ))
                             ))
                             : <div></div>
                         ))}

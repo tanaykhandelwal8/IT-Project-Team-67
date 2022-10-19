@@ -27,10 +27,6 @@ function ResidentDashboard(props) {
     const params = useParams();
     const userID = params.id;
 
-    const userBiography = residentData.map((user, key) => (
-        (user._id === userID) ? user.biography : <div></div>
-    ))
-
     return (
         <div className='Font'>
         <div>
@@ -67,8 +63,16 @@ function ResidentDashboard(props) {
                     <label>
                         <h3>About Me</h3>
                     </label>
-                    <textarea value={userBiography} className="dashboard-textarea" style={{height: "160px"}} name="biography">
-                    </textarea>
+                    {residentData.map((user, key) => {
+                            (user._id === userID) ? <p>{user.biography}</p>
+                            : <div></div>
+                    })}
+                    <div className="biography-card">
+                        {residentData.map((user, key) => {
+                            (user._id === userID) ? <p>{user.biography}</p>
+                            : <div></div>
+                        })}
+                    </div>
                 </div>
             </div>
             <div className="right-column">

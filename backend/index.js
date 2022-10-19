@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
+
 const express = require('express')
 
 const app = express()
@@ -304,6 +308,6 @@ app.post('/delete-event', (req, res) =>{
         });
 })
 
-app.listen(PORT, () => {
-    console.log('Listening on Port ' + PORT);
+app.listen(process.env.PORT, () => {
+    console.log('Listening on Port ' + process.env.PORT);
 })

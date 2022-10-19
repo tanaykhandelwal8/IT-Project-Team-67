@@ -303,6 +303,11 @@ footer{
   width: 100px;
 }
 
+.preference-image {
+  height: 50px;
+  width: 50px;
+}
+
 .dashboard-img-wrapper {
   text-align: center;
   justify-content: center;

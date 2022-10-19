@@ -9,11 +9,18 @@ function MusicPreferences(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("http://localhost:3001/get-resident-data")
+      axios.get("http://localhost:3001/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
-    
+
+    const [musicData, setMusicData] = useState([{}])
+    const getMusicData = () => {
+      axios.get("http://localhost:3001/get-music-data")
+      .then((res) => {setMusicData(res.data)})
+    }
+    getMusicData()
+
     const params = useParams();
     const userID = params.id;
 
@@ -25,15 +32,19 @@ function MusicPreferences(props) {
             <div>
             {residentData.map((user, key) => (
                 user._id === userID ?
-                user.music.map((item, key) => ( 
-                    <div className="gallery-column">
-                    <div className="image-wrapper">
-                        <img className="view-resident-picture" src={require('../assets/music-icon.png')} alt="" />
-                        <p>Song</p>
-                        <p>Artist</p>
-                        <p>Genre</p>
-                    </div>
-                </div>
+                user.music.map((item, key) => (
+                    musicData.map((song, key) => (
+                        item._id === song._id ?
+                        <div className="gallery-column">
+                            <div className="image-wrapper">
+                                <img className="preference-image" src={require('../assets/music-icon.png')} alt="" />
+                                <p>{song.label}</p>
+                                <p>{song.artist}</p>
+                                <p>{song.genre}</p>
+                            </div>
+                        </div>
+                        : <div></div>
+                    ))
                 ))
                 : <div></div>
             ))}

@@ -115,10 +115,6 @@ const staff = require('./models/staff')
 const calendar = require('./models/calendar')
 const music = require('./models/music')
 
-app.get('/', (req, res) => {
-    res.send("hello world")
-})
-
 app.get('/get-staff-data', (req, res) => {
     staff.find().then((result) => {
         res.json(result)

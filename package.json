@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"cd backend && npm install && npm run dev\" \"cd frontend && npm install && npm start\" "
+    "start": "concurrently \"cd frontend && npm install && npm start\" \"cd backend && npm install && npm run dev\" "
   },
   "repository": {
     "type": "git",

@@ -5,33 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90a265c3-02df-46a7-a8d2-0996ab7e4a8c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/passport.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/dbUtils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/controllers/residentController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/animal.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/calendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/food.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/hobby.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/image.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/interest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/language.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/movie.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/music.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/musician.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/resident.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/models/staff.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/auth.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/residentRouter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/staffRouter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

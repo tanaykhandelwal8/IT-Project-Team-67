@@ -1,10 +1,30 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import "../App.css";
+import React, {useEffect, useState} from 'react';
+import {useParams} from "react-router-dom";
+import axios from 'axios';
 
 function HobbiesInterests(props) {
     /* Navbar should be shown on this page */
     props.funcNav(true)
+
+    const [residentData, setResidentData] = useState([{}])
+    const getResidentData = () => {
+      axios.get("http://localhost:3001/resident/get-resident-data")
+      .then((res) => {setResidentData(res.data)})
+    }
+    getResidentData()
+
+    const [hobbiesData, setHobbiesData] = useState([{}])
+    const getHobbiesData = () => {
+      axios.get("http://localhost:3001/get-hobbies-data")
+      .then((res) => {setHobbiesData(res.data)})
+    }
+    getHobbiesData()
+
+    const params = useParams();
+    const userID = params.id;
     return (
         <div>
         <div className="centered-box">

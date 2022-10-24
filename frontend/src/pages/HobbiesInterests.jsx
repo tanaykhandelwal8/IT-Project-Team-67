@@ -18,7 +18,7 @@ function HobbiesInterests(props) {
 
     const [hobbiesData, setHobbiesData] = useState([{}])
     const getHobbiesData = () => {
-      axios.get("http://localhost:3001/get-hobbies-data")
+      axios.get("http://localhost:3001/get-hobby-data")
       .then((res) => {setHobbiesData(res.data)})
     }
     getHobbiesData()
@@ -27,77 +27,26 @@ function HobbiesInterests(props) {
     const userID = params.id;
     return (
         <div>
-        <div className="centered-box">
-            <h1 className='Font'>Hobbies/Interests</h1>
-        </div>
-            <div className="centered-gallery">
-            <div className="row">
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Hobby</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Hobby</p>
-
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Hobby</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Hobby</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Hobby</p>
-                    </div>
-                </div>
+            <div className="centered-box">
+                <h1 className='Font'>Hobbies</h1>
             </div>
-            </div>
-            <div className="centered-gallery">
-            <div className="row">
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Hobby</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Hobby</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Hobby</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Hobby</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/activity-icon.png')} alt="" />
-                        <p>Hobby</p>
-                    </div>
-                </div>
-            </div>
+            <div>
+            {residentData.map((user, key) => (
+                user._id === userID ?
+                user.hobby.map((item, key) => (
+                    hobbyData.map((hobby, key) => (
+                        item._id === hobby._id ?
+                        <div className="gallery-column">
+                            <div className="image-wrapper">
+                                <img className="preference-image" src={require('../assets/hobby-icon.png')} alt="" />
+                                <p>{hobby.hobby}</p>
+                            </div>
+                        </div>
+                        : <div></div>
+                    ))
+                ))
+                : <div></div>
+            ))}
         </div>
         <div className='Font'>
             {/* Show staff dashboard button if logged in as staff */}

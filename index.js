@@ -18,7 +18,7 @@ const Musics = require("./models/music")
 const Foods = require("./models/food")
 const Animals = require("./models/animal")
 const Movies = require("./models/movie")
-
+const Hobby = require(".models/interest")
 
 var fs = require('fs');
 const path = require('path');
@@ -112,7 +112,7 @@ const resident = require('./models/resident')
 const staff = require('./models/staff')
 const calendar = require('./models/calendar')
 const music = require('./models/music')
-
+const hobby = require('./models/interest')
 app.get('/get-staff-data', (req, res) => {
     staff.find().then((result) => {
         res.json(result)
@@ -129,6 +129,14 @@ app.get('/get-events-data', (req, res) => {
 })
 
 app.get('/get-music-data', (req, res) => {
+    music.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-interest-data', (req, res) => {
     music.find().then((result) => {
         res.json(result)
     }).catch((err) => {
@@ -249,6 +257,16 @@ app.get('/music', async (req, res) => {
         res.send(musics)
     }   else {
         res.send( {result: "No music Found"})
+    }
+
+})
+
+app.get('/interest', async (req, res) => {
+    const hobby = await Hobby.find()
+    if (hobby.length > 0){
+        res.send(hobby)
+    }   else {
+        res.send( {result: "No hobbies Found"})
     }
 
 })

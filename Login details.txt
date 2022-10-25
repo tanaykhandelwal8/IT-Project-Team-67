@@ -9,3 +9,6 @@ ani.skywalker@hotmail.com   |   NotDarthVader
 USERNAME                    |   Password
 Dvader@mac.com              |   i<3palpatine
 emperor@mac.com             |   d4rksideRules
+
+
+cloudinary

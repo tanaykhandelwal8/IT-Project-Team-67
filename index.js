@@ -20,7 +20,7 @@ const Musics = require("./models/music")
 const Foods = require("./models/food")
 const Animals = require("./models/animal")
 const Movies = require("./models/movie")
-const Hobby = require(".models/interest")
+const Hobby = require("./models/interest")
 
 var fs = require('fs');
 const path = require('path');

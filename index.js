@@ -1,4 +1,6 @@
-require('dotenv').config()
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
 
 const express = require('express')
 
@@ -335,13 +337,14 @@ app.post('/delete-event', (req, res) =>{
         });
 })
 
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static("frontend/build"))
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname,"frontend","build","index.html"))
-    })
-}
-app.listen(process.env.PORT || 3001, () => {
+app.listen(process.env.PORT, () => {
     console.log('Listening on Port ' + process.env.PORT);
 })
 
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, '../frontend/build')))
+
+// AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../frontend/build/index.html'))
+})

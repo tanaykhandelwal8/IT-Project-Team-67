@@ -66,23 +66,24 @@ function Home(props) {
         <div>
             <div className="shadow-box" style={{"--r1":"130%","--r2":"71.5%"}}>
             </div>
-            
-            <div className="login-container">
+            <div className='login-container'>
+                
                 <div className="login-card">
-                    <div className="login-class">
-                        <h1>Welcome to Residencely</h1>
-                    </div>
+                <div className='login-welcome'>Welcome to Residencely</div>
+                    <div className='login-credentials'>
+                        
                     {isSubmitted ? <div><Navigate replace to="/resident-dashboard" /></div> : <div></div>}
                     <form >
-                        <div className="login-credentials">
+                        <div>
                             <p>Username</p>
                             <input className="credential-box" type="text" placeholder="username" onChange={(e) => setLoginUsername(e.target.value)}  />
                             <p>Password</p>
                             <input className="credential-box" type="password" placeholder="password" onChange={(e) => setLoginPassword(e.target.value)}/>
                             <br></br>
-                            <button style={{height: "3vw"}} onClick={login}>Login</button>
+                            <button onClick={login}>Login</button>
                         </div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>

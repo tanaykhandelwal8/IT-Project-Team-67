@@ -72,11 +72,11 @@ function ResidentDashboard(props) {
             </div>
             <div className="right-column">
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card">
                         <h3>Interests</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
-                            user.interest.slice(0,4).map((item, key) => ( 
+                            user.interest.slice(0,4).map((item, key) => (
                                 <div className="dashboard-favourite-column">
                                     <div className="dashboard-img-wrapper">
                                     <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
@@ -95,7 +95,7 @@ function ResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card">
                         <h3>Hobbies</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
@@ -118,14 +118,14 @@ function ResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card">
                         <h3>Favourite Songs</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
                             user.music.slice(0,4).map((item, key) => (
                                 musicData.map((song, key) => (
                                     item._id === song._id ?
-                                    <div className="gallery-column">
+                                    <div className="dashboard-favourite-column">
                                         <div className="dashboard-img-wrapper">
                                             <img className="preference-image" src={require('../assets/music-icon.png')} alt="" />
                                             <p>{song.label}</p>
@@ -145,7 +145,7 @@ function ResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card">
                         <h3>Favourite Musician</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
@@ -168,11 +168,11 @@ function ResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card">
                         <h3>Favourite Films</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
-                            user.movies.slice(0,4).map((item, key) => ( 
+                            user.movies.slice(0,3).map((item, key) => ( 
                                 <div className="dashboard-favourite-column">
                                     <div className="dashboard-img-wrapper">
                                     <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
@@ -191,7 +191,7 @@ function ResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card">
                         <h3>Favourite Foods</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
@@ -214,7 +214,7 @@ function ResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card">
                         <h3>Favourite Animals</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
@@ -237,7 +237,7 @@ function ResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card">
                         <h3>Languages Spoken</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?

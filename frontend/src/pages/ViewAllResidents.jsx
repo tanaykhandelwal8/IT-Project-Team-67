@@ -60,12 +60,12 @@ function ViewAllResidents(props) {
                 ): (
                     <div className='Font'>
                         {residentData.map((user, i) =>(
-                            <div className="gallery-column" key = {user.id}>
+                            <div className="gallery-column-resident" key = {user.id}>
                                 <div className="image-wrapper">
                                 <img className="view-resident-picture" src={require('../assets/Portrait-Placeholder.png')} alt="" />
                                 <p>{user.firstName} {user.lastName}</p>
                                 <p>{user.location}</p>   
-                                <button style={{height: "3vw"}} onClick={view}>View</button>
+                                <button onClick={view}>View</button>
                                 </div>
                             </div>
                         ))}

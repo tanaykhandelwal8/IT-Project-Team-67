@@ -3,7 +3,6 @@ import {useParams} from "react-router-dom";
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import UploadImage from "../components/UploadImage";
-
 import "../App.css";
 
 function StaffDashboard(props) {
@@ -64,24 +63,24 @@ function StaffDashboard(props) {
                 </div>
             </div>
             <div className="right-column">
-                <div className="gallery-card" style={{height: "40vw"}}>
+                <div className="gallery-card">
                     <h2 className="centered-element">Residents List</h2>
                     {(typeof residentData === 'undefined') ? (
                             <p> loading</p>
                         ): (
                         <div className='Font'>
                             {residentData.slice(0,10).map((user, key) => (
-                                <div className="gallery-column">
+                                <div className="gallery-column-resident">
                                     <div className="image-wrapper">
                                     <img className="view-resident-picture" src={require('../assets/Portrait-Placeholder.png')} alt="" />
                                     <p>{user.firstName} {user.lastName}</p>
-                                    <p>{user.location}</p>   
+                                    <p>{user.location}</p>
+                                    <button>View</button>   
                                     </div>
                                 </div>
                             ))}
                         </div>
                     )}
-                    
                 </div>
                 <p><Link to="../view-all-residents" className="centered-element" style={{padding: "0", backgroundColor: "white", color: "blue", marginLeft: "28vw"}}>View All Residents</Link></p>
             </div>

@@ -21,79 +21,31 @@ function FavouriteMovies(props) {
       .then((res) => {setMoviesData(res.data)})
     }
     getMoviesData()
+
+    const params = useParams();
+    const userID = params.id;
     return (
         <div>
-        <div className="centered-box">
-            <h1 className='Font'>Favourite Movies</h1>
-        </div>
-            <div className="centered-gallery">
-            <div className="row">
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/movie-icon.png')} alt="" />
-                        <p>Movie</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/movie-icon.png')} alt="" />
-                        <p>Movie</p>
-
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/movie-icon.png')} alt="" />
-                        <p>Movie</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/movie-icon.png')} alt="" />
-                        <p>Movie</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/movie-icon.png')} alt="" />
-                        <p>Movie</p>
-                    </div>
-                </div>
+            <div className="centered-box">
+                <h1 className='Font'>Movie Preferences</h1>
             </div>
-            </div>
-            <div className="centered-gallery">
-            <div className="row">
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/movie-icon.png')} alt="" />
-                        <p>Movie</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/movie-icon.png')} alt="" />
-                        <p>Movie</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/movie-icon.png')} alt="" />
-                        <p>Movie</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/movie-icon.png')} alt="" />
-                        <p>Movie</p>
-                    </div>
-                </div>
-                <div className="gallery-column">
-                    <div className="image-wrapper">
-                    <img className="view-resident-picture" src={require('../assets/movie-icon.png')} alt="" />
-                        <p>Movie</p>
-                    </div>
-                </div>
-            </div>
+            <div>
+            {residentData.map((user, key) => (
+                user._id === userID ?
+                user.music.map((item, key) => (
+                    moviesData.map((movie, key) => (
+                        item._id === movie._id ?
+                        <div className="gallery-column">
+                            <div className="image-wrapper">
+                                <img className="preference-image" src={require('../assets/movie-icon.png')} alt="" />
+                                <p>{movie.movie}</p>
+                            </div>
+                        </div>
+                        : <div></div>
+                    ))
+                ))
+                : <div></div>
+            ))}
         </div>
         <div className='Font'>
             {/* Show staff dashboard button if logged in as staff */}

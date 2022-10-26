@@ -4,6 +4,7 @@ import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import ResidentDashboard from "./pages/ResidentDashboard";
 import EditResidentDashboard from "./pages/EditResidentDashboard";
+import ViewOtherResident from "./pages/ViewOtherResident";
 import NoPage from "./pages/NoPage";
 import AddNewResident from "./pages/AddNewResident";
 import AddNewStaff from "./pages/AddNewStaff";
@@ -50,6 +51,7 @@ export default function App() {
             <Route path="add-staff" element={<AddNewStaff funcNav={setShowNav}/>}/>
             <Route path="community-corner" element={<CommunityCorner funcNav={setShowNav} role="staff"/>}/>
             <Route path="view-all-residents" element={<ViewAllResidents funcNav={setShowNav} role="staff"/>}/>
+            <Route path="view-other-resident" element={<ViewOtherResident funcNav={setShowNav} role="staff"/>}/>
         </Route>
           // Resident routes
           <Route path="/resident/:id" element={<Layout />}>
@@ -64,6 +66,7 @@ export default function App() {
             <Route path="favourite-movies" element={<FavouriteMovies funcNav={setShowNav} role="resident"/>}/>
             <Route path="language-preferences" element={<LanguagePreferences funcNav={setShowNav} role="resident"/>}/>
             <Route path="hobbies-interests" element={<HobbiesInterests funcNav={setShowNav} role="resident"/>}/>
+            <Route path="view-other-resident" element={<ViewOtherResident funcNav={setShowNav} role="resident"/>}/>
             <Route path="change-password" element={<ChangePassword funcNav={setShowNav}/>}/>
           </Route>
           

@@ -33,6 +33,38 @@ function StaffDashboard(props) {
     }
     const user = findStaffById()
 
+    const view = (user) => {
+
+        if (props.role === "resident") {
+            window.location.href=("/resident/"+user._id+"/view-other-resident");
+        }
+        else {
+            window.location.href=("/staff/"+user._id+"/view-other-resident");     
+        }
+        return;
+        
+        /*const {loginUsername, loginPassword} = this.state;
+        axios.post('/view-other-resident', {fName: user.firstName, lName: user.lastName})
+            .then(function (response) {
+                console.log(response)
+                if (response.data.redirect === '/resident-dashboard') {
+                    const userid = response.data._id
+                    console.log(userid)
+                    window.location = ("/resident/"+userid+"/resident-dashboard")
+                }
+                if (response.data.redirect === '/staff-dashboard') {
+                    const userid = response.data._id
+                    window.location = ("/staff/"+userid+"/staff-dashboard")
+                } else if (response.data.redirect === '/fail'){
+                    console.log("HELLOOOOOOO")
+                    return                    
+                }
+            })
+            .catch(function(error) {
+                window.location = "/"
+            })*/
+    }
+
     return (
         <div className='Font'>
         <div>
@@ -75,7 +107,7 @@ function StaffDashboard(props) {
                                     <img className="view-resident-picture" src={require('../assets/Portrait-Placeholder.png')} alt="" />
                                     <p>{user.firstName} {user.lastName}</p>
                                     <p>{user.location}</p>
-                                    <button>View</button>   
+                                    <button onClick={() => view(user)}>View</button>
                                     </div>
                                 </div>
                             ))}

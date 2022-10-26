@@ -15,12 +15,12 @@ function HobbiesInterests(props) {
     }
     getResidentData()
 
-    const [hobbiesData, setHobbiesData] = useState([{}])
-    const getHobbiesData = () => {
+    const [hobbyData, setHobbyData] = useState([{}])
+    const getHobbyData = () => {
       axios.get("http://localhost:3001/get-hobby-data")
-      .then((res) => {setHobbiesData(res.data)})
+      .then((res) => {setHobbyData(res.data)})
     }
-    getHobbiesData()
+    getHobbyData()
 
     const params = useParams();
     const userID = params.id;

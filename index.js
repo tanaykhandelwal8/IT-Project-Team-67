@@ -102,6 +102,7 @@ app.use("/staff", staffRouter);
 
 })
 */
+
 const authRouter = require('./routes/auth')
 app.use(authRouter.router)
 

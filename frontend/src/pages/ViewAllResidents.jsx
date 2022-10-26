@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
@@ -13,22 +13,28 @@ function ViewAllResidents(props) {
     }
     getResidentData()
     
-    const view = (e) => {
-        /*
-        e.preventDefault()
-        //alert(loginUsername);
-        //const {loginUsername, loginPassword} = this.state;
+    const view = (user) => {
+
+        if (props.role === "resident") {
+            window.location.href=("/resident/"+user._id+"/view-other-resident");
+        }
+        else {
+            window.location.href=("/staff/"+user._id+"/view-other-resident");     
+        }
+        return;
+        
+        /*const {loginUsername, loginPassword} = this.state;
         axios.post('/view-other-resident', {fName: user.firstName, lName: user.lastName})
             .then(function (response) {
                 console.log(response)
                 if (response.data.redirect === '/resident-dashboard') {
-                    //const userid = response.data.id
-                    //console.log(userid)
-                    //window.location = "/resident/"+userid+"/resident-dashboard"
+                    const userid = response.data._id
+                    console.log(userid)
+                    window.location = ("/resident/"+userid+"/resident-dashboard")
                 }
                 if (response.data.redirect === '/staff-dashboard') {
-                    //const userid = response.data.id
-                    //window.location = "/staff/"+userid+"/staff-dashboard"
+                    const userid = response.data._id
+                    window.location = ("/staff/"+userid+"/staff-dashboard")
                 } else if (response.data.redirect === '/fail'){
                     console.log("HELLOOOOOOO")
                     return                    
@@ -36,18 +42,17 @@ function ViewAllResidents(props) {
             })
             .catch(function(error) {
                 window.location = "/"
-            })
-            
-        */
+            })*/
     }
+
     return (
         <div className='Font'>
             {/* Show staff dashboard button if logged in as staff */}
-            {props.role == "staff" &&
+            {props.role === "staff" &&
                 <Link to="../staff-dashboard">Staff Dashboard</Link>
             }
             {/* Show resident dashboard button if logged in as resident */}
-            {props.role == "resident" &&
+            {props.role === "resident" &&
                 <Link to="../resident-dashboard">Resident Dashboard</Link>
       }
             <div className="centered-box">
@@ -65,7 +70,7 @@ function ViewAllResidents(props) {
                                 <img className="view-resident-picture" src={require('../assets/Portrait-Placeholder.png')} alt="" />
                                 <p>{user.firstName} {user.lastName}</p>
                                 <p>{user.location}</p>   
-                                <button onClick={view}>View</button>
+                                <button onClick={() => view(user)}>View</button>
                                 </div>
                             </div>
                         ))}

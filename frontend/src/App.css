@@ -72,7 +72,7 @@ p {
 
 .shadow-box {
   position: static;
-  height:35vw;
+  height:35vh;
   background-color: #F4F5F7;
   z-index:-100;
   -webkit-mask:
@@ -93,7 +93,6 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -100px;
   z-index: 100;
 }
 
@@ -150,7 +149,8 @@ body{
 
 .right-column {
   float: left;
-  width: 76vw;
+  width: 65vw;
+  max-width: 100% - 350px;
 }
 /* formatting for something a resident likes*/
 .gallery-card {
@@ -350,14 +350,27 @@ h4 {
   resize: vertical;
   font-size: 15px;
   color: #172b4d;
-  width: 500px;
-  height: 100px;
+  height: 150px;
+  width: 220px;
   max-height: 250px;
   min-width: 100px;
   max-width: 300px;
+  padding: 10px;
+  margin-left: 15px;
+  margin-bottom: 5px;
 }
 /* CSS For logo on login page */
 img.LoginLogo {
   height: 84px;
   padding: none;
+}
+
+input.search-bar{
+  background-color: #FFFFFF00;
+  border:0px;
+  outline:1px solid black;
+  width:95vw;
+  height: 30px;
+  font-size: 20px;
+  text-align: left;
 }

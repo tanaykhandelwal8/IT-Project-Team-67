@@ -17,7 +17,7 @@ function FavouriteMovies(props) {
 
     const [moviesData, setMoviesData] = useState([{}])
     const getMoviesData = () => {
-      axios.get("http://localhost:3001/get-hobby-data")
+      axios.get("http://localhost:3001/get-movies-data")
       .then((res) => {setMoviesData(res.data)})
     }
     getMoviesData()

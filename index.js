@@ -116,6 +116,7 @@ const staff = require('./models/staff')
 const calendar = require('./models/calendar')
 const music = require('./models/music')
 const hobby = require('./models/interest')
+const animal = require("./models/animal")
 app.get('/get-staff-data', (req, res) => {
     staff.find().then((result) => {
         res.json(result)
@@ -283,7 +284,7 @@ app.get('/foods', async (req, res) => {
     }
 })
 
-app.get('/animals', async (req, res) => {
+app.get('/animal', async (req, res) => {
     const animals = await Animals.find()
     if (animals.length > 0){
         res.send(animals)

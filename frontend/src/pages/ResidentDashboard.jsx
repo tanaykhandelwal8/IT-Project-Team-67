@@ -24,6 +24,55 @@ function ResidentDashboard(props) {
     }
     getMusicData()
 
+    const [hobbyData, setHobbyData] = useState([{}])
+    const getHobbyData = () => {
+      axios.get("http://localhost:3001/get-hobby-data")
+      .then((res) => {setHobbyData(res.data)})
+    }
+    getHobbyData()
+
+    const [interestData, setInterestData] = useState([{}])
+    const getInterestData = () => {
+      axios.get("http://localhost:3001/get-interest-data")
+      .then((res) => {setInterestData(res.data)})
+    }
+    getInterestData()
+
+    const [musicianData, setMusicianData] = useState([{}])
+    const getMusicianData = () => {
+      axios.get("http://localhost:3001/get-musician-data")
+      .then((res) => {setMusicianData(res.data)})
+    }
+    getMusicianData()
+
+    const [animalData, setAnimalData] = useState([{}])
+    const getAnimalData = () => {
+      axios.get("http://localhost:3001/get-animal-data")
+      .then((res) => {setAnimalData(res.data)})
+    }
+    getAnimalData()
+
+    const [foodData, setFoodData] = useState([{}])
+    const getFoodData = () => {
+      axios.get("http://localhost:3001/get-food-data")
+      .then((res) => {setFoodData(res.data)})
+    }
+    getFoodData()
+
+    const [languageData, setLanguageData] = useState([{}])
+    const getLanguageData = () => {
+      axios.get("http://localhost:3001/get-language-data")
+      .then((res) => {setLanguageData(res.data)})
+    }
+    getLanguageData()
+
+    const [movieData, setMovieData] = useState([{}])
+    const getMovieData = () => {
+      axios.get("http://localhost:3001/get-movie-data")
+      .then((res) => {setMovieData(res.data)})
+    }
+    getMovieData()
+
     const params = useParams();
     const userID = params.id;
 
@@ -77,12 +126,16 @@ function ResidentDashboard(props) {
                         {residentData.map((user, key) => (
                             user._id === userID ?
                             user.interest.slice(0,4).map((item, key) => (
-                                <div className="dashboard-favourite-column">
-                                    <div className="dashboard-img-wrapper">
-                                    <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
-                                    <p>{item}</p>
+                                interestData.map((interest, key) => (
+                                    item._id === interest._id ?
+                                    <div className="dashboard-favourite-column">
+                                        <div className="dashboard-img-wrapper">
+                                            <img className="preference-image" src={require('../assets/music-icon.png')} alt="" />
+                                            <p>{interest.label}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                    : <div></div>
+                                ))
                             ))
                             : <div></div>
                         ))}
@@ -100,12 +153,16 @@ function ResidentDashboard(props) {
                         {residentData.map((user, key) => (
                             user._id === userID ?
                             user.hobby.slice(0,4).map((item, key) => ( 
-                                <div className="dashboard-favourite-column">
-                                    <div className="dashboard-img-wrapper">
-                                    <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
-                                    <p>{item}</p>
+                                hobbyData.map((hobby, key) => (
+                                    item._id === hobby._id ?
+                                    <div className="dashboard-favourite-column">
+                                        <div className="dashboard-img-wrapper">
+                                            <img className="preference-image" src={require('../assets/music-icon.png')} alt="" />
+                                            <p>{hobby.label}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                    : <div></div>
+                                ))
                             ))
                             : <div></div>
                         ))}
@@ -150,12 +207,16 @@ function ResidentDashboard(props) {
                         {residentData.map((user, key) => (
                             user._id === userID ?
                             user.musician.slice(0,4).map((item, key) => ( 
-                                <div className="dashboard-favourite-column">
-                                    <div className="dashboard-img-wrapper">
-                                    <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
-                                    <p>{item}</p>
+                                musicianData.map((musician, key) => (
+                                    item._id === musician._id ?
+                                    <div className="dashboard-favourite-column">
+                                        <div className="dashboard-img-wrapper">
+                                            <img className="preference-image" src={require('../assets/music-icon.png')} alt="" />
+                                            <p>{musician.label}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                    : <div></div>
+                                ))
                             ))
                             : <div></div>
                         ))}
@@ -173,12 +234,16 @@ function ResidentDashboard(props) {
                         {residentData.map((user, key) => (
                             user._id === userID ?
                             user.movies.slice(0,3).map((item, key) => ( 
-                                <div className="dashboard-favourite-column">
-                                    <div className="dashboard-img-wrapper">
-                                    <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
-                                    <p>{item}</p>
+                                movieData.map((movie, key) => (
+                                    item._id === movie._id ?
+                                    <div className="dashboard-favourite-column">
+                                        <div className="dashboard-img-wrapper">
+                                            <img className="preference-image" src={require('../assets/music-icon.png')} alt="" />
+                                            <p>{movie.label}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                    : <div></div>
+                                ))
                             ))
                             : <div></div>
                         ))}
@@ -196,12 +261,16 @@ function ResidentDashboard(props) {
                         {residentData.map((user, key) => (
                             user._id === userID ?
                             user.food.slice(0,4).map((item, key) => ( 
-                                <div className="dashboard-favourite-column">
-                                    <div className="dashboard-img-wrapper">
-                                    <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
-                                    <p>{item}</p>
+                                foodData.map((food, key) => (
+                                    item._id === food._id ?
+                                    <div className="dashboard-favourite-column">
+                                        <div className="dashboard-img-wrapper">
+                                            <img className="preference-image" src={require('../assets/music-icon.png')} alt="" />
+                                            <p>{food.label}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                    : <div></div>
+                                ))
                             ))
                             : <div></div>
                         ))}
@@ -219,12 +288,16 @@ function ResidentDashboard(props) {
                         {residentData.map((user, key) => (
                             user._id === userID ?
                             user.animals.slice(0,4).map((item, key) => ( 
-                                <div className="dashboard-favourite-column">
-                                    <div className="dashboard-img-wrapper">
-                                    <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
-                                    <p>{item}</p>
+                                animalData.map((animal, key) => (
+                                    item._id === animal._id ?
+                                    <div className="dashboard-favourite-column">
+                                        <div className="dashboard-img-wrapper">
+                                            <img className="preference-image" src={require('../assets/music-icon.png')} alt="" />
+                                            <p>{animal.label}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                    : <div></div>
+                                ))
                             ))
                             : <div></div>
                         ))}
@@ -242,12 +315,16 @@ function ResidentDashboard(props) {
                         {residentData.map((user, key) => (
                             user._id === userID ?
                             user.language.slice(0,4).map((item, key) => ( 
-                                <div className="dashboard-favourite-column">
-                                    <div className="dashboard-img-wrapper">
-                                    <img className="gallery-profile-picture" src={require('../assets/activity-icon.png')} alt="" />
-                                    <p>{item}</p>
+                                languageData.map((language, key) => (
+                                    item._id === language._id ?
+                                    <div className="dashboard-favourite-column">
+                                        <div className="dashboard-img-wrapper">
+                                            <img className="preference-image" src={require('../assets/music-icon.png')} alt="" />
+                                            <p>{language.label}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                    : <div></div>
+                                ))
                             ))
                             : <div></div>
                         ))}

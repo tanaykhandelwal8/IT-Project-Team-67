@@ -34,8 +34,8 @@ function FavouriteMusicians(props) {
             {residentData.map((user, key) => (
                 user._id === userID ?
                 user.musician.map((item, key) => (
-                    musicData.map((song, key) => (
-                        item._id === song._id ?
+                    musicianData.map((musician, key) => (
+                        item._id === musician._id ?
                         <div className="gallery-column">
                             <div className="image-wrapper">
                                 <img className="preference-image" src={require('../assets/music-icon.png')} alt="" />

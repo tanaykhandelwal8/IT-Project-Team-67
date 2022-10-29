@@ -40,7 +40,7 @@ function FavouriteFood(props) {
                         <div className="gallery-column">
                             <div className="image-wrapper">
                                 <img className="preference-image" src={require('../assets/food-icon.png')} alt="" />
-                                <p>{food.food}</p>
+                                <p>{food.label}</p>
                             </div>
                         </div>
                         : <div></div>

@@ -117,6 +117,7 @@ const calendar = require('./models/calendar')
 const music = require('./models/music')
 const hobby = require('./models/interest')
 const animal = require("./models/animal")
+
 app.get('/get-staff-data', (req, res) => {
     staff.find().then((result) => {
         res.json(result)

@@ -14,11 +14,13 @@ import StaffDashboard from "./pages/StaffDashboard";
 import React, { useState } from "react";
 import MusicPreferences from "./pages/MusicPreferences";
 import EditMusicPreferences from "./pages/EditMusicPreferences";
+import EditFoodPreferences from "./pages/EditFoodPreferences";
 import FavouriteFood from "./pages/FavouriteFood";
 import FavouriteAnimals from "./pages/FavouriteAnimals";
 import FavouriteMovies from "./pages/FavouriteMovies";
 import LanguagePreferences from "./pages/LanguagePreferences";
-import HobbiesInterests from "./pages/HobbiesInterests";
+import FavouriteHobbies from "./pages/FavouriteHobbies";
+import FavouriteInterests from "./pages/FavouriteInterests";
 import ChangePassword from "./pages/ChangePassword";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -61,11 +63,13 @@ export default function App() {
             <Route path="view-all-residents" element={<ViewAllResidents funcNav={setShowNav} role="resident"/>}/>
             <Route path="music-preferences" element={<MusicPreferences funcNav={setShowNav} role="resident"/>}/>
             <Route path="edit-music-preferences" element={<EditMusicPreferences funcNav={setShowNav}/>}/>
+            <Route path="edit-food-preferences" element={<EditFoodPreferences funcNav={setShowNav}/>}/>
             <Route path="favourite-food" element={<FavouriteFood funcNav={setShowNav} role="resident"/>}/>
             <Route path="favourite-animals" element={<FavouriteAnimals funcNav={setShowNav} role="resident"/>}/>
             <Route path="favourite-movies" element={<FavouriteMovies funcNav={setShowNav} role="resident"/>}/>
             <Route path="language-preferences" element={<LanguagePreferences funcNav={setShowNav} role="resident"/>}/>
-            <Route path="hobbies-interests" element={<HobbiesInterests funcNav={setShowNav} role="resident"/>}/>
+            <Route path="favourite-hobbies" element={<FavouriteHobbies funcNav={setShowNav} role="resident"/>}/>
+            <Route path="favourite-interests" element={<FavouriteInterests funcNav={setShowNav} role="resident"/>}/>
             <Route path="view-other-resident" element={<ViewOtherResident funcNav={setShowNav} role="resident"/>}/>
             <Route path="change-password" element={<ChangePassword funcNav={setShowNav}/>}/>
           </Route>

@@ -296,6 +296,76 @@ app.post('/update-music-preferences', async (req, res) => {
 
 })
 
+app.post('/update-food-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {food: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('food preferences updated');
+
+})
+
+app.post('/update-hobby-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {hobby: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('hobby preferences updated');
+
+})
+
+app.post('/update-interest-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {interest: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('interest preferences updated');
+
+})
+
+app.post('/update-musician-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {musician: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('musician preferences updated');
+
+})
+
+app.post('/update-movie-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {movie: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('movie preferences updated');
+
+})
+
+app.post('/update-animal-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {animal: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('animal preferences updated');
+
+})
+
+app.post('/update-language-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {language: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('language preferences updated');
+
+})
+
 //app.use('/resident', residentRouter);
 
 app.get('/', (req, res) => {

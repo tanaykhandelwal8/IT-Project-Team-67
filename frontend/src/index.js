@@ -15,12 +15,19 @@ import React, { useState } from "react";
 import MusicPreferences from "./pages/MusicPreferences";
 import EditMusicPreferences from "./pages/EditMusicPreferences";
 import EditFoodPreferences from "./pages/EditFoodPreferences";
+import EditHobbyPreferences from "./pages/EditHobbyPreferences";
+import EditInterestPreferences from "./pages/EditInterestPreferences";
+import EditLanguagePreferences from "./pages/EditLanguagePreferences";
+import EditAnimalPreferences from "./pages/EditAnimalPreferences";
+import EditMusicianPreferences from "./pages/EditMusicianPreferences";
+import EditMoviePreferences from "./pages/EditMoviePreferences";
 import FavouriteFood from "./pages/FavouriteFood";
 import FavouriteAnimals from "./pages/FavouriteAnimals";
 import FavouriteMovies from "./pages/FavouriteMovies";
 import LanguagePreferences from "./pages/LanguagePreferences";
 import FavouriteHobbies from "./pages/FavouriteHobbies";
 import FavouriteInterests from "./pages/FavouriteInterests";
+import FavouriteMusicians from "./pages/FavouriteMusicians";
 import ChangePassword from "./pages/ChangePassword";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -62,14 +69,21 @@ export default function App() {
             <Route path="community-corner" element={<CommunityCorner funcNav={setShowNav} role="resident"/>}/>
             <Route path="view-all-residents" element={<ViewAllResidents funcNav={setShowNav} role="resident"/>}/>
             <Route path="music-preferences" element={<MusicPreferences funcNav={setShowNav} role="resident"/>}/>
-            <Route path="edit-music-preferences" element={<EditMusicPreferences funcNav={setShowNav}/>}/>
-            <Route path="edit-food-preferences" element={<EditFoodPreferences funcNav={setShowNav}/>}/>
-            <Route path="favourite-food" element={<FavouriteFood funcNav={setShowNav} role="resident"/>}/>
+            <Route path="edit-music-preferences" element={<EditMusicPreferences funcNav={setShowNav} role="resident"/>}/>
+            <Route path="edit-food-preferences" element={<EditFoodPreferences funcNav={setShowNav} role="resident"/>}/>
+            <Route path="edit-hobby-preferences" element={<EditHobbyPreferences funcNav={setShowNav} role="resident"/>}/>
+            <Route path="edit-interest-preferences" element={<EditInterestPreferences funcNav={setShowNav} role="resident"/>}/>
+            <Route path="edit-language-preferences" element={<EditLanguagePreferences funcNav={setShowNav} role="resident"/>}/>
+            <Route path="edit-musician-preferences" element={<EditMusicianPreferences funcNav={setShowNav} role="resident"/>}/>
+            <Route path="edit-animal-preferences" element={<EditAnimalPreferences funcNav={setShowNav} role="resident"/>}/>
+            <Route path="edit-movie-preferences" element={<EditMoviePreferences funcNav={setShowNav} role="resident"/>}/>
+            <Route path="favourite-foods" element={<FavouriteFood funcNav={setShowNav} role="resident"/>}/>
             <Route path="favourite-animals" element={<FavouriteAnimals funcNav={setShowNav} role="resident"/>}/>
             <Route path="favourite-movies" element={<FavouriteMovies funcNav={setShowNav} role="resident"/>}/>
             <Route path="language-preferences" element={<LanguagePreferences funcNav={setShowNav} role="resident"/>}/>
             <Route path="favourite-hobbies" element={<FavouriteHobbies funcNav={setShowNav} role="resident"/>}/>
             <Route path="favourite-interests" element={<FavouriteInterests funcNav={setShowNav} role="resident"/>}/>
+            <Route path="favourite-musicians" element={<FavouriteMusicians funcNav={setShowNav} role="resident"/>}/>
             <Route path="view-other-resident" element={<ViewOtherResident funcNav={setShowNav} role="resident"/>}/>
             <Route path="change-password" element={<ChangePassword funcNav={setShowNav}/>}/>
           </Route>

@@ -4,7 +4,7 @@ import { MultiSelect } from "react-multi-select-component";
 import axios from 'axios';
 import "../App.css";
 
-function EditFoodPreferences(props) {
+function EditMoviePreferences(props) {
     /* Navbar should be shown on this page */
     props.funcNav(true)
 
@@ -13,34 +13,34 @@ function EditFoodPreferences(props) {
 
     const [selectedData, setSelectedData] = useState([]);
 
-    const [foodData, setFoodData] = useState([{}])
-    const getFoodData = () => {
-        axios.get("http://localhost:3001/get-food-data")
-        .then((res) => {setFoodData(res.data)})
+    const [movieData, setMovieData] = useState([{}])
+    const getMovieData = () => {
+        axios.get("http://localhost:3001/get-movie-data")
+        .then((res) => {setMovieData(res.data)})
     }
-    getFoodData()
+    getMovieData()
 
     const handleSubmit = () => {
         axios({
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "http://localhost:3001/update-food-preferences"
+            url: "http://localhost:3001/update-movie-preferences"
         }).then((res) => console.log(res))
     }
 
     return (
         <div>
             <div className="dashboard-title">
-                <h1 className='Font' style={{display: "inline"}}>Edit Food Preferences</h1>
-                <Link to="../favourite-foods" style={{float: "right"}}>View Preferences</Link>
+                <h1 className='Font' style={{display: "inline"}}>Edit Film Preferences</h1>
+                <Link to="../favourite-movies" style={{float: "right"}}>View Preferences</Link>
             </div>
             <div>
                 <h1>
-                    Select your favourite foods!
+                    Select your favourite films!
                 </h1>
                 <MultiSelect
-                    options={foodData}
+                    options={movieData}
                     value={selectedData}
                     onChange={setSelectedData}
                     labelledBy={"Select"}
@@ -53,4 +53,4 @@ function EditFoodPreferences(props) {
     )
 }
 
-export default EditFoodPreferences;
+export default EditMoviePreferences;

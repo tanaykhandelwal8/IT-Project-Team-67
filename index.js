@@ -21,6 +21,9 @@ const Foods = require("./models/food")
 const Animals = require("./models/animal")
 const Movies = require("./models/movie")
 const Hobby = require("./models/hobby")
+const Languages = require("./models/language")
+const Musicians = require("./models/musician")
+const Interests = require("./models/interest")
 
 var fs = require('fs');
 const path = require('path');
@@ -115,8 +118,13 @@ const resident = require('./models/resident')
 const staff = require('./models/staff')
 const calendar = require('./models/calendar')
 const music = require('./models/music')
-const hobby = require('./models/interest')
-const animal = require("./models/animal")
+const interest = require('./models/interest')
+const food = require('./models/food')
+const hobby = require('./models/hobby')
+const musician = require('./models/musician')
+const animal = require('./models/animal')
+const movie = require('./models/movie')
+const language = require('./models/language')
 
 app.get('/get-staff-data', (req, res) => {
     staff.find().then((result) => {
@@ -143,6 +151,54 @@ app.get('/get-music-data', (req, res) => {
 
 app.get('/get-hobby-data', (req, res) => {
     hobby.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-interest-data', (req, res) => {
+    interest.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-movie-data', (req, res) => {
+    movie.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-food-data', (req, res) => {
+    food.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-musician-data', (req, res) => {
+    musician.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-language-data', (req, res) => {
+    language.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-animal-data', (req, res) => {
+    animal.find().then((result) => {
         res.json(result)
     }).catch((err) => {
         console.error(err)

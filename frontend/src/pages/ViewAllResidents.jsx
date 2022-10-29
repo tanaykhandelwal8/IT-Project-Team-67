@@ -13,6 +13,8 @@ function ViewAllResidents(props) {
     }
     getResidentData()
     
+    /* Search Bar code */
+    const [query, setQuery] = useState("")
     const view = (user) => {
 
         if (props.role === "resident") {
@@ -24,6 +26,12 @@ function ViewAllResidents(props) {
         return;
         
         /*const {loginUsername, loginPassword} = this.state;
+
+    const view = (e) => {
+        /*
+        e.preventDefault()
+        //alert(loginUsername);
+        //const {loginUsername, loginPassword} = this.state;
         axios.post('/view-other-resident', {fName: user.firstName, lName: user.lastName})
             .then(function (response) {
                 console.log(response)
@@ -58,13 +66,29 @@ function ViewAllResidents(props) {
             <div className="centered-box">
                 <h1 className='Font'>All Residents</h1>
             </div>
+            {/* Search Bar */}
             <div>
-                {/* This displays the names */}
+                <input className='search-bar' 
+                    placeholder='Search Residents' value={query}
+                    onChange={e => setQuery(e.target.value)}></input>
+            </div>
+            <div>
+                {/* This displays the names and pictures of residents*/}
             {(typeof residentData === 'undefined') ? (
                     <p> loading</p>
                 ): (
                     <div className='Font'>
-                        {residentData.map((user, i) =>(
+                        {/* Only display residents who's names match the 
+                        search criteria if search bar is not empty*/}
+                        {residentData.filter(post => {
+                            if (query === ""){
+                                return post;
+                            } else if ((post.firstName.toLowerCase() + " " 
+                                    + post.lastName.toLowerCase())
+                                    .includes(query.toLowerCase())){
+                                return post;
+                            }
+                        }).map((user, i) =>(
                             <div className="gallery-column-resident" key = {user.id}>
                                 <div className="image-wrapper">
                                 <img className="view-resident-picture" src={require('../assets/Portrait-Placeholder.png')} alt="" />

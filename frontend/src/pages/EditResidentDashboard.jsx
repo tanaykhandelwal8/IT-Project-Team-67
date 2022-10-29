@@ -69,8 +69,8 @@ function EditResidentDashboard(props) {
                         <label>
                             <h3>About Me</h3>
                         </label>
-                        <textarea className="dashboard-textarea" style={{height: "160px"}} name="biography"></textarea>
-                        <button style={{height: "3vw"}} type="submit">Save</button>
+                        <textarea className="dashboard-textarea" name="biography"></textarea>
+                        <button type="submit">Save</button>
                     </form>
                     <br></br>
                     <div className="button-wrapper">
@@ -80,7 +80,7 @@ function EditResidentDashboard(props) {
             </div>
             <div className="right-column">
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card">
                         <h3>Interests</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
@@ -103,7 +103,7 @@ function EditResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card">
                         <h3>Hobbies</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
@@ -126,7 +126,7 @@ function EditResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card">
                         <h3>Favourite Songs</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
@@ -153,7 +153,7 @@ function EditResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card" >
                         <h3>Favourite Musician</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
@@ -176,7 +176,7 @@ function EditResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card" >
                         <h3>Favourite Films</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
@@ -199,7 +199,7 @@ function EditResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card" >
                         <h3>Favourite Foods</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
@@ -222,7 +222,7 @@ function EditResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card" >
                         <h3>Favourite Animals</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?
@@ -245,7 +245,7 @@ function EditResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="split-column">
-                    <div className="gallery-card" style={{height: "16vw"}}>
+                    <div className="gallery-card" >
                         <h3>Languages Spoken</h3>
                         {residentData.map((user, key) => (
                             user._id === userID ?

@@ -5,6 +5,7 @@ import "../App.css";
 import {Link} from "react-router-dom";
 
 
+
 function FavouriteFood(props) {
     /* Navbar should be shown on this page */
     props.funcNav(true)

@@ -467,7 +467,7 @@ app.post('/delete-event', (req, res) =>{
         });
 })
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT | PORT, () => {
     console.log('Listening on Port ' + process.env.PORT);
 })
 

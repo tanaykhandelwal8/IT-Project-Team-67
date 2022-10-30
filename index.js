@@ -5,7 +5,20 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express')
 
 const app = express()
+const path = require('path');
 const PORT = process.env.PORT || 3001
+
+app.listen(process.env.PORT | PORT, () => {
+    console.log('Listening on Port ' + process.env.PORT);
+})
+
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, '../frontend/build')))
+
+// AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../frontend/build/index.html'))
+})
 
 require('./models/index')
 app.use(express.static(__dirname))
@@ -26,7 +39,6 @@ const Musicians = require("./models/musician")
 const Interests = require("./models/interest")
 
 var fs = require('fs');
-const path = require('path');
 require('dotenv/config');
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -109,17 +121,6 @@ app.use("/staff", staffRouter);
 const authRouter = require('./routes/auth')
 app.use(authRouter.router)
 
-app.listen(process.env.PORT | PORT, () => {
-    console.log('Listening on Port ' + process.env.PORT);
-})
-
-// Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, '../frontend/build')))
-
-// AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/../frontend/build/index.html'))
-})
 
 app.post('/view-other-resident', (req, res) => {
     console.log("HERE");

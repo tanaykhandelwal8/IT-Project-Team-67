@@ -231,6 +231,11 @@ app.get('/failure', (req, res) => {
 
 })
 
+app.get('/panos', (req, res) => {
+    res.send('panos')
+
+})
+
 // 404 for everything else
 app.get('*', function(req, res){
     res.send("The world says hello")

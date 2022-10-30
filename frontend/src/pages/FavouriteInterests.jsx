@@ -17,7 +17,7 @@ function FavouriteInterests(props) {
 
     const [interestData, setInterestData] = useState([{}])
     const getInterestData = () => {
-      axios.get("http://localhost:3001/get-hobby-data")
+      axios.get("http://localhost:3001/get-interest-data")
       .then((res) => {setInterestData(res.data)})
     }
     getInterestData()

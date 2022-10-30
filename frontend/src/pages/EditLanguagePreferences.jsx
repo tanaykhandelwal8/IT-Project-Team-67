@@ -33,7 +33,7 @@ function EditLanguagePreferences(props) {
         <div>
             <div className="dashboard-title">
                 <h1 className='Font' style={{display: "inline"}}>Edit Language Preferences</h1>
-                <Link to="../favourite-languages" style={{float: "right"}}>View Preferences</Link>
+                <Link to="../language-preferences" style={{float: "right"}}>View Preferences</Link>
             </div>
             <div>
                 <h1>

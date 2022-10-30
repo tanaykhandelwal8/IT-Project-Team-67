@@ -24,6 +24,7 @@ function FavouriteMovies(props) {
 
     const params = useParams();
     const userID = params.id;
+
     return (
         <div>
             <div className="centered-box">
@@ -32,13 +33,13 @@ function FavouriteMovies(props) {
             <div>
             {residentData.map((user, key) => (
                 user._id === userID ?
-                user.music.map((item, key) => (
+                user.movies.map((item, key) => (
                     moviesData.map((movie, key) => (
                         item._id === movie._id ?
                         <div className="gallery-column">
                             <div className="image-wrapper">
                                 <img className="preference-image" src={require('../assets/movie-icon.png')} alt="" />
-                                <p>{movie.movie}</p>
+                                <p>{movie.label}</p>
                             </div>
                         </div>
                         : <div></div>

@@ -122,8 +122,8 @@ const interest = require('./models/interest')
 const food = require('./models/food')
 const hobby = require('./models/hobby')
 const musician = require('./models/musician')
-const animal = require('./models/animal')
-const movie = require('./models/movie')
+const animals = require('./models/animal')
+const movies = require('./models/movie')
 const language = require('./models/language')
 
 app.get('/get-staff-data', (req, res) => {
@@ -166,7 +166,7 @@ app.get('/get-interest-data', (req, res) => {
 })
 
 app.get('/get-movie-data', (req, res) => {
-    movie.find().then((result) => {
+    movies.find().then((result) => {
         res.json(result)
     }).catch((err) => {
         console.error(err)
@@ -198,7 +198,7 @@ app.get('/get-language-data', (req, res) => {
 })
 
 app.get('/get-animal-data', (req, res) => {
-    animal.find().then((result) => {
+    animals.find().then((result) => {
         res.json(result)
     }).catch((err) => {
         console.error(err)
@@ -334,11 +334,12 @@ app.post('/update-musician-preferences', async (req, res) => {
 
     console.log('musician preferences updated');
 
+
 })
 
 app.post('/update-movie-preferences', async (req, res) => {
     const filter = {_id: req.body.objects[0]};
-    const update = {movie: req.body.objects[1]};
+    const update = {movies: req.body.objects[1]};
 
     await resident.findOneAndUpdate(filter, update);
 
@@ -348,7 +349,7 @@ app.post('/update-movie-preferences', async (req, res) => {
 
 app.post('/update-animal-preferences', async (req, res) => {
     const filter = {_id: req.body.objects[0]};
-    const update = {animal: req.body.objects[1]};
+    const update = {animals: req.body.objects[1]};
 
     await resident.findOneAndUpdate(filter, update);
 

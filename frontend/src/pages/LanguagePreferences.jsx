@@ -10,17 +10,17 @@ function LanguagePreferences(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("http://localhost:3001/resident/get-language-data")
+      axios.get("http://localhost:3001/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
-    const [languageData, setlanguageData] = useState([{}])
-    const getlanguageData = () => {
+    const [languageData, setLanguageData] = useState([{}])
+    const getLanguageData = () => {
       axios.get("http://localhost:3001/get-language-data")
-      .then((res) => {setlanguageData(res.data)})
+      .then((res) => {setLanguageData(res.data)})
     }
-    getlanguageData()
+    getLanguageData()
 
     const params = useParams();
     const userID = params.id;
@@ -38,7 +38,7 @@ function LanguagePreferences(props) {
                         <div className="gallery-column">
                             <div className="image-wrapper">
                                 <img className="preference-image" src={require('../assets/language-icon.png')} alt="" />
-                                <p>{language.language}</p>
+                                <p>{language.label}</p>
                             </div>
                         </div>
                         : <div></div>

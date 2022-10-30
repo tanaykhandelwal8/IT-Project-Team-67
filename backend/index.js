@@ -233,7 +233,8 @@ app.get('/failure', (req, res) => {
 
 // 404 for everything else
 app.get('*', function(req, res){
-    res.status(404).send('404');
+    res.send("The world says hello")
+    //res.status(404).send('404');
 });
 
 

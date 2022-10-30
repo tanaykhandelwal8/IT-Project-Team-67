@@ -1,10 +1,27 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import "../App.css";
+import React, {useEffect, useState} from 'react';
+import {useParams} from "react-router-dom";
+import axios from 'axios';
 
 function FavouriteMovies(props) {
     /* Navbar should be shown on this page */
     props.funcNav(true)
+
+    const [residentData, setResidentData] = useState([{}])
+    const getResidentData = () => {
+      axios.get("http://localhost:3001/resident/get-resident-data")
+      .then((res) => {setResidentData(res.data)})
+    }
+    getResidentData()
+
+    const [moviesData, setMoviesData] = useState([{}])
+    const getMoviesData = () => {
+      axios.get("http://localhost:3001/get-hobby-data")
+      .then((res) => {setMoviesData(res.data)})
+    }
+    getMoviesData()
     return (
         <div>
         <div className="centered-box">

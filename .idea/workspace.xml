@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="90a265c3-02df-46a7-a8d2-0996ab7e4a8c" name="Changes" comment="">
+<<<<<<< HEAD
+=======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/CommunityCorner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CommunityCorner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+>>>>>>> parent of 7a23f169 (heroku)
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +37,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/tanaykhandelwal/Library/CloudStorage/OneDrive-TheUniversityofMelbourne/Laptop/Third Year/IT Project/IT-Project-Team-67&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/tanaykhandelwal/Documents/IT-Project-Team-67&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -65,6 +69,9 @@
       <workItem from="1665656449368" duration="258000" />
       <workItem from="1665882648448" duration="460000" />
       <workItem from="1665883269075" duration="60000" />
+      <workItem from="1666237331397" duration="696000" />
+      <workItem from="1666248774528" duration="408000" />
+      <workItem from="1666407523130" duration="3111000" />
     </task>
     <servers />
   </component>

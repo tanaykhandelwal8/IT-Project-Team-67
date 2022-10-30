@@ -1,4 +1,6 @@
-require('dotenv').config()
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
 
 const express = require('express')
 
@@ -18,7 +20,10 @@ const Musics = require("./models/music")
 const Foods = require("./models/food")
 const Animals = require("./models/animal")
 const Movies = require("./models/movie")
-const Hobby = require(".models/interest")
+const Hobby = require("./models/hobby")
+const Languages = require("./models/language")
+const Musicians = require("./models/musician")
+const Interests = require("./models/interest")
 
 var fs = require('fs');
 const path = require('path');
@@ -100,6 +105,7 @@ app.use("/staff", staffRouter);
 
 })
 */
+
 const authRouter = require('./routes/auth')
 app.use(authRouter.router)
 
@@ -112,7 +118,14 @@ const resident = require('./models/resident')
 const staff = require('./models/staff')
 const calendar = require('./models/calendar')
 const music = require('./models/music')
-const hobby = require('./models/interest')
+const interest = require('./models/interest')
+const food = require('./models/food')
+const hobby = require('./models/hobby')
+const musician = require('./models/musician')
+const animals = require('./models/animal')
+const movies = require('./models/movie')
+const language = require('./models/language')
+
 app.get('/get-staff-data', (req, res) => {
     staff.find().then((result) => {
         res.json(result)
@@ -136,8 +149,56 @@ app.get('/get-music-data', (req, res) => {
     })
 })
 
+app.get('/get-hobby-data', (req, res) => {
+    hobby.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
 app.get('/get-interest-data', (req, res) => {
-    music.find().then((result) => {
+    interest.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-movie-data', (req, res) => {
+    movies.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-food-data', (req, res) => {
+    food.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-musician-data', (req, res) => {
+    musician.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-language-data', (req, res) => {
+    language.find().then((result) => {
+        res.json(result)
+    }).catch((err) => {
+        console.error(err)
+    })
+})
+
+app.get('/get-animal-data', (req, res) => {
+    animals.find().then((result) => {
         res.json(result)
     }).catch((err) => {
         console.error(err)
@@ -235,6 +296,77 @@ app.post('/update-music-preferences', async (req, res) => {
 
 })
 
+app.post('/update-food-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {food: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('food preferences updated');
+
+})
+
+app.post('/update-hobby-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {hobby: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('hobby preferences updated');
+
+})
+
+app.post('/update-interest-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {interest: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('interest preferences updated');
+
+})
+
+app.post('/update-musician-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {musician: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('musician preferences updated');
+
+
+})
+
+app.post('/update-movie-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {movies: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('movie preferences updated');
+
+})
+
+app.post('/update-animal-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {animals: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('animal preferences updated');
+
+})
+
+app.post('/update-language-preferences', async (req, res) => {
+    const filter = {_id: req.body.objects[0]};
+    const update = {language: req.body.objects[1]};
+
+    await resident.findOneAndUpdate(filter, update);
+
+    console.log('language preferences updated');
+
+})
+
 //app.use('/resident', residentRouter);
 
 app.get('/', (req, res) => {
@@ -261,7 +393,7 @@ app.get('/music', async (req, res) => {
 
 })
 
-app.get('/interest', async (req, res) => {
+app.get('/hobby', async (req, res) => {
     const hobby = await Hobby.find()
     if (hobby.length > 0){
         res.send(hobby)
@@ -280,7 +412,7 @@ app.get('/foods', async (req, res) => {
     }
 })
 
-app.get('/animals', async (req, res) => {
+app.get('/animal', async (req, res) => {
     const animals = await Animals.find()
     if (animals.length > 0){
         res.send(animals)
@@ -335,13 +467,14 @@ app.post('/delete-event', (req, res) =>{
         });
 })
 
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static("frontend/build"))
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname,"frontend","build","index.html"))
-    })
-}
-app.listen(process.env.PORT || 3001, () => {
+app.listen(process.env.PORT, () => {
     console.log('Listening on Port ' + process.env.PORT);
 })
 
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, '../frontend/build')))
+
+// AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../frontend/build/index.html'))
+})

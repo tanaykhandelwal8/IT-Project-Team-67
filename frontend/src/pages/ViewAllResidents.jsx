@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
@@ -13,6 +13,20 @@ function ViewAllResidents(props) {
     }
     getResidentData()
     
+    /* Search Bar code */
+    const [query, setQuery] = useState("")
+    const view = (user) => {
+
+        if (props.role === "resident") {
+            window.location.href=("/resident/"+user._id+"/view-other-resident");
+        }
+        else {
+            window.location.href=("/staff/"+user._id+"/view-other-resident");     
+        }
+        return;
+        
+        /*const {loginUsername, loginPassword} = this.state;
+
     const view = (e) => {
         /*
         e.preventDefault()
@@ -22,13 +36,13 @@ function ViewAllResidents(props) {
             .then(function (response) {
                 console.log(response)
                 if (response.data.redirect === '/resident-dashboard') {
-                    //const userid = response.data.id
-                    //console.log(userid)
-                    //window.location = "/resident/"+userid+"/resident-dashboard"
+                    const userid = response.data._id
+                    console.log(userid)
+                    window.location = ("/resident/"+userid+"/resident-dashboard")
                 }
                 if (response.data.redirect === '/staff-dashboard') {
-                    //const userid = response.data.id
-                    //window.location = "/staff/"+userid+"/staff-dashboard"
+                    const userid = response.data._id
+                    window.location = ("/staff/"+userid+"/staff-dashboard")
                 } else if (response.data.redirect === '/fail'){
                     console.log("HELLOOOOOOO")
                     return                    
@@ -36,36 +50,51 @@ function ViewAllResidents(props) {
             })
             .catch(function(error) {
                 window.location = "/"
-            })
-            
-        */
+            })*/
     }
+
     return (
         <div className='Font'>
             {/* Show staff dashboard button if logged in as staff */}
-            {props.role == "staff" &&
+            {props.role === "staff" &&
                 <Link to="../staff-dashboard">Staff Dashboard</Link>
             }
             {/* Show resident dashboard button if logged in as resident */}
-            {props.role == "resident" &&
+            {props.role === "resident" &&
                 <Link to="../resident-dashboard">Resident Dashboard</Link>
       }
             <div className="centered-box">
                 <h1 className='Font'>All Residents</h1>
             </div>
+            {/* Search Bar */}
             <div>
-                {/* This displays the names */}
+                <input className='search-bar' 
+                    placeholder='Search Residents' value={query}
+                    onChange={e => setQuery(e.target.value)}></input>
+            </div>
+            <div>
+                {/* This displays the names and pictures of residents*/}
             {(typeof residentData === 'undefined') ? (
                     <p> loading</p>
                 ): (
                     <div className='Font'>
-                        {residentData.map((user, i) =>(
-                            <div className="gallery-column" key = {user.id}>
+                        {/* Only display residents who's names match the 
+                        search criteria if search bar is not empty*/}
+                        {residentData.filter(post => {
+                            if (query === ""){
+                                return post;
+                            } else if ((post.firstName.toLowerCase() + " " 
+                                    + post.lastName.toLowerCase())
+                                    .includes(query.toLowerCase())){
+                                return post;
+                            }
+                        }).map((user, i) =>(
+                            <div className="gallery-column-resident" key = {user.id}>
                                 <div className="image-wrapper">
                                 <img className="view-resident-picture" src={require('../assets/Portrait-Placeholder.png')} alt="" />
                                 <p>{user.firstName} {user.lastName}</p>
                                 <p>{user.location}</p>   
-                                <button style={{height: "3vw"}} onClick={view}>View</button>
+                                <button onClick={() => view(user)}>View</button>
                                 </div>
                             </div>
                         ))}

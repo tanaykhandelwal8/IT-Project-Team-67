@@ -1,11 +1,10 @@
-import React from 'react';
 import {Link} from "react-router-dom";
 import "../App.css";
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 
-function HobbiesInterests(props) {
+function FavouriteHobbies(props) {
     /* Navbar should be shown on this page */
     props.funcNav(true)
 
@@ -16,12 +15,12 @@ function HobbiesInterests(props) {
     }
     getResidentData()
 
-    const [hobbiesData, setHobbiesData] = useState([{}])
-    const getHobbiesData = () => {
+    const [hobbyData, setHobbyData] = useState([{}])
+    const getHobbyData = () => {
       axios.get("http://localhost:3001/get-hobby-data")
-      .then((res) => {setHobbiesData(res.data)})
+      .then((res) => {setHobbyData(res.data)})
     }
-    getHobbiesData()
+    getHobbyData()
 
     const params = useParams();
     const userID = params.id;
@@ -39,7 +38,7 @@ function HobbiesInterests(props) {
                         <div className="gallery-column">
                             <div className="image-wrapper">
                                 <img className="preference-image" src={require('../assets/hobby-icon.png')} alt="" />
-                                <p>{hobby.hobby}</p>
+                                <p>{hobby.label}</p>
                             </div>
                         </div>
                         : <div></div>
@@ -62,4 +61,4 @@ function HobbiesInterests(props) {
     )
 }
 
-export default HobbiesInterests;
+export default FavouriteHobbies;

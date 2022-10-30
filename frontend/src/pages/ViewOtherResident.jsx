@@ -6,7 +6,7 @@ import UploadImage from "../components/UploadImage";
 
 import "../App.css";
 
-function EditResidentDashboard(props) {
+function ResidentDashboard(props) {
     /* Navbar should be shown on this page */
     props.funcNav(true)
     
@@ -76,19 +76,13 @@ function EditResidentDashboard(props) {
     const params = useParams();
     const userID = params.id;
 
-    const handleSubmit = event => {
-        event.preventDefault();
-        alert('You have saved your changes.')
-    }
-
     return (
         <div className='Font'>
         <div>
             <div className="dashboard-title">
                 {residentData.map((user, key) => (
                     <div>
-                    {(user._id === userID) ? <h1 style={{display: "inline"}}>Welcome {user.firstName} {user.lastName}</h1> : <div></div>}
-                    {(user._id === userID) ? <Link to="../resident-dashboard" style={{float: "right"}}>View Profile</Link> : <div></div>}
+                    {(user._id === userID) ? <h1 style={{display: "inline"}}>{user.firstName} {user.lastName}</h1> : <div></div>}
                     </div>
                 ))}
             </div>
@@ -96,35 +90,22 @@ function EditResidentDashboard(props) {
         <div className="row">
             <div className="left-column">
                 <div className="gallery-card">
-                    <UploadImage />
-                    <div className="button-wrapper">
-                        <Link to="../view-all-residents">View All Residents</Link>
-                    </div>
-                    <br></br>
-                    <div className="button-wrapper">
-                        <Link to="../community-corner">Visit Community Corner</Link>
-                    </div>
-                </div>
-                <div className="gallery-card">
-                    <label><h3>Location</h3></label>
                     {residentData.map((user, key) => (
-                        (user._id === userID) ? <h1>{user.location}</h1> : <div></div>
+                        (user._id === userID) ?
+                        <div>
+                            <label><h3>Location</h3></label>
+                            <h1>{user.location}</h1>
+
+                            <label><h3>Date of Birth</h3></label>
+                            <h1>{user.dateOfBirth.slice(0,10)}</h1>
+
+                            <label><h3>About Me</h3></label>
+                            <div className="biography-card">
+                                <p>{user.biography}</p>
+                            </div>
+                        </div>
+                        : <div></div>
                     ))}
-                    <label><h3>Date of Birth</h3></label>
-                    {residentData.map((user, key) => (
-                        (user._id === userID) ? <h1>{user.dateOfBirth.slice(0,10)}</h1> : <div></div>
-                    ))}
-                    <form onSubmit={handleSubmit}>
-                        <label>
-                            <h3>About Me</h3>
-                        </label>
-                        <textarea className="dashboard-textarea" name="biography"></textarea>
-                        <button type="submit">Save</button>
-                    </form>
-                    <br></br>
-                    <div className="button-wrapper">
-                        <Link to="../change-password">Change Password</Link>
-                    </div>
                 </div>
             </div>
             <div className="right-column">
@@ -150,7 +131,7 @@ function EditResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../edit-interest-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
+                            <p><Link to="../favourite-interests" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -177,7 +158,7 @@ function EditResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../edit-hobby-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
+                            <p><Link to="../favourite-hobbies" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -204,7 +185,7 @@ function EditResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../edit-music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
+                            <p><Link to="../music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -231,7 +212,7 @@ function EditResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../edit-musician-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
+                            <p><Link to="../music-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -258,7 +239,7 @@ function EditResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../edit-movie-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
+                            <p><Link to="../favourite-movies" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -285,7 +266,7 @@ function EditResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../edit-food-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
+                            <p><Link to="../favourite-foods" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -312,7 +293,7 @@ function EditResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../edit-animal-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
+                            <p><Link to="../favourite-animals" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -339,7 +320,7 @@ function EditResidentDashboard(props) {
                         <div className="dashboard-favourite-column">
                             <div className="dashboard-img-wrapper">
                             <img className="gallery-profile-picture" src={require('../assets/plus.png')} alt="" />
-                            <p><Link to="../edit-language-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>Add More</Link></p>
+                            <p><Link to="../language-preferences" style={{padding: "0", backgroundColor: "lightsteelblue", color: "blue",}}>See More</Link></p>
                             </div>
                         </div>
                     </div>
@@ -350,4 +331,4 @@ function EditResidentDashboard(props) {
     );
 }
 
-export default EditResidentDashboard;
+export default ResidentDashboard;

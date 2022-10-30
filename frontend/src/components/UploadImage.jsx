@@ -49,7 +49,7 @@ class UploadImage extends Component {
         <div>
             {this.fileData()}
             <div className="centered-box">
-            <div style={{marginLeft: "5vw"}} className="Font">
+            <div style={{marginLeft: "70px"}} className="Font">
               <input type="file" onChange={this.onFileChange} />
             </div>
                 {/* Uncomment below when adding image to database */}

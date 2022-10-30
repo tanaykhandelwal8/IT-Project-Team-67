@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 
-function FavouriteMovies(props) {
+function FavouriteInterests(props) {
     /* Navbar should be shown on this page */
     props.funcNav(true)
 
@@ -15,31 +15,30 @@ function FavouriteMovies(props) {
     }
     getResidentData()
 
-    const [moviesData, setMoviesData] = useState([{}])
-    const getMoviesData = () => {
-      axios.get("http://localhost:3001/get-movie-data")
-      .then((res) => {setMoviesData(res.data)})
+    const [interestData, setInterestData] = useState([{}])
+    const getInterestData = () => {
+      axios.get("http://localhost:3001/get-interest-data")
+      .then((res) => {setInterestData(res.data)})
     }
-    getMoviesData()
+    getInterestData()
 
     const params = useParams();
     const userID = params.id;
-
     return (
         <div>
             <div className="centered-box">
-                <h1 className='Font'>Movie Preferences</h1>
+                <h1 className='Font'>Interests</h1>
             </div>
             <div>
             {residentData.map((user, key) => (
                 user._id === userID ?
-                user.movies.map((item, key) => (
-                    moviesData.map((movie, key) => (
-                        item._id === movie._id ?
+                user.interest.map((item, key) => (
+                    interestData.map((interest, key) => (
+                        item._id === interest._id ?
                         <div className="gallery-column">
                             <div className="image-wrapper">
-                                <img className="preference-image" src={require('../assets/movie-icon.png')} alt="" />
-                                <p>{movie.label}</p>
+                                <img className="preference-image" src={require('../assets/hobby-icon.png')} alt="" />
+                                <p>{interest.label}</p>
                             </div>
                         </div>
                         : <div></div>
@@ -62,4 +61,4 @@ function FavouriteMovies(props) {
     )
 }
 
-export default FavouriteMovies;
+export default FavouriteInterests;

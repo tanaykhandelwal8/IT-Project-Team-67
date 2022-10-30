@@ -1,10 +1,10 @@
-import {Link} from "react-router-dom";
-import "../App.css";
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from 'axios';
+import "../App.css";
+import {Link} from "react-router-dom";
 
-function FavouriteMovies(props) {
+function FavouriteMusicians(props) {
     /* Navbar should be shown on this page */
     props.funcNav(true)
 
@@ -15,12 +15,12 @@ function FavouriteMovies(props) {
     }
     getResidentData()
 
-    const [moviesData, setMoviesData] = useState([{}])
-    const getMoviesData = () => {
-      axios.get("http://localhost:3001/get-movie-data")
-      .then((res) => {setMoviesData(res.data)})
+    const [musicianData, setMusicianData] = useState([{}])
+    const getMusicianData = () => {
+      axios.get("http://localhost:3001/get-musician-data")
+      .then((res) => {setMusicianData(res.data)})
     }
-    getMoviesData()
+    getMusicianData()
 
     const params = useParams();
     const userID = params.id;
@@ -28,18 +28,20 @@ function FavouriteMovies(props) {
     return (
         <div>
             <div className="centered-box">
-                <h1 className='Font'>Movie Preferences</h1>
+                <h1 className='Font'>Favourite Musicians</h1>
             </div>
             <div>
             {residentData.map((user, key) => (
                 user._id === userID ?
-                user.movies.map((item, key) => (
-                    moviesData.map((movie, key) => (
-                        item._id === movie._id ?
+                user.musician.map((item, key) => (
+                    musicianData.map((musician, key) => (
+                        item._id === musician._id ?
                         <div className="gallery-column">
                             <div className="image-wrapper">
-                                <img className="preference-image" src={require('../assets/movie-icon.png')} alt="" />
-                                <p>{movie.label}</p>
+                                <img className="preference-image" src={require('../assets/music-icon.png')} alt="" />
+                                <p>{musician.label}</p>
+                                <p>{musician.artist}</p>
+                                <p>{musician.genre}</p>
                             </div>
                         </div>
                         : <div></div>
@@ -62,4 +64,4 @@ function FavouriteMovies(props) {
     )
 }
 
-export default FavouriteMovies;
+export default FavouriteMusicians;

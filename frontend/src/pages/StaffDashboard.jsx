@@ -34,13 +34,7 @@ function StaffDashboard(props) {
     const user = findStaffById()
 
     const view = (user) => {
-
-        if (props.role === "resident") {
-            window.location.href=("/resident/"+user._id+"/view-other-resident");
-        }
-        else {
-            window.location.href=("/staff/"+user._id+"/view-other-resident");     
-        }
+        window.location.href=("/resident/"+user._id+"/view-other-resident");
         return;
         
         /*const {loginUsername, loginPassword} = this.state;

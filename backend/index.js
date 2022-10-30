@@ -5,38 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express')
 
 const app = express()
-const path = require('path');
 const PORT = process.env.PORT || 3001
-
-app.listen(process.env.PORT | PORT, () => {
-    console.log('Listening on Port ' + process.env.PORT);
-})
-
-/*
-// Serve static files from the React frontend app
-//app.use(express.static(path.join(__dirname, '../frontend/build')))
-app.use(express.static('client/build'))
-
-// AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
-app.get('*', (req, res) => {
-    //res.sendFile(path.join(__dirname + '/../frontend/build/index.html'))
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html')) // relative path
-})
-*/
-//const path = require("path");
-
-if (process.env.NODE_ENV === "production") {
-
-    app.use(express.static("client/build"));
-
-    app.get("*", (req, res) => {
-
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-
-   });
-
-}
-
 
 require('./models/index')
 app.use(express.static(__dirname))
@@ -57,6 +26,7 @@ const Musicians = require("./models/musician")
 const Interests = require("./models/interest")
 
 var fs = require('fs');
+const path = require('path');
 require('dotenv/config');
 
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -65,10 +35,10 @@ app.use(bodyParser.json())
 // Set EJS as templating engine
 app.set("view engine", "ejs");
 
-const multer = require('multer');
+var multer = require('multer');
 const ImageModel = require("./models/image")
 
-const storage = multer.diskStorage({
+var storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads')
     },
@@ -77,7 +47,7 @@ const storage = multer.diskStorage({
     }
 });
 
-const upload = multer({ storage: storage }).single('testImg');
+var upload = multer({ storage: storage }).single('testImg');
 
 app.post('/post', (req, res) => {
     upload(req, res, (err)=>{
@@ -139,6 +109,17 @@ app.use("/staff", staffRouter);
 const authRouter = require('./routes/auth')
 app.use(authRouter.router)
 
+app.listen(process.env.PORT | PORT, () => {
+    console.log('Listening on Port ' + process.env.PORT);
+})
+
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, '../frontend/build')))
+
+// AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/./frontend/build/index.html'))
+})
 
 app.post('/view-other-resident', (req, res) => {
     console.log("HERE");
@@ -250,9 +231,15 @@ app.get('/failure', (req, res) => {
 
 })
 
+app.get('/panos', (req, res) => {
+    res.send('panos')
+
+})
+
 // 404 for everything else
 app.get('*', function(req, res){
-    res.status(404).send('404');
+    res.send("The world says hello")
+    //res.status(404).send('404');
 });
 
 

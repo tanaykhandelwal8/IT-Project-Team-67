@@ -1,0 +1,18 @@
+/* General navbar formatting*/
+header.Navbar {
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(245, 245, 245);
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+/* Format displaying the logo on the navbar */
+img.Logo {
+  height: 84px;
+  padding: none;
+}
+/* Logout button is same height as logo*/
+a:link.Logout {
+  float: right;
+  padding: 30px 50px;
+}

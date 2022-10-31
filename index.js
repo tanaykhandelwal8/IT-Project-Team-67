@@ -24,6 +24,14 @@ var fs = require('fs');
 const path = require('path');
 require('dotenv/config');
 
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static("frontend/build"))
+    app.get("*", (req, res) => {
+        res.snedFile(path.resolve(__dirname,"frontend","build","index.html"))
+    })
+}
+
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
@@ -317,12 +325,7 @@ app.post('/delete-event', (req, res) =>{
         });
 })
 
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static("frontend/build"))
-    app.get("*", (req, res) => {
-        res.snedFile(path.resolve(__dirname,"frontend","build","index.html"))
-    })
-}
+
 app.listen(process.env.PORT || 3001, () => {
     console.log('Listening on Port ' + process.env.PORT);
 })

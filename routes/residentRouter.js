@@ -37,6 +37,7 @@ residentRouter.get('/view-all-residents', async (req, res) => {
 
 residentRouter.get('/get-resident-data', async (req, res) => {
     await Residents.find().then((result) => {
+        //console.log("data")
         res.json(result)
     }).catch((err) => {
         console.error(err)

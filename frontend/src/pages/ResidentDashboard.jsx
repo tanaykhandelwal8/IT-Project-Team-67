@@ -19,56 +19,56 @@ function ResidentDashboard(props) {
 
     const [musicData, setMusicData] = useState([{}])
     const getMusicData = () => {
-      axios.get("http://localhost:3001/get-music-data")
+      axios.get("/get-music-data")
       .then((res) => {setMusicData(res.data)})
     }
     getMusicData()
 
     const [hobbyData, setHobbyData] = useState([{}])
     const getHobbyData = () => {
-      axios.get("http://localhost:3001/get-hobby-data")
+      axios.get("/get-hobby-data")
       .then((res) => {setHobbyData(res.data)})
     }
     getHobbyData()
 
     const [interestData, setInterestData] = useState([{}])
     const getInterestData = () => {
-      axios.get("http://localhost:3001/get-interest-data")
+      axios.get("/get-interest-data")
       .then((res) => {setInterestData(res.data)})
     }
     getInterestData()
 
     const [musicianData, setMusicianData] = useState([{}])
     const getMusicianData = () => {
-      axios.get("http://localhost:3001/get-musician-data")
+      axios.get("/get-musician-data")
       .then((res) => {setMusicianData(res.data)})
     }
     getMusicianData()
 
     const [animalData, setAnimalData] = useState([{}])
     const getAnimalData = () => {
-      axios.get("http://localhost:3001/get-animal-data")
+      axios.get("/get-animal-data")
       .then((res) => {setAnimalData(res.data)})
     }
     getAnimalData()
 
     const [foodData, setFoodData] = useState([{}])
     const getFoodData = () => {
-      axios.get("http://localhost:3001/get-food-data")
+      axios.get("/get-food-data")
       .then((res) => {setFoodData(res.data)})
     }
     getFoodData()
 
     const [languageData, setLanguageData] = useState([{}])
     const getLanguageData = () => {
-      axios.get("http://localhost:3001/get-language-data")
+      axios.get("/get-language-data")
       .then((res) => {setLanguageData(res.data)})
     }
     getLanguageData()
 
     const [movieData, setMovieData] = useState([{}])
     const getMovieData = () => {
-      axios.get("http://localhost:3001/get-movie-data")
+      axios.get("/get-movie-data")
       .then((res) => {setMovieData(res.data)})
     }
     getMovieData()

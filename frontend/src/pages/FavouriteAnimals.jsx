@@ -10,14 +10,14 @@ function FavouriteAnimals(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("http://localhost:3001/resident/get-resident-data")
+      axios.get("/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
     const [animalData, setAnimalData] = useState([{}])
     const getAnimalData = () => {
-      axios.get("http://localhost:3001/get-animal-data")
+      axios.get("/get-animal-data")
       .then((res) => {setAnimalData(res.data)})
     }
     getAnimalData()

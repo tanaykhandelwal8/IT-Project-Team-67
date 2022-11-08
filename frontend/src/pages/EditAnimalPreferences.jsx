@@ -15,7 +15,7 @@ function EditAnimalPreferences(props) {
 
     const [animalData, setAnimalData] = useState([{}])
     const getAnimalData = () => {
-        axios.get("http://localhost:3001/get-animal-data")
+        axios.get("/get-animal-data")
         .then((res) => {setAnimalData(res.data)})
     }
     getAnimalData()
@@ -25,7 +25,7 @@ function EditAnimalPreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "http://localhost:3001/update-animal-preferences"
+            url: "/update-animal-preferences"
         }).then((res) => console.log(res))
     }
 

@@ -15,7 +15,7 @@ function EditMusicPreferences(props) {
 
     const [musicData, setMusicData] = useState([{}])
     const getMusicData = () => {
-        axios.get("http://localhost:3001/get-music-data")
+        axios.get("/get-music-data")
         .then((res) => {setMusicData(res.data)})
     }
     getMusicData()
@@ -25,7 +25,7 @@ function EditMusicPreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "http://localhost:3001/update-music-preferences"
+            url: "/update-music-preferences"
         }).then((res) => console.log(res))
     }
 

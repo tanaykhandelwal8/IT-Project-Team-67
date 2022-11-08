@@ -15,7 +15,7 @@ function EditMusicianPreferences(props) {
 
     const [musicianData, setMusicianData] = useState([{}])
     const getMusicianData = () => {
-        axios.get("http://localhost:3001/get-musician-data")
+        axios.get("/get-musician-data")
         .then((res) => {setMusicianData(res.data)})
     }
     getMusicianData()
@@ -25,7 +25,7 @@ function EditMusicianPreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "http://localhost:3001/update-musician-preferences"
+            url: "/update-musician-preferences"
         }).then((res) => console.log(res))
     }
 

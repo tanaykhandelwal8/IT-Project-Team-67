@@ -15,7 +15,7 @@ function EditFoodPreferences(props) {
 
     const [foodData, setFoodData] = useState([{}])
     const getFoodData = () => {
-        axios.get("http://localhost:3001/get-food-data")
+        axios.get("/get-food-data")
         .then((res) => {setFoodData(res.data)})
     }
     getFoodData()
@@ -25,7 +25,7 @@ function EditFoodPreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "http://localhost:3001/update-food-preferences"
+            url: "/update-food-preferences"
         }).then((res) => console.log(res))
     }
 

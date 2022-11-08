@@ -15,7 +15,7 @@ function EditInterestPreferences(props) {
 
     const [interestData, setInterestData] = useState([{}])
     const getInterestData = () => {
-        axios.get("http://localhost:3001/get-interest-data")
+        axios.get("/get-interest-data")
         .then((res) => {setInterestData(res.data)})
     }
     getInterestData()
@@ -25,7 +25,7 @@ function EditInterestPreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "http://localhost:3001/update-interest-preferences"
+            url: "/update-interest-preferences"
         }).then((res) => console.log(res))
     }
 

@@ -10,14 +10,14 @@ function LanguagePreferences(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("http://localhost:3001/resident/get-resident-data")
+      axios.get("/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
     const [languageData, setLanguageData] = useState([{}])
     const getLanguageData = () => {
-      axios.get("http://localhost:3001/get-language-data")
+      axios.get("/get-language-data")
       .then((res) => {setLanguageData(res.data)})
     }
     getLanguageData()

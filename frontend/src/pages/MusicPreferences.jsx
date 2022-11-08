@@ -10,14 +10,14 @@ function MusicPreferences(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("http://localhost:3001/resident/get-resident-data")
+      axios.get("/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
     const [musicData, setMusicData] = useState([{}])
     const getMusicData = () => {
-      axios.get("http://localhost:3001/get-music-data")
+      axios.get("/get-music-data")
       .then((res) => {setMusicData(res.data)})
     }
     getMusicData()

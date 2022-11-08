@@ -32,7 +32,7 @@ function AddNewResident(props)  {
       method:"post",
       data: newResident,
       withCredentials: true,
-      url: "http://localhost:3001/register-resident"
+      url: "/register-resident"
     }).then(function (response) {
       console.log(response)
       if (response.data.redirect === '/success') {

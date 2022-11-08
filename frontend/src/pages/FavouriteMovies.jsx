@@ -10,14 +10,14 @@ function FavouriteMovies(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("http://localhost:3001/resident/get-resident-data")
+      axios.get("/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
     const [moviesData, setMoviesData] = useState([{}])
     const getMoviesData = () => {
-      axios.get("http://localhost:3001/get-movie-data")
+      axios.get("/get-movie-data")
       .then((res) => {setMoviesData(res.data)})
     }
     getMoviesData()

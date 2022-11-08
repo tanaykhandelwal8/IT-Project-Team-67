@@ -10,14 +10,14 @@ function FavouriteInterests(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("http://localhost:3001/resident/get-resident-data")
+      axios.get("/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
     const [interestData, setInterestData] = useState([{}])
     const getInterestData = () => {
-      axios.get("http://localhost:3001/get-interest-data")
+      axios.get("/get-interest-data")
       .then((res) => {setInterestData(res.data)})
     }
     getInterestData()

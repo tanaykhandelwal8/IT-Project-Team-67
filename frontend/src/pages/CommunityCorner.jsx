@@ -6,7 +6,7 @@ import parseISO from "date-fns/parseISO";
 import startOfWeek from "date-fns/startOfWeek";
 import getDay from "date-fns/getDay";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css"
 import Popup from 'reactjs-popup';
@@ -33,7 +33,7 @@ function CommunityCorner(props) {
   const [backendData, setBackendData] = useState([{}])
   /* function to get events from backend */
   const getEvents = () => {
-    axios.get("http://localhost:3001/get-events-data")
+    axios.get("/get-events-data")
     .then((res) => {setBackendData(res.data)})
     /* format all sent dates into date objects to work with JS correctly*/
     for (let i=0;i<backendData.length;i++){
@@ -50,7 +50,7 @@ function CommunityCorner(props) {
       method:"post",
       data: newEvent,
       withCredentials: true,
-      url: "http://localhost:3001/add-event"
+      url: "/add-event"
     }).then((res) => console.log(res))
   }
 
@@ -60,7 +60,7 @@ function CommunityCorner(props) {
       method:"post",
       data: selectedEvent,
       withCredentials: true,
-      url: "http://localhost:3001/delete-event"
+      url: "/delete-event"
     }).then((res) => console.log(res))
   }
   /* Blank new event */
@@ -281,11 +281,11 @@ function CommunityCorner(props) {
           </div> 
         </Popup>
       {/* Show staff dashboard button if logged in as staff */}
-      {props.role == "staff" &&
+      {props.role === "staff" &&
         <Link to="../staff-dashboard" style={{"float":"right"}}>Staff Dashboard</Link>
       }
       {/* Show resident dashboard button if logged in as resident */}
-      {props.role == "resident" &&
+      {props.role === "resident" &&
         <Link to="../resident-dashboard" style={{"float":"right"}}>Resident Dashboard</Link>
       }
       </div>

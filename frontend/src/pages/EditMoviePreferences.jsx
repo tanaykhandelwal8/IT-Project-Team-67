@@ -15,7 +15,7 @@ function EditMoviePreferences(props) {
 
     const [movieData, setMovieData] = useState([{}])
     const getMovieData = () => {
-        axios.get("http://localhost:3001/get-movie-data")
+        axios.get("/get-movie-data")
         .then((res) => {setMovieData(res.data)})
     }
     getMovieData()
@@ -25,7 +25,7 @@ function EditMoviePreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "http://localhost:3001/update-movie-preferences"
+            url: "/update-movie-preferences"
         }).then((res) => console.log(res))
     }
 

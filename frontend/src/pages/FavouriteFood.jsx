@@ -12,14 +12,14 @@ function FavouriteFood(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("http://localhost:3001/resident/get-resident-data")
+      axios.get("/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
     const [foodData, setFoodData] = useState([{}])
     const getFoodData = () => {
-      axios.get("http://localhost:3001/get-food-data")
+      axios.get("/get-food-data")
       .then((res) => {setFoodData(res.data)})
     }
     getFoodData()

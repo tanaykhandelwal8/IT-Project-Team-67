@@ -21,7 +21,7 @@ function AddNewStaff(props) {
             method:"post",
             data: newStaff,
             withCredentials: true,
-            url: "http://localhost:3001/register-staff"
+            url: "/register-staff"
         }).then((res) => console.log(res))
         alert('You have successfully created a new staff member.')
     }

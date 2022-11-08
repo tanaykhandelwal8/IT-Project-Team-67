@@ -15,7 +15,7 @@ function EditHobbyPreferences(props) {
 
     const [hobbyData, setHobbyData] = useState([{}])
     const getHobbyData = () => {
-        axios.get("http://localhost:3001/get-hobby-data")
+        axios.get("/get-hobby-data")
         .then((res) => {setHobbyData(res.data)})
     }
     getHobbyData()
@@ -25,7 +25,7 @@ function EditHobbyPreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "http://localhost:3001/update-hobby-preferences"
+            url: "/update-hobby-preferences"
         }).then((res) => console.log(res))
     }
 

@@ -80,7 +80,7 @@ function ResidentDashboard(props) {
         <div className='Font'>
         <div>
             <div className="dashboard-title">
-                {[residentData][0].map((user, key) => (
+                {residentData.Resident.map((user, key) => (
                     <div>
                     {(user._id === userID) ? <h1 style={{display: "inline"}}>Welcome {user.firstName} {user.lastName}</h1> : <div></div>}
                     {(user._id === userID) ? <Link to="../edit-resident-dashboard" style={{float: "right"}}>Edit Profile</Link> : <div></div>}
@@ -102,7 +102,7 @@ function ResidentDashboard(props) {
                     </div>
                 </div>
                 <div className="gallery-card">
-                    {residentData.map((user, key) => (
+                    {residentData.Residents.map((user, key) => (
                         (user._id === userID) ?
                         <div>
                             <label><h3>Location</h3></label>
@@ -124,7 +124,7 @@ function ResidentDashboard(props) {
                 <div className="split-column">
                     <div className="gallery-card">
                         <h3>Interests</h3>
-                        {residentData.map((user, key) => (
+                        {residentData.Residents.map((user, key) => (
                             user._id === userID ?
                             user.interest.slice(0,4).map((item, key) => (
                                 interestData.map((interest, key) => (

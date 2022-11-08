@@ -8,10 +8,6 @@ const app = express()
 const path = require('path');
 const PORT = process.env.PORT || 3001
 
-app.listen(process.env.PORT | PORT, () => {
-    console.log('Listening on Port ' + process.env.PORT);
-})
-
 /*
 // Serve static files from the React frontend app
 //app.use(express.static(path.join(__dirname, '../frontend/build')))
@@ -24,13 +20,6 @@ app.get('*', (req, res) => {
 })
 */
 //const path = require("path");
-
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static("frontend/build"))
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname,"frontend","build","index.html"))
-    })
-}
 
 
 require('./models/index')
@@ -493,4 +482,13 @@ app.post('/delete-event', (req, res) =>{
         });
 })
 
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static("frontend/build"))
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname,"frontend","build","index.html"))
+    })
+}
 
+app.listen(process.env.PORT | PORT, () => {
+    console.log('Listening on Port ' + process.env.PORT);
+})

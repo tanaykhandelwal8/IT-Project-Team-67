@@ -78,6 +78,8 @@ function ResidentDashboard(props) {
 
     return (
         <div className='Font'>
+            {JSON.stringify(residentData)};
+        {/*
         <div>
             <div className="dashboard-title">
                 {[residentData][0].map((user, key) => (
@@ -88,7 +90,6 @@ function ResidentDashboard(props) {
                 ))}
             </div>
         </div>
-        {/*
         <div className="row">
             <div className="left-column">
                 <div className="gallery-card">

@@ -99,6 +99,16 @@ const staffRouter = require("./routes/staffRouter");
 app.use("/resident", residentRouter);
 app.use("/staff", staffRouter);
 
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
+
 /*app.post('/login', (req,res) => {
     console.log("HELLO");
     console.log(req.body);

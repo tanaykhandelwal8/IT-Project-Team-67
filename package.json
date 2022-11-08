@@ -8,8 +8,8 @@
     "install-client": "cd frontend && npm install",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-client && npm run build",
     "server": "nodemon index.js",
-    "develop": "npm run server",
-    "start": "npm run server"
+    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix frontend\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix frontend\""
   },
   "keywords": [],
   "author": "",

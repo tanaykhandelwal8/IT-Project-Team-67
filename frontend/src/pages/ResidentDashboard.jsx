@@ -78,11 +78,9 @@ function ResidentDashboard(props) {
 
     return (
         <div className='Font'>
-            {JSON.stringify(residentData)};
-        {/*
         <div>
             <div className="dashboard-title">
-                {[residentData][0].map((user, key) => (
+                {residentData.map((user, key) => (
                     <div>
                     {(user._id === userID) ? <h1 style={{display: "inline"}}>Welcome {user.firstName} {user.lastName}</h1> : <div></div>}
                     {(user._id === userID) ? <Link to="../edit-resident-dashboard" style={{float: "right"}}>Edit Profile</Link> : <div></div>}
@@ -340,7 +338,6 @@ function ResidentDashboard(props) {
                 </div>
             </div>
         </div>
-        */}
     </div>
     );
 }

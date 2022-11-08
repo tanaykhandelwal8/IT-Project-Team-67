@@ -30,7 +30,7 @@ function Home(props) {
         e.preventDefault()
         //alert(loginUsername);
         //const {loginUsername, loginPassword} = this.state;
-        axios.post('/login', {username: loginUsername, password: loginPassword})
+        axios.post('https://residencely-frontend.herokuapp.com/login', {username: loginUsername, password: loginPassword})
             .then(function (response) {
                 console.log(response)
                 if (response.data.redirect === '/resident-dashboard') {

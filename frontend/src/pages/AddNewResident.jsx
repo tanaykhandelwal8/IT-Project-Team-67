@@ -32,7 +32,7 @@ function AddNewResident(props)  {
       method:"post",
       data: newResident,
       withCredentials: true,
-      url: "/register-resident"
+      url: "https://residencely-frontend.herokuapp.com/register-resident"
     }).then(function (response) {
       console.log(response)
       if (response.data.redirect === '/success') {

@@ -12,14 +12,14 @@ function FavouriteFood(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("/resident/get-resident-data")
+      axios.get("https://residencely-frontend.herokuapp.com/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
     const [foodData, setFoodData] = useState([{}])
     const getFoodData = () => {
-      axios.get("/get-food-data")
+      axios.get("https://residencely-frontend.herokuapp.com/get-food-data")
       .then((res) => {setFoodData(res.data)})
     }
     getFoodData()

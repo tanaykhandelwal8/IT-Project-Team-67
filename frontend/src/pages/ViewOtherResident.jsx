@@ -12,63 +12,63 @@ function ResidentDashboard(props) {
     
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("/resident/get-resident-data")
+      axios.get("https://residencely-frontend.herokuapp.com/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
     const [musicData, setMusicData] = useState([{}])
     const getMusicData = () => {
-      axios.get("/get-music-data")
+      axios.get("https://residencely-frontend.herokuapp.com/get-music-data")
       .then((res) => {setMusicData(res.data)})
     }
     getMusicData()
 
     const [hobbyData, setHobbyData] = useState([{}])
     const getHobbyData = () => {
-      axios.get("/get-hobby-data")
+      axios.get("https://residencely-frontend.herokuapp.com/get-hobby-data")
       .then((res) => {setHobbyData(res.data)})
     }
     getHobbyData()
 
     const [interestData, setInterestData] = useState([{}])
     const getInterestData = () => {
-      axios.get("/get-interest-data")
+      axios.get("https://residencely-frontend.herokuapp.com/get-interest-data")
       .then((res) => {setInterestData(res.data)})
     }
     getInterestData()
 
     const [musicianData, setMusicianData] = useState([{}])
     const getMusicianData = () => {
-      axios.get("/get-musician-data")
+      axios.get("https://residencely-frontend.herokuapp.com/get-musician-data")
       .then((res) => {setMusicianData(res.data)})
     }
     getMusicianData()
 
     const [animalData, setAnimalData] = useState([{}])
     const getAnimalData = () => {
-      axios.get("/get-animal-data")
+      axios.get("https://residencely-frontend.herokuapp.com/get-animal-data")
       .then((res) => {setAnimalData(res.data)})
     }
     getAnimalData()
 
     const [foodData, setFoodData] = useState([{}])
     const getFoodData = () => {
-      axios.get("/get-food-data")
+      axios.get("https://residencely-frontend.herokuapp.com/get-food-data")
       .then((res) => {setFoodData(res.data)})
     }
     getFoodData()
 
     const [languageData, setLanguageData] = useState([{}])
     const getLanguageData = () => {
-      axios.get("/get-language-data")
+      axios.get("https://residencely-frontend.herokuapp.com/get-language-data")
       .then((res) => {setLanguageData(res.data)})
     }
     getLanguageData()
 
     const [movieData, setMovieData] = useState([{}])
     const getMovieData = () => {
-      axios.get("/get-movie-data")
+      axios.get("https://residencely-frontend.herokuapp.com/get-movie-data")
       .then((res) => {setMovieData(res.data)})
     }
     getMovieData()

@@ -15,7 +15,7 @@ function EditFoodPreferences(props) {
 
     const [foodData, setFoodData] = useState([{}])
     const getFoodData = () => {
-        axios.get("/get-food-data")
+        axios.get("https://residencely-frontend.herokuapp.com/get-food-data")
         .then((res) => {setFoodData(res.data)})
     }
     getFoodData()
@@ -25,7 +25,7 @@ function EditFoodPreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "/update-food-preferences"
+            url: "https://residencely-frontend.herokuapp.com/update-food-preferences"
         }).then((res) => console.log(res))
     }
 

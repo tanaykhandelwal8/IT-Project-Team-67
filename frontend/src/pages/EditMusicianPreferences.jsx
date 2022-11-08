@@ -15,7 +15,7 @@ function EditMusicianPreferences(props) {
 
     const [musicianData, setMusicianData] = useState([{}])
     const getMusicianData = () => {
-        axios.get("/get-musician-data")
+        axios.get("https://residencely-frontend.herokuapp.com/get-musician-data")
         .then((res) => {setMusicianData(res.data)})
     }
     getMusicianData()
@@ -25,7 +25,7 @@ function EditMusicianPreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "/update-musician-preferences"
+            url: "https://residencely-frontend.herokuapp.com/update-musician-preferences"
         }).then((res) => console.log(res))
     }
 

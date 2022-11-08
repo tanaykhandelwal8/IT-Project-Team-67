@@ -15,7 +15,7 @@ function EditHobbyPreferences(props) {
 
     const [hobbyData, setHobbyData] = useState([{}])
     const getHobbyData = () => {
-        axios.get("/get-hobby-data")
+        axios.get("https://residencely-frontend.herokuapp.com/get-hobby-data")
         .then((res) => {setHobbyData(res.data)})
     }
     getHobbyData()
@@ -25,7 +25,7 @@ function EditHobbyPreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "/update-hobby-preferences"
+            url: "https://residencely-frontend.herokuapp.com/update-hobby-preferences"
         }).then((res) => console.log(res))
     }
 

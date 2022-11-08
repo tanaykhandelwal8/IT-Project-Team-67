@@ -15,7 +15,7 @@ function EditLanguagePreferences(props) {
 
     const [languageData, setLanguageData] = useState([{}])
     const getLanguageData = () => {
-        axios.get("/get-language-data")
+        axios.get("https://residencely-frontend.herokuapp.com/get-language-data")
         .then((res) => {setLanguageData(res.data)})
     }
     getLanguageData()
@@ -25,7 +25,7 @@ function EditLanguagePreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "/update-language-preferences"
+            url: "https://residencely-frontend.herokuapp.com/update-language-preferences"
         }).then((res) => console.log(res))
     }
 

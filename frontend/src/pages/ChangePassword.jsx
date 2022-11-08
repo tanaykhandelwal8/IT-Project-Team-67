@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useParams} from "react-router-dom";
 import axios from 'axios';
 import {Link} from 'react-router-dom';
@@ -12,7 +12,7 @@ function ChangePassword(props) {
     
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("/resident/get-resident-data")
+      axios.get("https://residencely-frontend.herokuapp.com/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()

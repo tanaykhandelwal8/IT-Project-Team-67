@@ -10,14 +10,14 @@ function FavouriteAnimals(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("/resident/get-resident-data")
+      axios.get("https://residencely-frontend.herokuapp.com/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
     const [animalData, setAnimalData] = useState([{}])
     const getAnimalData = () => {
-      axios.get("/get-animal-data")
+      axios.get("https://residencely-frontend.herokuapp.com/get-animal-data")
       .then((res) => {setAnimalData(res.data)})
     }
     getAnimalData()

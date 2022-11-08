@@ -10,14 +10,14 @@ function FavouriteHobbies(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("/resident/get-resident-data")
+      axios.get("https://residencely-frontend.herokuapp.com/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
     const [hobbyData, setHobbyData] = useState([{}])
     const getHobbyData = () => {
-      axios.get("/get-hobby-data")
+      axios.get("https://residencely-frontend.herokuapp.com/get-hobby-data")
       .then((res) => {setHobbyData(res.data)})
     }
     getHobbyData()

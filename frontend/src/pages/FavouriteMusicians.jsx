@@ -10,14 +10,14 @@ function FavouriteMusicians(props) {
 
     const [residentData, setResidentData] = useState([{}])
     const getResidentData = () => {
-      axios.get("/resident/get-resident-data")
+      axios.get("https://residencely-frontend.herokuapp.com/resident/get-resident-data")
       .then((res) => {setResidentData(res.data)})
     }
     getResidentData()
 
     const [musicianData, setMusicianData] = useState([{}])
     const getMusicianData = () => {
-      axios.get("/get-musician-data")
+      axios.get("https://residencely-frontend.herokuapp.com/get-musician-data")
       .then((res) => {setMusicianData(res.data)})
     }
     getMusicianData()

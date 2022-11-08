@@ -15,7 +15,7 @@ function EditAnimalPreferences(props) {
 
     const [animalData, setAnimalData] = useState([{}])
     const getAnimalData = () => {
-        axios.get("/get-animal-data")
+        axios.get("https://residencely-frontend.herokuapp.com/get-animal-data")
         .then((res) => {setAnimalData(res.data)})
     }
     getAnimalData()
@@ -25,7 +25,7 @@ function EditAnimalPreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "/update-animal-preferences"
+            url: "https://residencely-frontend.herokuapp.com/update-animal-preferences"
         }).then((res) => console.log(res))
     }
 

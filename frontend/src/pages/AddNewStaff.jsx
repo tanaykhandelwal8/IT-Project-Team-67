@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import "../App.css"
 import axios from 'axios'
 import {Link} from "react-router-dom";
@@ -21,7 +21,7 @@ function AddNewStaff(props) {
             method:"post",
             data: newStaff,
             withCredentials: true,
-            url: "/register-staff"
+            url: "https://residencely-frontend.herokuapp.com/register-staff"
         }).then((res) => console.log(res))
         alert('You have successfully created a new staff member.')
     }

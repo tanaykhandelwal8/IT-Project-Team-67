@@ -15,7 +15,7 @@ function EditMoviePreferences(props) {
 
     const [movieData, setMovieData] = useState([{}])
     const getMovieData = () => {
-        axios.get("/get-movie-data")
+        axios.get("https://residencely-frontend.herokuapp.com/get-movie-data")
         .then((res) => {setMovieData(res.data)})
     }
     getMovieData()
@@ -25,7 +25,7 @@ function EditMoviePreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "/update-movie-preferences"
+            url: "https://residencely-frontend.herokuapp.com/update-movie-preferences"
         }).then((res) => console.log(res))
     }
 

@@ -15,7 +15,7 @@ function EditInterestPreferences(props) {
 
     const [interestData, setInterestData] = useState([{}])
     const getInterestData = () => {
-        axios.get("/get-interest-data")
+        axios.get("https://residencely-frontend.herokuapp.com/get-interest-data")
         .then((res) => {setInterestData(res.data)})
     }
     getInterestData()
@@ -25,7 +25,7 @@ function EditInterestPreferences(props) {
             method:"post",
             data: {objects: [userID, selectedData]},
             withCredentials: true,
-            url: "/update-interest-preferences"
+            url: "https://residencely-frontend.herokuapp.com/update-interest-preferences"
         }).then((res) => console.log(res))
     }
 

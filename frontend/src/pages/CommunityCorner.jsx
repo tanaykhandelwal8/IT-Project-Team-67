@@ -33,7 +33,7 @@ function CommunityCorner(props) {
   const [backendData, setBackendData] = useState([{}])
   /* function to get events from backend */
   const getEvents = () => {
-    axios.get("/get-events-data")
+    axios.get("https://residencely-frontend.herokuapp.com/get-events-data")
     .then((res) => {setBackendData(res.data)})
     /* format all sent dates into date objects to work with JS correctly*/
     for (let i=0;i<backendData.length;i++){
@@ -50,7 +50,7 @@ function CommunityCorner(props) {
       method:"post",
       data: newEvent,
       withCredentials: true,
-      url: "/add-event"
+      url: "https://residencely-frontend.herokuapp.com/add-event"
     }).then((res) => console.log(res))
   }
 
@@ -60,7 +60,7 @@ function CommunityCorner(props) {
       method:"post",
       data: selectedEvent,
       withCredentials: true,
-      url: "/delete-event"
+      url: "https://residencely-frontend.herokuapp.com/delete-event"
     }).then((res) => console.log(res))
   }
   /* Blank new event */

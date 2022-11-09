@@ -92,7 +92,7 @@ const passportlocal = require('passport-local').Strategy
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cors({
-    origin: "https://it-project-team-67.herokuapp.com/",
+    origin: "https://it-project-team-67.herokuapp.com",
     credentials: true
 }))
 app.use(session({

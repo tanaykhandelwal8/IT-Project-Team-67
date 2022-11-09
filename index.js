@@ -8,6 +8,10 @@ const app = express()
 const path = require('path');
 const PORT = process.env.PORT || 3001
 
+app.listen(process.env.PORT | PORT, () => {
+    console.log('Listening on Port ' + process.env.PORT);
+})
+
 /*
 // Serve static files from the React frontend app
 //app.use(express.static(path.join(__dirname, '../frontend/build')))
@@ -20,6 +24,13 @@ app.get('*', (req, res) => {
 })
 */
 //const path = require("path");
+
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static("frontend/build"))
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname,"frontend","build","index.html"))
+    })
+}
 
 
 require('./models/index')
@@ -113,6 +124,16 @@ const staffRouter = require("./routes/staffRouter");
 app.use("/resident", residentRouter);
 app.use("/staff", staffRouter);
 
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
+
 /*app.post('/login', (req,res) => {
     console.log("HELLO");
     console.log(req.body);
@@ -123,15 +144,6 @@ app.use("/staff", staffRouter);
 const authRouter = require('./routes/auth')
 app.use(authRouter.router)
 
-// Add Access Control Allow Origin headers
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-  });
 
 app.post('/view-other-resident', (req, res) => {
     console.log("HERE");
@@ -491,13 +503,4 @@ app.post('/delete-event', (req, res) =>{
         });
 })
 
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static("frontend/build"))
-    app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname,"frontend","build","index.html"))
-    })
-}
 
-app.listen(process.env.PORT | PORT, () => {
-    console.log('Listening on Port ' + process.env.PORT);
-})

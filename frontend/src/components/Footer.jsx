@@ -6,14 +6,14 @@ function Footer() {
 
   const [staffData, setStaffData] = useState([{}])
   const getStaffData = () => {
-    axios.get("http://localhost:3001/get-staff-data")
+    axios.get("https://residencely-frontend.herokuapp.com/get-staff-data")
     .then((res) => {setStaffData(res.data)})
   }
   getStaffData()
 
   const [residentData, setResidentData] = useState([{}])
   const getResidentData = () => {
-    axios.get("http://localhost:3001/get-resident-data")
+    axios.get("https://residencely-frontend.herokuapp.com/get-resident-data")
     .then((res) => {setResidentData(res.data)})
   }
   getResidentData()

@@ -13,7 +13,7 @@ function Footer() {
 
   const [residentData, setResidentData] = useState([{}])
   const getResidentData = () => {
-    axios.get("https://residencely-frontend.herokuapp.com/get-resident-data")
+    axios.get("https://residencely-frontend.herokuapp.com/resident/get-resident-data")
     .then((res) => {setResidentData(res.data)})
   }
   getResidentData()

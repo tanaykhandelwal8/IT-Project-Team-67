@@ -10,24 +10,3 @@ USERNAME                    |   Password
 Dvader@mac.com              |   i<3palpatine
 emperor@mac.com             |   d4rksideRules
 
-
-cloudinary
-
-DO NOT DELETE UNTIL HEROKU WORKS
-Backend
-  "scripts": {
-    "build": "cd frontend && npm run build",
-    "install-client": "cd frontend && npm install",
-    "heroku-postbuild": "cd frontend && npm install && npm start",
-    "server": "nodemon index.js",
-    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix frontend\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix frontend\""
-  },
-
-  Front end
-    "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },

@@ -92,7 +92,7 @@ const passportlocal = require('passport-local').Strategy
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://residencely-frontend.herokuapp.com",
     credentials: true
 }))
 app.use(session({
@@ -123,6 +123,15 @@ app.use("/staff", staffRouter);
 const authRouter = require('./routes/auth')
 app.use(authRouter.router)
 
+// Add Access Control Allow Origin headers
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
 
 app.post('/view-other-resident', (req, res) => {
     console.log("HERE");
